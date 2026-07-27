@@ -331,17 +331,17 @@ function Index() {
                 key={r.title}
                 className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="flex h-44 items-center justify-center bg-background p-4">
+                <div className="flex h-44 items-center justify-center bg-transparent p-4">
                   <img
                     src={r.img}
                     alt={`Prenájom — ${r.title}`}
                     loading="lazy"
                     width={1024}
                     height={1024}
-                    className="h-full w-full object-contain"
+                    className="h-full w-full object-contain [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
                   />
                 </div>
-                <div className="border-t border-border p-6">
+                <div className="p-6 pt-0">
                   <h3 className="text-2xl uppercase leading-none">{r.title}</h3>
                   <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-widest text-primary">{r.slogan}</p>
                   <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
@@ -449,6 +449,130 @@ function Index() {
               </article>
             ))}
           </div>
+
+          {/* KONTAKTNÝ FORMULÁR */}
+          <div className="mt-16 grid gap-8 rounded-2xl border border-border bg-card p-7 md:grid-cols-[1fr_1.2fr] md:p-10">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">Napíšte nám</p>
+              <h3 className="mt-3 text-3xl uppercase italic leading-[1]">
+                Nezáväzný dopyt <span className="text-primary">na e-mail</span>
+              </h3>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Revízia, oprava, fotovoltika alebo prenájom techniky? Napíšte, čo potrebujete, a ozveme sa spravidla do
+                24 hodín.
+              </p>
+              <ul className="mt-6 space-y-3 text-sm">
+                <li className="flex items-center gap-3">
+                  <Mail className="h-4 w-4 text-primary" />
+                  <a href="mailto:info@elektro-mlm.sk" className="hover:text-primary">
+                    info@elektro-mlm.sk
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="h-4 w-4 text-primary" />
+                  <a href="tel:+421948344377" className="hover:text-primary">
+                    0948 344 377
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span>Po – Pia 7:00 – 17:00 · So 8:00 – 12:00</span>
+                </li>
+              </ul>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const body = [
+                  `Meno: ${form.name}`,
+                  `Telefón: ${form.phone}`,
+                  `E-mail: ${form.email}`,
+                  `Služba: ${form.topic}`,
+                  "",
+                  form.message,
+                ].join("\n");
+                window.location.href = `mailto:info@elektro-mlm.sk?subject=${encodeURIComponent(
+                  `Dopyt z webu — ${form.topic}`,
+                )}&body=${encodeURIComponent(body)}`;
+              }}
+              className="grid gap-4"
+            >
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="grid gap-2">
+                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                    Meno a priezvisko
+                  </span>
+                  <input
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+                <label className="grid gap-2">
+                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                    Telefón
+                  </span>
+                  <input
+                    required
+                    type="tel"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="grid gap-2">
+                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                    E-mail
+                  </span>
+                  <input
+                    required
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                  />
+                </label>
+                <label className="grid gap-2">
+                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                    Čo potrebujete
+                  </span>
+                  <select
+                    value={form.topic}
+                    onChange={(e) => setForm({ ...form, topic: e.target.value })}
+                    className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                  >
+                    <option>Revízia / meranie</option>
+                    <option>Lokalizácia poruchy</option>
+                    <option>Elektroinštalácia</option>
+                    <option>Fotovoltika</option>
+                    <option>Prenájom techniky</option>
+                    <option>Iné</option>
+                  </select>
+                </label>
+              </div>
+              <label className="grid gap-2">
+                <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">Správa</span>
+                <textarea
+                  required
+                  rows={4}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                />
+              </label>
+              <button
+                type="submit"
+                className="justify-self-start rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+              >
+                Odoslať dopyt
+              </button>
+            </form>
+          </div>
+
         </div>
       </section>
 
