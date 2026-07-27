@@ -159,6 +159,13 @@ const shops = [
 
 function Index() {
   const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    topic: "Revízia / meranie",
+    message: "",
+  });
 
   return (
     <div className="min-h-screen bg-background text-foreground">
