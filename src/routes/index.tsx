@@ -23,9 +23,9 @@ import {
   X,
 } from "lucide-react";
 import logo from "@/assets/mlm-logo.png";
-import excavator from "@/assets/excavator.png.asset.json";
-import skidSteer from "@/assets/skid_steer.png.asset.json";
-import boomLift from "@/assets/boom_lift.png.asset.json";
+import excavator from "@/assets/excavator.png";
+import skidSteer from "@/assets/skid_steer.png";
+import boomLift from "@/assets/boom_lift.png";
 import generator from "@/assets/generator.png";
 
 export const Route = createFileRoute("/")({
@@ -101,19 +101,19 @@ const revizie = [
 
 const rentals = [
   {
-    img: excavator.url,
+    img: excavator,
     title: "Bágre",
     slogan: "Kopeme presne tam, kde treba",
     desc: "Výkopové a zemné práce pre prípojky, stavby aj terénne úpravy.",
   },
   {
-    img: skidSteer.url,
+    img: skidSteer,
     title: "UNC nakladače",
     slogan: "Sila do úzkych miest",
     desc: "Kompaktné šmykom riadené nakladače na presun materiálu a úpravy terénu.",
   },
   {
-    img: boomLift.url,
+    img: boomLift,
     title: "Plošiny",
     slogan: "Bezpečne aj tam, kde rebrík nestačí",
     desc: "Vysokozdvižné plošiny na montáže, osvetlenie a prácu vo výškach.",
