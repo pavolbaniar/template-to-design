@@ -1,20 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Plug, Lightbulb, Drill, Wrench, MapPin, Globe, Phone, Sun, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import {
+  ClipboardCheck,
+  Radar,
+  Wrench,
+  ShoppingBag,
+  Plug,
+  Lightbulb,
+  Drill,
+  Sun,
+  Zap,
+  ShieldCheck,
+  Thermometer,
+  Gauge,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Globe,
+  CheckCircle2,
+  Menu,
+  X,
+} from "lucide-react";
 import logo from "@/assets/mlm-logo.png";
-import productsHero from "@/assets/products-hero.jpg";
-import rentalMachines from "@/assets/rental-machines.jpg";
+import excavator from "@/assets/excavator.png.asset.json";
+import skidSteer from "@/assets/skid_steer.png.asset.json";
+import boomLift from "@/assets/boom_lift.png.asset.json";
+import generator from "@/assets/generator.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MLM Elektro Prievidza — Elektroinštalačný materiál, Makita, Knipex" },
+      { title: "ELEKTRO-MLM Prievidza | Revízie, elektroinštalácie, prenájom techniky" },
       {
         name: "description",
         content:
-          "MLM Elektro Prievidza — elektroinštalačný materiál, svietidlá a LED osvetlenie, náradie Makita a Knipex, prenájom bágrov, UNC a plošín, fotovoltika a revízie.",
+          "Revízie a merania do 52 kV, elektroinštalácie a fotovoltika, predaj elektromateriálu a prenájom bágrov, UNC nakladačov, plošín a elektrocentrál. Prievidza od roku 2007.",
       },
-      { property: "og:title", content: "MLM Elektro Prievidza" },
-      { property: "og:description", content: "Elektroinštalačný materiál, svietidlá, náradie Makita a Knipex, prenájom techniky, fotovoltika." },
+      { property: "og:title", content: "ELEKTRO-MLM Prievidza — napätie, ktoré nesklame" },
+      {
+        property: "og:description",
+        content:
+          "Revízne správy podľa STN, lokalizácia porúch, montáže a fotovoltika. Prenájom bágrov, UNC, plošín a elektrocentrál.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -22,197 +50,435 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-type Category = {
-  icon: typeof Plug;
-  title: string;
-  subtitle?: string;
-  tags: string[];
-};
+const nav = [
+  { href: "#revizie", label: "Revízie" },
+  { href: "#sluzby", label: "Služby" },
+  { href: "#prenajom", label: "Prenájom" },
+  { href: "#predaj", label: "Predaj" },
+  { href: "#kontakt", label: "Kontakt" },
+];
 
-const categories: Category[] = [
+const strip = [
   {
-    icon: Plug,
-    title: "Elektroinštalačné materiály",
-    tags: ["Káble", "Ističe", "Zásuvky", "Rozvádzače", "Bleskozvodný materiál"],
+    icon: ClipboardCheck,
+    label: "Revízie & merania",
+    desc: "Revízne správy podľa STN 33 1500, termovízia, cos φ, kvalita siete — do 52 kV.",
   },
   {
-    icon: Lightbulb,
-    title: "Svietidlá a LED osvetlenie",
-    tags: ["Interiér", "Exteriér", "Priemysel"],
-  },
-  {
-    icon: Drill,
-    title: "Náradie Makita",
-    subtitle: "Pre profesionálov",
-    tags: ["Akumulátorové", "Sieťové", "Príslušenstvo"],
+    icon: Radar,
+    label: "Lokalizácia porúch",
+    desc: "Nájdeme skrat či prerušenie kábla na desiatky centimetrov. Kopete len tam, kde treba.",
   },
   {
     icon: Wrench,
-    title: "Knipex a profesionálne náradie",
-    tags: ["Kvalita", "Spoľahlivosť", "Odolnosť"],
+    label: "Montáže & fotovoltika",
+    desc: "Inštalácie bez obmedzenia napätia, rozvádzače, bleskozvody, FVE na kľúč.",
+  },
+  {
+    icon: ShoppingBag,
+    label: "Predaj & prenájom",
+    desc: "Elektromateriál, svietidlá, MAKITA a KNIPEX. Bágre, UNC, plošiny, elektrocentrály.",
+  },
+];
+
+const revizie = [
+  {
+    icon: ShieldCheck,
+    title: "Odborné prehliadky a skúšky do 52 kV",
+    desc: "Byty, haly, sklady, priestory s nebezpečenstvom výbuchu aj bleskozvody. Výsledkom je revízna správa podľa STN 33 1500 — bez nej zariadenie legálne neprevádzkujete.",
+  },
+  {
+    icon: Thermometer,
+    title: "Termovízne merania",
+    desc: "Prehriaty spoj, preťažený istič či chybná izolácia sa odhalia skôr, než spôsobia požiar. Meriame počas plnej prevádzky, bez vypínania a prestojov.",
+  },
+  {
+    icon: Gauge,
+    title: "Účinník cos φ a kvalita siete",
+    desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia a navrhneme kompenzáciu — investícia sa zvyčajne vráti do 12 mesiacov.",
+  },
+];
+
+const rentals = [
+  {
+    img: excavator.url,
+    title: "Bágre",
+    slogan: "Kopeme presne tam, kde treba",
+    desc: "Výkopové a zemné práce pre prípojky, stavby aj terénne úpravy.",
+  },
+  {
+    img: skidSteer.url,
+    title: "UNC nakladače",
+    slogan: "Sila do úzkych miest",
+    desc: "Kompaktné šmykom riadené nakladače na presun materiálu a úpravy terénu.",
+  },
+  {
+    img: boomLift.url,
+    title: "Plošiny",
+    slogan: "Bezpečne aj tam, kde rebrík nestačí",
+    desc: "Vysokozdvižné plošiny na montáže, osvetlenie a prácu vo výškach.",
+  },
+  {
+    img: generator,
+    title: "Elektrocentrály",
+    slogan: "Prúd aj tam, kde nie je zásuvka",
+    desc: "Mobilné zdroje energie pre stavby, akcie a záložné napájanie prevádzok.",
+  },
+];
+
+const sortiment = [
+  { icon: Plug, title: "Elektroinštalačný materiál", tags: "Káble · Ističe · Zásuvky · Rozvádzače · Bleskozvody" },
+  { icon: Lightbulb, title: "Svietidlá a LED osvetlenie", tags: "Interiér · Exteriér · Priemysel" },
+  { icon: Drill, title: "Náradie MAKITA", tags: "Akumulátorové · Sieťové · Príslušenstvo" },
+  { icon: Wrench, title: "KNIPEX a profi náradie", tags: "Kvalita · Spoľahlivosť · Odolnosť" },
+];
+
+const stats = [
+  { num: "17+", label: "Rokov skúseností" },
+  { num: "52 kV", label: "Revízie do napätia" },
+  { num: "ISO", label: "Certifikát 9001" },
+  { num: "2", label: "Predajne v Prievidzi" },
+];
+
+const shops = [
+  {
+    id: "01",
+    name: "Predajňa Stavbárov",
+    note: "Svietidlá & elektromateriál",
+    address: "Stavbárov 12, 971 01 Prievidza",
+    phones: ["0948 344 377", "0948 344 378"],
+  },
+  {
+    id: "02",
+    name: "Predajňa Zápotôčky",
+    note: "Maloobchodná predajňa, vedľa nadchodu",
+    address: "L. N. Tolstého 1885/8, 971 01 Prievidza",
+    phones: ["0948 162 842"],
   },
 ];
 
 function Index() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Top bar */}
-      <header className="border-b border-border bg-card">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <a href="#" className="flex items-center gap-3">
-            <img src={logo} alt="MLM Elektro" width={160} height={120} className="h-14 w-auto" />
+      {/* NAV */}
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5">
+          <a href="#top" className="flex items-center gap-3">
+            <img src={logo} alt="ELEKTRO-MLM Prievidza" width={160} height={120} className="h-11 w-auto" />
           </a>
-          <nav className="hidden gap-8 text-sm font-semibold tracking-wide md:flex">
-            <a href="#sortiment" className="hover:text-primary">SORTIMENT</a>
-            <a href="#prenajom" className="hover:text-primary">PRENÁJOM</a>
-            <a href="#sluzby" className="hover:text-primary">SLUŽBY</a>
-            <a href="#kontakt" className="hover:text-primary">KONTAKT</a>
+          <nav className="hidden items-center gap-8 lg:flex">
+            {nav.map((n) => (
+              <a
+                key={n.href}
+                href={n.href}
+                className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:text-primary"
+              >
+                {n.label}
+              </a>
+            ))}
+            <a
+              href="tel:+421948344377"
+              className="rounded-full bg-primary px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+            >
+              0948 344 377
+            </a>
           </nav>
-          <a
-            href="tel:+421918812027"
-            className="hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-[var(--brand-red-dark)] md:inline-flex"
+          <button
+            aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+            className="rounded-md border border-border p-2 lg:hidden"
           >
-            0918 812 027
-          </a>
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
+        {open && (
+          <div className="border-t border-border bg-background lg:hidden">
+            <div className="mx-auto flex max-w-7xl flex-col px-5 py-3">
+              {nav.map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-3 font-mono text-xs font-semibold uppercase tracking-[0.14em]"
+                >
+                  {n.label}
+                </a>
+              ))}
+              <a
+                href="tel:+421948344377"
+                className="mt-4 rounded-full bg-primary px-5 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground"
+              >
+                Zavolať 0948 344 377
+              </a>
+            </div>
+          </div>
+        )}
       </header>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-secondary to-background">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:py-24">
-          <div>
-            <img src={logo} alt="MLM Elektro logo" width={400} height={300} className="mb-8 w-64 md:w-80" />
-            <h1 className="text-4xl font-black uppercase leading-tight tracking-tight md:text-5xl">
-              Všetko pre <span className="text-primary">elektroinštaláciu</span> na jednom mieste
-            </h1>
-            <p className="mt-5 max-w-lg text-lg text-muted-foreground">
-              Predajňa v Prievidzi. Materiál, svietidlá, profi náradie Makita a Knipex, prenájom stavebnej techniky, fotovoltika a revízie.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#sortiment" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-[var(--brand-red-dark)]">
-                Pozrieť sortiment
-              </a>
-              <a href="#kontakt" className="rounded-md border-2 border-foreground px-6 py-3 font-semibold hover:bg-foreground hover:text-background">
-                Kontaktujte nás
-              </a>
-            </div>
+      {/* HERO */}
+      <section id="top" className="relative overflow-hidden pt-20">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(color-mix(in_oklab,var(--foreground)_16%,transparent)_1px,transparent_1px)] [background-size:30px_30px] [mask-image:radial-gradient(ellipse_70%_60%_at_75%_25%,#000,transparent_75%)]"
+        />
+        <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+            <span className="text-primary">M</span>eranie · <span className="text-primary">L</span>okalizácia ·{" "}
+            <span className="text-primary">M</span>ontáž
+          </p>
+          <h1 className="mt-7 max-w-[16ch] text-5xl uppercase italic leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
+            Napätie, ktoré <span className="text-primary">nesklame</span>
+          </h1>
+          <p className="mt-7 max-w-xl text-lg text-muted-foreground">
+            Revízie a merania do 52 kV, lokalizácia porúch bez zbytočných výkopov, elektroinštalácie a fotovoltika.
+            K tomu predajne elektromateriálu a prenájom bágrov, UNC, plošín a elektrocentrál. Prievidza od roku 2007.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <a
+              href="#kontakt"
+              className="rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+            >
+              Nezáväzná ponuka
+            </a>
+            <a
+              href="#revizie"
+              className="rounded-full border-2 border-foreground px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-foreground hover:text-background"
+            >
+              Objednať revíziu →
+            </a>
           </div>
-          <div className="relative">
-            <img
-              src={productsHero}
-              alt="Produkty MLM Elektro"
-              width={1200}
-              height={1408}
-              className="w-full"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Categories */}
-      <section id="sortiment" className="bg-card py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="mb-12 text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-primary">Náš sortiment</p>
-            <h2 className="mt-2 text-3xl font-black uppercase md:text-4xl">Čo u nás nájdete</h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {categories.map((c) => {
-              const Icon = c.icon;
-              return (
-                <article
-                  key={c.title}
-                  className="group flex gap-5 rounded-xl border border-border bg-background p-6 transition hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-md">
-                    <Icon className="h-8 w-8" strokeWidth={2.2} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black uppercase leading-tight">{c.title}</h3>
-                    {c.subtitle && (
-                      <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                        {c.subtitle}
-                      </p>
-                    )}
-                    <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                      {c.tags.map((t, i) => (
-                        <li key={t} className="flex items-center gap-2">
-                          {i > 0 && <span className="text-primary">•</span>}
-                          <span>{t}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              );
-            })}
+          <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="rounded-xl border border-border bg-secondary px-5 py-4">
+                <div className="font-mono text-2xl font-bold leading-none text-primary">{s.num}</div>
+                <div className="mt-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Rental & services */}
-      <section id="prenajom" className="bg-background py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="grid gap-10 md:grid-cols-3 md:items-center">
-            <div className="md:col-span-2">
-              <p className="text-sm font-bold uppercase tracking-widest text-primary">Prenájom techniky</p>
-              <h2 className="mt-2 text-3xl font-black uppercase md:text-4xl">Bágre · UNC · Plošiny</h2>
-              <p className="mt-4 max-w-lg text-muted-foreground">
-                Ponúkame krátkodobý aj dlhodobý prenájom stavebnej techniky pre profesionálov aj domácich majstrov.
-              </p>
-              <img
-                src={rentalMachines}
-                alt="Prenájom techniky"
-                loading="lazy"
-                width={1408}
-                height={512}
-                className="mt-8 w-full"
-              />
+      {/* STRIP */}
+      <div id="sluzby" className="grid border-y border-border bg-secondary sm:grid-cols-2 lg:grid-cols-4">
+        {strip.map((s) => {
+          const Icon = s.icon;
+          return (
+            <div
+              key={s.label}
+              className="border-b border-r border-border border-t-[3px] border-t-transparent bg-secondary p-8 transition-colors hover:border-t-primary hover:bg-card"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                <Icon className="h-6 w-6" strokeWidth={1.9} />
+              </div>
+              <h3 className="mt-4 text-xl uppercase">{s.label}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
             </div>
-            <div id="sluzby" className="rounded-xl border-2 border-primary bg-card p-8">
-              <Sun className="h-12 w-12 text-primary" strokeWidth={2.2} />
-              <h3 className="mt-4 text-2xl font-black uppercase leading-tight">
-                Realizujeme fotovoltiku a revízie
-              </h3>
-              <ul className="mt-5 space-y-3 text-sm">
-                {["Návrh a montáž FVE", "Odborné revízie elektro", "Poradenstvo a servis"].map((s) => (
-                  <li key={s} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="font-medium">{s}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#kontakt"
-                className="mt-6 inline-flex rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-[var(--brand-red-dark)]"
+          );
+        })}
+      </div>
+
+      {/* REVÍZIE */}
+      <section id="revizie" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
+        <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+          Robíme revízie — profesionálne
+        </p>
+        <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+          Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
+        </h2>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {revizie.map((r) => {
+            const Icon = r.icon;
+            return (
+              <article key={r.title} className="rounded-2xl border border-border bg-card p-7 transition hover:shadow-lg">
+                <Icon className="h-9 w-9 text-primary" strokeWidth={1.8} />
+                <h3 className="mt-5 text-2xl uppercase leading-tight">{r.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+              </article>
+            );
+          })}
+        </div>
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-secondary px-7 py-5">
+          {["Revízie bytov a domov", "Priemysel a haly", "Bleskozvody", "FVE a nabíjacie stanice", "Periodické revízie"].map(
+            (t) => (
+              <span key={t} className="flex items-center gap-2 text-sm font-medium">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                {t}
+              </span>
+            ),
+          )}
+        </div>
+      </section>
+
+      {/* PRENÁJOM */}
+      <section id="prenajom" className="border-y border-border bg-secondary py-20 md:py-24">
+        <div className="mx-auto max-w-7xl px-5">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Prenájom mechanizácie
+          </p>
+          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+            Bágre · UNC · Plošiny · <span className="text-primary">Elektrocentrály</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-muted-foreground">
+            Požičiame na deň aj na celú stavbu. Stroje sú pripravené v Prievidzi — stačí zavolať.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {rentals.map((r) => (
+              <article
+                key={r.title}
+                className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-xl"
               >
-                Dopyt na FVE
-              </a>
+                <div className="flex h-44 items-center justify-center bg-background p-4">
+                  <img
+                    src={r.img}
+                    alt={`Prenájom — ${r.title}`}
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="border-t border-border p-6">
+                  <h3 className="text-2xl uppercase leading-none">{r.title}</h3>
+                  <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-widest text-primary">{r.slogan}</p>
+                  <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <a
+            href="tel:+421948344377"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+          >
+            <Phone className="h-4 w-4" /> Dohodnúť termín prenájmu
+          </a>
+        </div>
+      </section>
+
+      {/* PREDAJ */}
+      <section id="predaj" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
+        <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">Predaj</p>
+        <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+          Všetko pre elektrinu <span className="text-primary">pod jednou strechou</span>
+        </h2>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {sortiment.map((c) => {
+            const Icon = c.icon;
+            return (
+              <article
+                key={c.title}
+                className="flex gap-5 rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                  <Icon className="h-7 w-7" strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
+                  <p className="mt-1.5 font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
+                    {c.tags}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        <div className="mt-6 flex flex-col gap-5 rounded-2xl border-2 border-primary bg-card p-7 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-start gap-4">
+            <Sun className="h-10 w-10 shrink-0 text-primary" strokeWidth={1.9} />
+            <div>
+              <h3 className="text-2xl uppercase leading-tight">Fotovoltika na kľúč</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Návrh, montáž, revízna správa aj papierovačky so ZSD — slnko, ktoré sa vám vráti.
+              </p>
             </div>
+          </div>
+          <a
+            href="#kontakt"
+            className="shrink-0 rounded-full bg-primary px-6 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark"
+          >
+            Dopyt na FVE
+          </a>
+        </div>
+      </section>
+
+      {/* KONTAKT */}
+      <section id="kontakt" className="border-t border-border bg-secondary py-20 md:py-24">
+        <div className="mx-auto max-w-7xl px-5">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">Kde nás nájdete</p>
+          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+            Dve predajne <span className="text-primary">v Prievidzi</span>
+          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {shops.map((s) => (
+              <article key={s.id} className="rounded-2xl border border-border bg-card p-7">
+                <span className="font-mono text-xs font-bold tracking-widest text-primary">{s.id}</span>
+                <h3 className="mt-2 text-2xl uppercase leading-tight">{s.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{s.note}</p>
+                <ul className="mt-5 space-y-3 text-sm">
+                  <li className="flex items-start gap-3">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <a
+                      href={`https://maps.google.com/?q=${encodeURIComponent(s.address)}`}
+                      className="hover:text-primary"
+                    >
+                      {s.address}
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>Po – Pia 7:00 – 17:00 · So 8:00 – 12:00 · Ne zatvorené</span>
+                  </li>
+                  {s.phones.map((p) => (
+                    <li key={p} className="flex items-start gap-3">
+                      <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <a href={`tel:+421${p.replace(/\s|^0/g, "")}`} className="font-semibold hover:text-primary">
+                        {p}
+                      </a>
+                    </li>
+                  ))}
+                  <li className="flex items-start gap-3">
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <a href="mailto:info@elektro-mlm.sk" className="hover:text-primary">
+                      info@elektro-mlm.sk
+                    </a>
+                  </li>
+                </ul>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA / Contact bar */}
-      <section id="kontakt" className="bg-primary text-primary-foreground">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 md:grid-cols-3 md:divide-x md:divide-white/25">
-          <a href="https://maps.google.com/?q=Prievidza" className="flex items-center gap-3 md:justify-center">
-            <MapPin className="h-6 w-6" />
-            <span className="text-lg font-bold uppercase tracking-wide">Prievidza</span>
-          </a>
-          <a href="https://www.elektro-mlm.sk" className="flex items-center gap-3 md:justify-center">
-            <Globe className="h-6 w-6" />
-            <span className="text-lg font-bold uppercase tracking-wide">www.elektro-mlm.sk</span>
-          </a>
-          <a href="tel:+421918812027" className="flex items-center gap-3 md:justify-center">
-            <Phone className="h-6 w-6" />
-            <span className="text-lg font-bold tracking-wide">0918 812 027</span>
-          </a>
+      {/* FOOTER */}
+      <footer className="bg-foreground py-12 text-background">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="flex flex-wrap items-center gap-4">
+            <Zap className="h-8 w-8 text-primary" fill="currentColor" strokeWidth={0} />
+            <span className="text-2xl uppercase italic tracking-tight">
+              MLM <span className="text-primary">Elektro</span>
+            </span>
+            <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] opacity-70">
+              Prievidza · od 2007
+            </span>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-y border-background/15 py-5 font-mono text-xs uppercase tracking-widest">
+            <span className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-primary" /> Prievidza
+            </span>
+            <a href="https://www.elektro-mlm.sk" className="flex items-center gap-2 hover:text-primary">
+              <Globe className="h-4 w-4 text-primary" /> www.elektro-mlm.sk
+            </a>
+            <a href="tel:+421948344377" className="flex items-center gap-2 hover:text-primary">
+              <Phone className="h-4 w-4 text-primary" /> 0948 344 377
+            </a>
+          </div>
+          <p className="mt-6 text-xs opacity-70">
+            © {new Date().getFullYear()} ELEKTRO – MLM, s.r.o. · Stavbárov 12, Prievidza · IČO: 36 725 463 · ISO 9001
+          </p>
         </div>
-      </section>
-
-      <footer className="bg-foreground py-6 text-center text-sm text-background/70">
-        © {new Date().getFullYear()} MLM Elektro · Prievidza
       </footer>
     </div>
   );
