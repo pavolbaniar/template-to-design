@@ -171,3 +171,127 @@
   }
 
 }
+
+/* ---------- Efekty a dekorácie ---------- */
+
+@keyframes mlm-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes mlm-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mlm-pulse-glow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.75; }
+}
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  animation: mlm-marquee 32s linear infinite;
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Jemné červené žiarenie pod kartou pri hoveri */
+@utility card-lift {
+  position: relative;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  &:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in oklab, var(--brand-red) 55%, transparent);
+    box-shadow:
+      0 18px 40px -18px color-mix(in oklab, var(--brand-red) 45%, transparent),
+      0 2px 0 0 color-mix(in oklab, var(--brand-red) 25%, transparent);
+  }
+}
+
+/* Gradientové orámovanie v brandovej červenej */
+@utility frame-brand {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  background: var(--card);
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      color-mix(in oklab, var(--brand-red) 70%, transparent),
+      color-mix(in oklab, var(--foreground) 12%, transparent) 45%,
+      color-mix(in oklab, var(--brand-red) 45%, transparent)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Nadpisová linka */
+@utility eyebrow-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  &::before {
+    content: "";
+    width: 2.25rem;
+    height: 2px;
+    background: var(--brand-red);
+  }
+}
+
+@utility glow-blob {
+  background: radial-gradient(circle, color-mix(in oklab, var(--brand-red) 40%, transparent), transparent 70%);
+  filter: blur(60px);
+  animation: mlm-pulse-glow 7s ease-in-out infinite;
+}
+
+@utility btn-shine {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+  }
+  &:hover::after {
+    left: 130%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+  .glow-blob { animation: none; }
+}
