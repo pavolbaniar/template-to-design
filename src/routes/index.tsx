@@ -528,13 +528,17 @@ function Index() {
       {/* KONTAKT */}
       <section id="kontakt" className="border-t border-border bg-secondary py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-5">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">Kde nás nájdete</p>
-          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
-            Dve predajne <span className="text-primary">v Prievidzi</span>
-          </h2>
+          <Reveal>
+            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              Kde nás nájdete
+            </p>
+            <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+              Dve predajne <span className="text-primary">v Prievidzi</span>
+            </h2>
+          </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {shops.map((s) => (
-              <article key={s.id} className="rounded-2xl border border-border bg-card p-7">
+              <article key={s.id} className="card-lift frame-brand p-7">
                 <span className="font-mono text-xs font-bold tracking-widest text-primary">{s.id}</span>
                 <h3 className="mt-2 text-2xl uppercase leading-tight">{s.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{s.note}</p>
