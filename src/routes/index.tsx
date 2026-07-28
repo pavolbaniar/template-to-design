@@ -353,55 +353,67 @@ function Index() {
 
 
       {/* STRIP */}
-      <div id="sluzby" className="grid border-y border-border bg-secondary sm:grid-cols-2 lg:grid-cols-4">
-        {strip.map((s) => {
+      <div id="sluzby" className="grid border-b border-border bg-secondary sm:grid-cols-2 lg:grid-cols-4">
+        {strip.map((s, i) => {
           const Icon = s.icon;
           return (
-            <div
-              key={s.label}
-              className="border-b border-r border-border border-t-[3px] border-t-transparent bg-secondary p-8 transition-colors hover:border-t-primary hover:bg-card"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                <Icon className="h-6 w-6" strokeWidth={1.9} />
+            <Reveal key={s.label} delay={i * 90} className="group border-b border-r border-border last:border-r-0">
+              <div className="relative h-full overflow-hidden border-t-[3px] border-t-transparent bg-secondary p-8 transition-colors duration-300 group-hover:border-t-primary group-hover:bg-card">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:rotate-3">
+                  <Icon className="h-6 w-6" strokeWidth={1.9} />
+                </div>
+                <h3 className="relative mt-4 text-xl uppercase">{s.label}</h3>
+                <p className="relative mt-2 text-sm text-muted-foreground">{s.desc}</p>
               </div>
-              <h3 className="mt-4 text-xl uppercase">{s.label}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-            </div>
+            </Reveal>
           );
         })}
       </div>
 
       {/* REVÍZIE */}
       <section id="revizie" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
-        <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-          Robíme revízie — profesionálne
-        </p>
-        <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
-          Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
-        </h2>
+        <Reveal>
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Robíme revízie — profesionálne
+          </p>
+          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+            Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
+          </h2>
+        </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {revizie.map((r) => {
+          {revizie.map((r, i) => {
             const Icon = r.icon;
             return (
-              <article key={r.title} className="rounded-2xl border border-border bg-card p-7 transition hover:shadow-lg">
-                <Icon className="h-9 w-9 text-primary" strokeWidth={1.8} />
-                <h3 className="mt-5 text-2xl uppercase leading-tight">{r.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
-              </article>
+              <Reveal key={r.title} delay={i * 110} className="h-full">
+                <article className="card-lift frame-brand h-full p-7">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
+                  </div>
+                  <h3 className="mt-5 text-2xl uppercase leading-tight">{r.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+                </article>
+              </Reveal>
             );
           })}
         </div>
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-secondary px-7 py-5">
-          {["Revízie bytov a domov", "Priemysel a haly", "Bleskozvody", "FVE a nabíjacie stanice", "Periodické revízie"].map(
-            (t) => (
-              <span key={t} className="flex items-center gap-2 text-sm font-medium">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                {t}
-              </span>
-            ),
-          )}
-        </div>
+        <Reveal delay={120}>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-secondary px-7 py-5">
+            {["Revízie bytov a domov", "Priemysel a haly", "Bleskozvody", "FVE a nabíjacie stanice", "Periodické revízie"].map(
+              (t) => (
+                <span key={t} className="flex items-center gap-2 text-sm font-medium">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                  {t}
+                </span>
+              ),
+            )}
+          </div>
+        </Reveal>
       </section>
+
 
       {/* PRENÁJOM */}
       <section id="prenajom" className="border-y border-border bg-secondary py-20 md:py-24">
