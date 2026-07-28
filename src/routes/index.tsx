@@ -520,9 +520,10 @@ function Index() {
             >
               Dopyt na FVE
             </a>
-
-        </div>
+          </div>
+        </Reveal>
       </section>
+
 
       {/* KONTAKT */}
       <section id="kontakt" className="border-t border-border bg-secondary py-20 md:py-24">
