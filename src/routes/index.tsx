@@ -276,13 +276,28 @@ function Index() {
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(color-mix(in_oklab,var(--foreground)_16%,transparent)_1px,transparent_1px)] [background-size:30px_30px] [mask-image:radial-gradient(ellipse_70%_60%_at_75%_25%,#000,transparent_75%)]"
         />
+        <div
+          aria-hidden
+          className="glow-blob pointer-events-none absolute -right-24 -top-10 h-[26rem] w-[26rem] rounded-full"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"
+        />
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
             <span className="text-primary">M</span>eranie · <span className="text-primary">L</span>okalizácia ·{" "}
             <span className="text-primary">M</span>ontáž
           </p>
           <h1 className="mt-7 max-w-[16ch] text-5xl uppercase italic leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
-            Napätie, ktoré <span className="text-primary">nesklame</span>
+            Napätie, ktoré{" "}
+            <span className="relative inline-block text-primary">
+              nesklame
+              <span
+                aria-hidden
+                className="absolute -bottom-1 left-0 h-[6px] w-full bg-primary/25 [clip-path:polygon(0_60%,100%_0,100%_100%,0%_100%)]"
+              />
+            </span>
           </h1>
           <p className="mt-7 max-w-xl text-lg text-muted-foreground">
             Revízie a merania do 52 kV, lokalizácia porúch bez zbytočných výkopov, elektroinštalácie a fotovoltika.
@@ -291,7 +306,7 @@ function Index() {
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href="#kontakt"
-              className="rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+              className="btn-shine rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
             >
               Nezáväzná ponuka
             </a>
@@ -303,17 +318,39 @@ function Index() {
             </a>
           </div>
           <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label} className="rounded-xl border border-border bg-secondary px-5 py-4">
-                <div className="font-mono text-2xl font-bold leading-none text-primary">{s.num}</div>
-                <div className="mt-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
-                  {s.label}
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 80}>
+                <div className="card-lift h-full rounded-xl border border-border bg-secondary px-5 py-4">
+                  <div className="font-mono text-2xl font-bold leading-none text-primary">{s.num}</div>
+                  <div className="mt-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                    {s.label}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
+
+      {/* TICKER */}
+      <div className="overflow-hidden border-y border-border bg-foreground py-3.5 text-background">
+        <div className="marquee-track">
+          {[0, 1].map((k) => (
+            <div key={k} className="flex shrink-0 items-center">
+              {ticker.map((t) => (
+                <span
+                  key={`${k}-${t}`}
+                  className="flex items-center gap-3 whitespace-nowrap px-6 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.22em]"
+                >
+                  <Zap className="h-3.5 w-3.5 text-primary" fill="currentColor" strokeWidth={0} />
+                  {t}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
 
       {/* STRIP */}
       <div id="sluzby" className="grid border-y border-border bg-secondary sm:grid-cols-2 lg:grid-cols-4">
