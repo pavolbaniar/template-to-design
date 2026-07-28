@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   ClipboardCheck,
   Radar,
@@ -157,8 +157,54 @@ const shops = [
   },
 ];
 
+const ticker = [
+  "Revízie do 52 kV",
+  "Termovízia",
+  "Lokalizácia porúch",
+  "Fotovoltika na kľúč",
+  "Bleskozvody",
+  "Prenájom bágrov",
+  "UNC nakladače",
+  "Vysokozdvižné plošiny",
+  "Elektrocentrály",
+  "MAKITA · KNIPEX",
+];
+
+function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      data-visible={visible}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`reveal ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
 function Index() {
   const [open, setOpen] = useState(false);
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -230,13 +276,28 @@ function Index() {
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(color-mix(in_oklab,var(--foreground)_16%,transparent)_1px,transparent_1px)] [background-size:30px_30px] [mask-image:radial-gradient(ellipse_70%_60%_at_75%_25%,#000,transparent_75%)]"
         />
+        <div
+          aria-hidden
+          className="glow-blob pointer-events-none absolute -right-24 -top-10 h-[26rem] w-[26rem] rounded-full"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"
+        />
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
             <span className="text-primary">M</span>eranie · <span className="text-primary">L</span>okalizácia ·{" "}
             <span className="text-primary">M</span>ontáž
           </p>
           <h1 className="mt-7 max-w-[16ch] text-5xl uppercase italic leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
-            Napätie, ktoré <span className="text-primary">nesklame</span>
+            Napätie, ktoré{" "}
+            <span className="relative inline-block text-primary">
+              nesklame
+              <span
+                aria-hidden
+                className="absolute -bottom-1 left-0 h-[6px] w-full bg-primary/25 [clip-path:polygon(0_60%,100%_0,100%_100%,0%_100%)]"
+              />
+            </span>
           </h1>
           <p className="mt-7 max-w-xl text-lg text-muted-foreground">
             Revízie a merania do 52 kV, lokalizácia porúch bez zbytočných výkopov, elektroinštalácie a fotovoltika.
@@ -245,7 +306,7 @@ function Index() {
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href="#kontakt"
-              className="rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+              className="btn-shine rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
             >
               Nezáväzná ponuka
             </a>
@@ -257,108 +318,151 @@ function Index() {
             </a>
           </div>
           <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label} className="rounded-xl border border-border bg-secondary px-5 py-4">
-                <div className="font-mono text-2xl font-bold leading-none text-primary">{s.num}</div>
-                <div className="mt-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
-                  {s.label}
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 80}>
+                <div className="card-lift h-full rounded-xl border border-border bg-secondary px-5 py-4">
+                  <div className="font-mono text-2xl font-bold leading-none text-primary">{s.num}</div>
+                  <div className="mt-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                    {s.label}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
+      {/* TICKER */}
+      <div className="overflow-hidden border-y border-border bg-foreground py-3.5 text-background">
+        <div className="marquee-track">
+          {[0, 1].map((k) => (
+            <div key={k} className="flex shrink-0 items-center">
+              {ticker.map((t) => (
+                <span
+                  key={`${k}-${t}`}
+                  className="flex items-center gap-3 whitespace-nowrap px-6 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.22em]"
+                >
+                  <Zap className="h-3.5 w-3.5 text-primary" fill="currentColor" strokeWidth={0} />
+                  {t}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+
       {/* STRIP */}
-      <div id="sluzby" className="grid border-y border-border bg-secondary sm:grid-cols-2 lg:grid-cols-4">
-        {strip.map((s) => {
+      <div id="sluzby" className="grid border-b border-border bg-secondary sm:grid-cols-2 lg:grid-cols-4">
+        {strip.map((s, i) => {
           const Icon = s.icon;
           return (
-            <div
-              key={s.label}
-              className="border-b border-r border-border border-t-[3px] border-t-transparent bg-secondary p-8 transition-colors hover:border-t-primary hover:bg-card"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                <Icon className="h-6 w-6" strokeWidth={1.9} />
+            <Reveal key={s.label} delay={i * 90} className="group border-b border-r border-border last:border-r-0">
+              <div className="relative h-full overflow-hidden border-t-[3px] border-t-transparent bg-secondary p-8 transition-colors duration-300 group-hover:border-t-primary group-hover:bg-card">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:rotate-3">
+                  <Icon className="h-6 w-6" strokeWidth={1.9} />
+                </div>
+                <h3 className="relative mt-4 text-xl uppercase">{s.label}</h3>
+                <p className="relative mt-2 text-sm text-muted-foreground">{s.desc}</p>
               </div>
-              <h3 className="mt-4 text-xl uppercase">{s.label}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-            </div>
+            </Reveal>
           );
         })}
       </div>
 
       {/* REVÍZIE */}
       <section id="revizie" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
-        <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-          Robíme revízie — profesionálne
-        </p>
-        <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
-          Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
-        </h2>
+        <Reveal>
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Robíme revízie — profesionálne
+          </p>
+          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+            Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
+          </h2>
+        </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {revizie.map((r) => {
+          {revizie.map((r, i) => {
             const Icon = r.icon;
             return (
-              <article key={r.title} className="rounded-2xl border border-border bg-card p-7 transition hover:shadow-lg">
-                <Icon className="h-9 w-9 text-primary" strokeWidth={1.8} />
-                <h3 className="mt-5 text-2xl uppercase leading-tight">{r.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
-              </article>
+              <Reveal key={r.title} delay={i * 110} className="h-full">
+                <article className="card-lift frame-brand h-full p-7">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
+                  </div>
+                  <h3 className="mt-5 text-2xl uppercase leading-tight">{r.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+                </article>
+              </Reveal>
             );
           })}
         </div>
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-secondary px-7 py-5">
-          {["Revízie bytov a domov", "Priemysel a haly", "Bleskozvody", "FVE a nabíjacie stanice", "Periodické revízie"].map(
-            (t) => (
-              <span key={t} className="flex items-center gap-2 text-sm font-medium">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                {t}
-              </span>
-            ),
-          )}
-        </div>
+        <Reveal delay={120}>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-secondary px-7 py-5">
+            {["Revízie bytov a domov", "Priemysel a haly", "Bleskozvody", "FVE a nabíjacie stanice", "Periodické revízie"].map(
+              (t) => (
+                <span key={t} className="flex items-center gap-2 text-sm font-medium">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                  {t}
+                </span>
+              ),
+            )}
+          </div>
+        </Reveal>
       </section>
 
+
       {/* PRENÁJOM */}
-      <section id="prenajom" className="border-y border-border bg-secondary py-20 md:py-24">
-        <div className="mx-auto max-w-7xl px-5">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-            Prenájom mechanizácie
-          </p>
-          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
-            Bágre · UNC · Plošiny · <span className="text-primary">Elektrocentrály</span>
-          </h2>
-          <p className="mt-4 max-w-xl text-muted-foreground">
-            Požičiame na deň aj na celú stavbu. Stroje sú pripravené v Prievidzi — stačí zavolať.
-          </p>
+      <section id="prenajom" className="relative overflow-hidden border-y border-border bg-secondary py-20 md:py-24">
+        <div
+          aria-hidden
+          className="glow-blob pointer-events-none absolute -left-32 top-1/3 h-[22rem] w-[22rem] rounded-full opacity-40"
+        />
+        <div className="relative mx-auto max-w-7xl px-5">
+          <Reveal>
+            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              Prenájom mechanizácie
+            </p>
+            <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+              Bágre · UNC · Plošiny · <span className="text-primary">Elektrocentrály</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-muted-foreground">
+              Požičiame na deň aj na celú stavbu. Stroje sú pripravené v Prievidzi — stačí zavolať.
+            </p>
+          </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {rentals.map((r) => (
-              <article
-                key={r.title}
-                className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="flex h-44 items-center justify-center bg-transparent p-4">
-                  <img
-                    src={r.img}
-                    alt={`Prenájom — ${r.title}`}
-                    loading="lazy"
-                    width={1024}
-                    height={1024}
-                    className="h-full w-full object-contain [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
-                  />
-                </div>
-                <div className="p-6 pt-0">
-                  <h3 className="text-2xl uppercase leading-none">{r.title}</h3>
-                  <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-widest text-primary">{r.slogan}</p>
-                  <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
-                </div>
-              </article>
+            {rentals.map((r, i) => (
+              <Reveal key={r.title} delay={i * 90} className="h-full">
+                <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
+                  <div className="relative flex h-44 items-center justify-center overflow-hidden p-4">
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-x-8 bottom-4 h-24 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
+                    />
+                    <img
+                      src={r.img}
+                      alt={`Prenájom — ${r.title}`}
+                      loading="lazy"
+                      width={1024}
+                      height={1024}
+                      className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
+                    />
+                  </div>
+                  <div className="p-6 pt-0">
+                    <h3 className="text-2xl uppercase leading-none">{r.title}</h3>
+                    <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-widest text-primary">{r.slogan}</p>
+                    <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
           <a
             href="tel:+421948344377"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+            className="btn-shine mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
           >
             <Phone className="h-4 w-4" /> Dohodnúť termín prenájmu
           </a>
@@ -367,60 +471,74 @@ function Index() {
 
       {/* PREDAJ */}
       <section id="predaj" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
-        <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">Predaj</p>
-        <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
-          Všetko pre elektrinu <span className="text-primary">pod jednou strechou</span>
-        </h2>
+        <Reveal>
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Predaj
+          </p>
+          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+            Všetko pre elektrinu <span className="text-primary">pod jednou strechou</span>
+          </h2>
+        </Reveal>
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {sortiment.map((c) => {
+          {sortiment.map((c, i) => {
             const Icon = c.icon;
             return (
-              <article
-                key={c.title}
-                className="flex gap-5 rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                  <Icon className="h-7 w-7" strokeWidth={2} />
-                </div>
-                <div>
-                  <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
-                  <p className="mt-1.5 font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
-                    {c.tags}
-                  </p>
-                </div>
-              </article>
+              <Reveal key={c.title} delay={i * 90} className="h-full">
+                <article className="card-lift group flex h-full gap-5 rounded-2xl border border-border bg-card p-6">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:rotate-3">
+                    <Icon className="h-7 w-7" strokeWidth={2} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
+                    <p className="mt-1.5 font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
+                      {c.tags}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
             );
           })}
         </div>
-        <div className="mt-6 flex flex-col gap-5 rounded-2xl border-2 border-primary bg-card p-7 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-start gap-4">
-            <Sun className="h-10 w-10 shrink-0 text-primary" strokeWidth={1.9} />
-            <div>
-              <h3 className="text-2xl uppercase leading-tight">Fotovoltika na kľúč</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Návrh, montáž, revízna správa aj papierovačky so ZSD — slnko, ktoré sa vám vráti.
-              </p>
+        <Reveal delay={100}>
+          <div className="relative mt-6 flex flex-col gap-5 overflow-hidden rounded-2xl border-2 border-primary bg-card p-7 sm:flex-row sm:items-center sm:justify-between">
+            <span
+              aria-hidden
+              className="glow-blob pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-50"
+            />
+            <div className="relative flex items-start gap-4">
+              <Sun className="h-10 w-10 shrink-0 text-primary" strokeWidth={1.9} />
+              <div>
+                <h3 className="text-2xl uppercase leading-tight">Fotovoltika na kľúč</h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Návrh, montáž, revízna správa aj papierovačky so ZSD — slnko, ktoré sa vám vráti.
+                </p>
+              </div>
             </div>
+            <a
+              href="#kontakt"
+              className="btn-shine relative shrink-0 rounded-full bg-primary px-6 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark"
+            >
+              Dopyt na FVE
+            </a>
           </div>
-          <a
-            href="#kontakt"
-            className="shrink-0 rounded-full bg-primary px-6 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark"
-          >
-            Dopyt na FVE
-          </a>
-        </div>
+        </Reveal>
       </section>
+
 
       {/* KONTAKT */}
       <section id="kontakt" className="border-t border-border bg-secondary py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-5">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">Kde nás nájdete</p>
-          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
-            Dve predajne <span className="text-primary">v Prievidzi</span>
-          </h2>
+          <Reveal>
+            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              Kde nás nájdete
+            </p>
+            <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+              Dve predajne <span className="text-primary">v Prievidzi</span>
+            </h2>
+          </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {shops.map((s) => (
-              <article key={s.id} className="rounded-2xl border border-border bg-card p-7">
+              <article key={s.id} className="card-lift frame-brand p-7">
                 <span className="font-mono text-xs font-bold tracking-widest text-primary">{s.id}</span>
                 <h3 className="mt-2 text-2xl uppercase leading-tight">{s.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{s.note}</p>
