@@ -22,11 +22,38 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import logo from "@/assets/mlm-logo.png";
-import excavator from "@/assets/excavator.png";
-import skidSteer from "@/assets/skid_steer.png";
-import boomLift from "@/assets/boom_lift.png";
-import generator from "@/assets/generator.png";
+import logo from "@/assets/mlm-logo.webp";
+import excavator from "@/assets/excavator.webp";
+import skidSteer from "@/assets/skid_steer.webp";
+import boomLift from "@/assets/boom_lift.webp";
+import generator from "@/assets/generator.webp";
+import drillPhoto from "@/assets/drill.webp";
+import knipexPhoto from "@/assets/knipex.webp";
+import distributionBoxPhoto from "@/assets/distribution_box.webp";
+import cablePhoto from "@/assets/cable.webp";
+
+const LOCAL_BUSINESS_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "ElectricalContractor",
+  name: "ELEKTRO - MLM, s.r.o.",
+  url: "https://www.elektro-mlm.sk",
+  telephone: "+421948344377",
+  email: "info@elektro-mlm.sk",
+  foundingDate: "2007",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Stavbárov 12",
+    postalCode: "971 01",
+    addressLocality: "Prievidza",
+    addressCountry: "SK",
+  },
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "07:00", closes: "17:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "12:00" },
+  ],
+  areaServed: "Prievidza",
+  hasCredential: "ISO 9001:2008",
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,8 +71,10 @@ export const Route = createFileRoute("/")({
           "Revízne správy podľa STN, lokalizácia porúch, montáže a fotovoltika. Prenájom bágrov, UNC, plošín a elektrocentrál.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: logo },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://www.elektro-mlm.sk/" }],
   }),
   component: Index,
 });
@@ -56,6 +85,7 @@ const nav = [
   { href: "#montaze", label: "Montáže" },
   { href: "#prenajom", label: "Prenájom" },
   { href: "#predaj", label: "Predaj" },
+  { href: "#galeria", label: "Galéria" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
@@ -197,6 +227,17 @@ const shops = [
     address: "L. N. Tolstého 1885/8, 971 01 Prievidza",
     phones: ["0948 162 842"],
   },
+];
+
+const gallery = [
+  { img: excavator, caption: "Mini bager" },
+  { img: skidSteer, caption: "UNC nakladač" },
+  { img: boomLift, caption: "Vysokozdvižná plošina" },
+  { img: generator, caption: "Elektrocentrála" },
+  { img: drillPhoto, caption: "Náradie MAKITA" },
+  { img: knipexPhoto, caption: "KNIPEX profi náradie" },
+  { img: distributionBoxPhoto, caption: "Rozvádzače na mieru" },
+  { img: cablePhoto, caption: "Elektroinštalačný materiál" },
 ];
 
 const ticker = [
@@ -657,6 +698,42 @@ function Index() {
         </Reveal>
       </section>
 
+      {/* GALÉRIA */}
+      <section id="galeria" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
+        <Reveal>
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Galéria
+          </p>
+          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+            Technika a materiál <span className="text-primary">z prvej ruky</span>
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+          {gallery.map((g, i) => (
+            <Reveal key={g.caption} delay={i * 60} className="h-full">
+              <figure className="card-lift group h-full overflow-hidden rounded-2xl border border-border bg-card">
+                <div className="relative flex h-36 items-center justify-center overflow-hidden p-4 sm:h-44">
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-6 bottom-2 h-16 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
+                  />
+                  <img
+                    src={g.img}
+                    alt={g.caption}
+                    loading="lazy"
+                    width={800}
+                    height={800}
+                    className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_8px_10px_color-mix(in_oklab,var(--foreground)_18%,transparent))]"
+                  />
+                </div>
+                <figcaption className="border-t border-border p-3 text-center font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-muted-foreground">
+                  {g.caption}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
       {/* KONTAKT */}
       <section id="kontakt" className="border-t border-border bg-secondary py-20 md:py-24">
@@ -862,6 +939,11 @@ function Index() {
           </p>
         </div>
       </footer>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSONLD) }}
+      />
     </div>
   );
 }
