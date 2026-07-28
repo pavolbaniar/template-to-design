@@ -53,10 +53,52 @@ export const Route = createFileRoute("/")({
 const nav = [
   { href: "#revizie", label: "Revízie" },
   { href: "#sluzby", label: "Služby" },
+  { href: "#montaze", label: "Montáže" },
   { href: "#prenajom", label: "Prenájom" },
   { href: "#predaj", label: "Predaj" },
   { href: "#kontakt", label: "Kontakt" },
 ];
+
+const montaze = [
+  "Elektroinštalácie silnoprúdu",
+  "Slaboprúdové rozvody",
+  "Prípojky NN (nízke napätie)",
+  "Bleskozvody a uzemnenie",
+  "Vnútorné a vonkajšie osvetlenie",
+  "Elektrické vykurovanie",
+  "Rozvádzače a ich osadenie",
+  "Elektronické zabezpečovacie systémy",
+  "Meranie a regulácia",
+  "Údržba, servis a opravy",
+  "Elektroprojekty a dokumentácia",
+  "Poradenská a inžinierska činnosť",
+];
+
+const preco = [
+  {
+    title: "Od roku 2007 na trhu",
+    text: "Domáca prievidzská firma — poznáte nás z predajní, z revízií aj z techniky na stavbách v celom regióne.",
+  },
+  {
+    title: "Všetko na jednom mieste",
+    text: "Projekt, montáž, revízna správa, materiál aj stroje. Nemusíte volať štyrom firmám — stačí jeden telefonát.",
+  },
+  {
+    title: "Papiere, ktoré obstoja",
+    text: "Revízne správy podľa platných STN, protokoly z termovízie a meraní — pripravené pre poisťovňu aj kolaudáciu.",
+  },
+  {
+    title: "Rýchle termíny",
+    text: "Havária alebo porucha? Ozvite sa — lokalizáciu poruchy riešime prednostne, technika ide na stavbu do 24 hodín.",
+  },
+];
+
+const referencie = [
+  { name: "Priemyselné haly a výrobné prevádzky", text: "NN rozvody, osvetlenie, bleskozvody a elektromontážne práce vrátane východiskových revízií." },
+  { name: "Bytové domy a novostavby", text: "Kompletné elektroinštalácie, prípojky NN, rozvádzače a odovzdanie s revíznou správou." },
+  { name: "Stavebné firmy a živnostníci", text: "Dlhodobý prenájom bágrov, UNC nakladačov, plošín a elektrocentrál vrátane dovozu na stavbu." },
+];
+
 
 const strip = [
   {
