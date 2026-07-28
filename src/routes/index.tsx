@@ -566,6 +566,97 @@ function Index() {
         </Reveal>
       </section>
 
+      {/* MONTÁŽE */}
+      <section id="montaze" className="border-y border-border bg-secondary py-20 md:py-24">
+        <div className="mx-auto max-w-7xl px-5">
+          <Reveal>
+            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              Elektroinštalácie a montáže
+            </p>
+            <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+              Od projektu po <span className="text-primary">revíznu správu</span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              Robíme kompletné elektroinštalačné práce a všetko, čo s nimi súvisí — pre rodinné domy,
+              bytovky, firmy aj priemyselné haly. Navrhneme, namontujeme, odskúšame a odovzdáme
+              s platnou dokumentáciou.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+            {montaze.map((m, i) => (
+              <Reveal key={m} delay={i * 45}>
+                <div className="flex items-center gap-3 border-b border-border py-3">
+                  <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" strokeWidth={2.2} />
+                  <span className="text-sm font-medium">{m}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PREČO MY + REFERENCIE */}
+      <section className="mx-auto max-w-7xl px-5 py-20 md:py-24">
+        <Reveal>
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Prečo ELEKTRO-MLM
+          </p>
+          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+            Sme tu pre vás — <span className="text-primary">bez zbytočných rečí</span>
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {preco.map((p, i) => (
+            <Reveal key={p.title} delay={i * 80} className="h-full">
+              <article className="frame-brand card-lift h-full rounded-2xl bg-card p-7">
+                <h3 className="text-xl uppercase leading-tight">{p.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{p.text}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={60}>
+          <p className="eyebrow-line mt-20 font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Referencie
+          </p>
+          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+            Kde sme už <span className="text-primary">svietili</span>
+          </h2>
+        </Reveal>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {referencie.map((r, i) => (
+            <Reveal key={r.name} delay={i * 90} className="h-full">
+              <article className="card-lift h-full rounded-2xl border border-border bg-card p-6">
+                <Zap className="h-7 w-7 text-primary" strokeWidth={2.2} />
+                <h3 className="mt-4 text-lg uppercase leading-tight">{r.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{r.text}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={100}>
+          <div className="relative mt-12 overflow-hidden rounded-2xl bg-foreground px-7 py-10 text-background sm:flex sm:items-center sm:justify-between sm:gap-8">
+            <span aria-hidden className="glow-blob pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full opacity-60" />
+            <div className="relative">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+                Potrebujete poradiť?
+              </p>
+              <h3 className="mt-3 max-w-xl text-3xl uppercase italic leading-[1.05] md:text-4xl">
+                Neváhajte nás kontaktovať — radi vás privítame v našich predajniach.
+              </h3>
+            </div>
+            <a
+              href="#kontakt"
+              className="btn-shine relative mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark sm:mt-0"
+            >
+              <Phone className="h-4 w-4" /> Kontaktujte nás
+            </a>
+          </div>
+        </Reveal>
+      </section>
+
 
       {/* KONTAKT */}
       <section id="kontakt" className="border-t border-border bg-secondary py-20 md:py-24">
