@@ -26,11 +26,13 @@ import logo from "@/assets/mlm-logo.webp";
 import excavator from "@/assets/excavator.webp";
 import skidSteer from "@/assets/skid_steer.webp";
 import boomLift from "@/assets/boom_lift.webp";
-import generator from "@/assets/generator.webp";
+import generator from "@/assets/generator.png";
 import drillPhoto from "@/assets/drill.webp";
-import knipexPhoto from "@/assets/knipex.webp";
-import distributionBoxPhoto from "@/assets/distribution_box.webp";
-import cablePhoto from "@/assets/cable.webp";
+import makitaPhoto from "@/assets/makita.png";
+import knipexPhoto from "@/assets/knipex_tools.png";
+import distributionBoxPhoto from "@/assets/rozvadzac.png";
+import materialPhoto from "@/assets/material.png";
+
 
 const LOCAL_BUSINESS_JSONLD = {
   "@context": "https://schema.org",
@@ -234,11 +236,13 @@ const gallery = [
   { img: skidSteer, caption: "UNC nakladač" },
   { img: boomLift, caption: "Vysokozdvižná plošina" },
   { img: generator, caption: "Elektrocentrála" },
-  { img: drillPhoto, caption: "Náradie MAKITA" },
+  { img: makitaPhoto, caption: "Náradie MAKITA" },
   { img: knipexPhoto, caption: "KNIPEX profi náradie" },
   { img: distributionBoxPhoto, caption: "Rozvádzače na mieru" },
-  { img: cablePhoto, caption: "Elektroinštalačný materiál" },
+  { img: materialPhoto, caption: "Elektroinštalačný materiál" },
+  { img: drillPhoto, caption: "Svietidlá" },
 ];
+
 
 const ticker = [
   "Revízie do 52 kV",
