@@ -22,7 +22,9 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import logo from "@/assets/mlm-logo.webp";
+import logo from "@/assets/mlm-logo.svg";
+import heroImage from "@/assets/hero-elektro.jpg";
+
 import excavator from "@/assets/excavator.webp";
 import skidSteer from "@/assets/skid_steer.webp";
 import boomLift from "@/assets/boom_lift.webp";
