@@ -372,6 +372,8 @@ function Index() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"
         />
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
           <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
             <span className="text-primary">M</span>eranie · <span className="text-primary">L</span>okalizácia ·{" "}
             <span className="text-primary">M</span>ontáž
@@ -404,7 +406,26 @@ function Index() {
               Objednať revíziu →
             </a>
           </div>
+            </div>
+            <div className="frame-brand relative overflow-hidden shadow-[0_30px_70px_-40px_color-mix(in_oklab,var(--brand-red)_75%,transparent)]">
+              <img
+                src={heroImage}
+                alt="Mini báger, rozvádzače a fotovoltické panely — ELEKTRO-MLM Prievidza"
+                width={1600}
+                height={1008}
+                className="h-full w-full rounded-2xl object-cover"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-foreground/40 via-transparent to-primary/15"
+              />
+              <div className="absolute bottom-4 left-4 rounded-full bg-background/90 px-4 py-2 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] backdrop-blur">
+                Revízie · Prenájom · Fotovoltika
+              </div>
+            </div>
+          </div>
           <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4">
+
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 80}>
                 <div className="card-lift h-full rounded-xl border border-border bg-secondary px-5 py-4">
