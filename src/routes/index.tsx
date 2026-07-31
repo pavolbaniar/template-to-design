@@ -5,9 +5,6 @@ import {
   Radar,
   Wrench,
   ShoppingBag,
-  Plug,
-  Lightbulb,
-  Drill,
   Sun,
   Zap,
   ShieldCheck,
@@ -22,15 +19,20 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import logo from "@/assets/mlm-logo.webp";
+import logo from "@/assets/mlm-logo.svg";
+import heroImage from "@/assets/hero-elektro.jpg";
+
 import excavator from "@/assets/excavator.webp";
 import skidSteer from "@/assets/skid_steer.webp";
 import boomLift from "@/assets/boom_lift.webp";
 import generator from "@/assets/generator.webp";
 import drillPhoto from "@/assets/drill.webp";
-import knipexPhoto from "@/assets/knipex.webp";
-import distributionBoxPhoto from "@/assets/distribution_box.webp";
-import cablePhoto from "@/assets/cable.webp";
+import makitaPhoto from "@/assets/makita.webp";
+import knipexPhoto from "@/assets/knipex_tools.webp";
+import distributionBoxPhoto from "@/assets/rozvadzac.webp";
+import materialPhoto from "@/assets/material.webp";
+import bleskozvodPhoto from "@/assets/bleskozvod.webp";
+
 
 const LOCAL_BUSINESS_JSONLD = {
   "@context": "https://schema.org",
@@ -82,10 +84,9 @@ export const Route = createFileRoute("/")({
 const nav = [
   { href: "#revizie", label: "Revízie" },
   { href: "#sluzby", label: "Služby" },
-  { href: "#montaze", label: "Montáže" },
-  { href: "#prenajom", label: "Prenájom" },
   { href: "#predaj", label: "Predaj" },
-  { href: "#galeria", label: "Galéria" },
+  { href: "#prenajom", label: "Prenájom" },
+  { href: "#montaze", label: "Montáže" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
@@ -199,10 +200,42 @@ const rentals = [
 ];
 
 const sortiment = [
-  { icon: Plug, title: "Elektroinštalačný materiál", tags: "Káble · Ističe · Zásuvky · Rozvádzače · Bleskozvody" },
-  { icon: Lightbulb, title: "Svietidlá a LED osvetlenie", tags: "Interiér · Exteriér · Priemysel" },
-  { icon: Drill, title: "Náradie MAKITA", tags: "Akumulátorové · Sieťové · Príslušenstvo" },
-  { icon: Wrench, title: "KNIPEX a profi náradie", tags: "Kvalita · Spoľahlivosť · Odolnosť" },
+  {
+    img: materialPhoto,
+    title: "Elektroinštalačný materiál",
+    tags: "Káble · Ističe · Zásuvky · Bleskozvody",
+    desc: "Od vypínača a kábla cez ističe, DIN lišty a skrutky až po sadrokartónové príchytky a PU penu — nájdete u nás naozaj všetko, čo elektroinštalácia potrebuje.",
+  },
+  {
+    img: drillPhoto,
+    title: "Svietidlá a LED osvetlenie",
+    tags: "Interiér · Exteriér · Priemysel",
+    desc: "Máme celý rad svietidiel pre interiér aj exteriér a radi vám poradíme, aby ste si vybrali presne to, s čím budete spokojní.",
+  },
+  {
+    img: makitaPhoto,
+    title: "Náradie MAKITA",
+    tags: "Akumulátorové · Sieťové · Príslušenstvo",
+    desc: "Široký výber akumulátorového aj sieťového náradia MAKITA a príslušenstva pre profesionálov aj domácich majstrov.",
+  },
+  {
+    img: knipexPhoto,
+    title: "KNIPEX a profi náradie",
+    tags: "Kvalita · Spoľahlivosť · Odolnosť",
+    desc: "Kliešte, cvakačky, štiepačky a ďalšie profesionálne náradie KNIPEX — a omnoho viac.",
+  },
+  {
+    img: distributionBoxPhoto,
+    title: "Rozvádzače na mieru",
+    tags: "Certifikácia · Výroba na mieru",
+    desc: "Rozvádzače vyrábame s certifikáciou, na mieru podľa projektu aj podľa vašich vlastných požiadaviek.",
+  },
+  {
+    img: bleskozvodPhoto,
+    title: "Bleskozvodná technika",
+    tags: "Materiál · Projekt · Revízia",
+    desc: "Búrka sa nepýta. Poradíme, navrhneme aj namontujeme ochranu na mieru vašej strechy — od zvodov a svoriek až po uzemnenie a revíznu správu na konci.",
+  },
 ];
 
 const stats = [
@@ -229,16 +262,7 @@ const shops = [
   },
 ];
 
-const gallery = [
-  { img: excavator, caption: "Mini bager" },
-  { img: skidSteer, caption: "UNC nakladač" },
-  { img: boomLift, caption: "Vysokozdvižná plošina" },
-  { img: generator, caption: "Elektrocentrála" },
-  { img: drillPhoto, caption: "Náradie MAKITA" },
-  { img: knipexPhoto, caption: "KNIPEX profi náradie" },
-  { img: distributionBoxPhoto, caption: "Rozvádzače na mieru" },
-  { img: cablePhoto, caption: "Elektroinštalačný materiál" },
-];
+
 
 const ticker = [
   "Revízie do 52 kV",
@@ -287,6 +311,7 @@ function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; 
 
 function Index() {
   const [open, setOpen] = useState(false);
+  const [openSortiment, setOpenSortiment] = useState<number | null>(null);
 
   const [form, setForm] = useState({
     name: "",
@@ -368,7 +393,9 @@ function Index() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"
         />
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
-          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+          <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
             <span className="text-primary">M</span>eranie · <span className="text-primary">L</span>okalizácia ·{" "}
             <span className="text-primary">M</span>ontáž
           </p>
@@ -400,7 +427,26 @@ function Index() {
               Objednať revíziu →
             </a>
           </div>
+            </div>
+            <div className="frame-brand relative overflow-hidden shadow-[0_30px_70px_-40px_color-mix(in_oklab,var(--brand-red)_75%,transparent)]">
+              <img
+                src={heroImage}
+                alt="Mini báger, rozvádzače a fotovoltické panely — ELEKTRO-MLM Prievidza"
+                width={1600}
+                height={1008}
+                className="h-full w-full rounded-2xl object-cover"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-foreground/40 via-transparent to-primary/15"
+              />
+              <div className="absolute bottom-4 left-4 rounded-full bg-background/90 px-4 py-2 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] backdrop-blur">
+                Revízie · Prenájom · Fotovoltika
+              </div>
+            </div>
+          </div>
           <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4">
+
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 80}>
                 <div className="card-lift h-full rounded-xl border border-border bg-secondary px-5 py-4">
@@ -498,6 +544,95 @@ function Index() {
       </section>
 
 
+      {/* PREDAJ */}
+      <section id="predaj" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
+        <Reveal>
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Predaj
+          </p>
+          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+            Všetko pre elektrinu <span className="text-primary">pod jednou strechou</span>
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {sortiment.map((c, i) => {
+            const isOpen = openSortiment === i;
+            return (
+              <Reveal key={c.title} delay={i * 90} className="h-full">
+                <article className="card-lift h-full overflow-hidden rounded-2xl border border-border bg-card">
+                  <button
+                    type="button"
+                    onClick={() => setOpenSortiment(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="group flex w-full flex-col text-left"
+                  >
+                    <div className="relative flex h-40 items-center justify-center overflow-hidden bg-secondary p-5">
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-6 bottom-2 h-14 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
+                      />
+                      <img
+                        src={c.img}
+                        alt={c.title}
+                        loading="lazy"
+                        width={800}
+                        height={800}
+                        className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_8px_10px_color-mix(in_oklab,var(--foreground)_18%,transparent))]"
+                      />
+                      <span className="absolute bottom-2.5 right-2.5 flex h-6 w-6 items-center justify-center rounded-md bg-background/80 shadow-sm backdrop-blur-sm">
+                        <Zap className="h-3.5 w-3.5 fill-primary text-primary" strokeWidth={2.4} />
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <div className="flex items-start justify-between gap-3">
+                        <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
+                        <span
+                          aria-hidden
+                          className={`mt-1 shrink-0 font-mono text-lg text-primary transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                        >
+                          +
+                        </span>
+                      </div>
+                      <p className="mt-1.5 font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
+                        {c.tags}
+                      </p>
+                      <p
+                        className={`grid text-sm text-muted-foreground transition-all duration-300 ${isOpen ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                      >
+                        <span className="overflow-hidden">{c.desc}</span>
+                      </p>
+                    </div>
+                  </button>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+        <Reveal delay={100}>
+          <div className="relative mt-6 flex flex-col gap-5 overflow-hidden rounded-2xl border-2 border-primary bg-card p-7 sm:flex-row sm:items-center sm:justify-between">
+            <span
+              aria-hidden
+              className="glow-blob pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-50"
+            />
+            <div className="relative flex items-start gap-4">
+              <Sun className="h-10 w-10 shrink-0 text-primary" strokeWidth={1.9} />
+              <div>
+                <h3 className="text-2xl uppercase leading-tight">Fotovoltika na kľúč</h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Návrh, montáž, revízna správa aj papierovačky so ZSD — slnko, ktoré sa vám vráti.
+                </p>
+              </div>
+            </div>
+            <a
+              href="#kontakt"
+              className="btn-shine relative shrink-0 rounded-full bg-primary px-6 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark"
+            >
+              Dopyt na FVE
+            </a>
+          </div>
+        </Reveal>
+      </section>
+
       {/* PRENÁJOM */}
       <section id="prenajom" className="relative overflow-hidden border-y border-border bg-secondary py-20 md:py-24">
         <div
@@ -550,61 +685,6 @@ function Index() {
             <Phone className="h-4 w-4" /> Dohodnúť termín prenájmu
           </a>
         </div>
-      </section>
-
-      {/* PREDAJ */}
-      <section id="predaj" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
-        <Reveal>
-          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-            Predaj
-          </p>
-          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
-            Všetko pre elektrinu <span className="text-primary">pod jednou strechou</span>
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {sortiment.map((c, i) => {
-            const Icon = c.icon;
-            return (
-              <Reveal key={c.title} delay={i * 90} className="h-full">
-                <article className="card-lift group flex h-full gap-5 rounded-2xl border border-border bg-card p-6">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:rotate-3">
-                    <Icon className="h-7 w-7" strokeWidth={2} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
-                    <p className="mt-1.5 font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
-                      {c.tags}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
-        <Reveal delay={100}>
-          <div className="relative mt-6 flex flex-col gap-5 overflow-hidden rounded-2xl border-2 border-primary bg-card p-7 sm:flex-row sm:items-center sm:justify-between">
-            <span
-              aria-hidden
-              className="glow-blob pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-50"
-            />
-            <div className="relative flex items-start gap-4">
-              <Sun className="h-10 w-10 shrink-0 text-primary" strokeWidth={1.9} />
-              <div>
-                <h3 className="text-2xl uppercase leading-tight">Fotovoltika na kľúč</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Návrh, montáž, revízna správa aj papierovačky so ZSD — slnko, ktoré sa vám vráti.
-                </p>
-              </div>
-            </div>
-            <a
-              href="#kontakt"
-              className="btn-shine relative shrink-0 rounded-full bg-primary px-6 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark"
-            >
-              Dopyt na FVE
-            </a>
-          </div>
-        </Reveal>
       </section>
 
       {/* MONTÁŽE */}
@@ -696,43 +776,6 @@ function Index() {
             </a>
           </div>
         </Reveal>
-      </section>
-
-      {/* GALÉRIA */}
-      <section id="galeria" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
-        <Reveal>
-          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-            Galéria
-          </p>
-          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
-            Technika a materiál <span className="text-primary">z prvej ruky</span>
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {gallery.map((g, i) => (
-            <Reveal key={g.caption} delay={i * 60} className="h-full">
-              <figure className="card-lift group h-full overflow-hidden rounded-2xl border border-border bg-card">
-                <div className="relative flex h-36 items-center justify-center overflow-hidden p-4 sm:h-44">
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-6 bottom-2 h-16 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
-                  />
-                  <img
-                    src={g.img}
-                    alt={g.caption}
-                    loading="lazy"
-                    width={800}
-                    height={800}
-                    className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_8px_10px_color-mix(in_oklab,var(--foreground)_18%,transparent))]"
-                  />
-                </div>
-                <figcaption className="border-t border-border p-3 text-center font-mono text-[0.65rem] font-semibold uppercase tracking-widest text-muted-foreground">
-                  {g.caption}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
       </section>
 
       {/* KONTAKT */}
