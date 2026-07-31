@@ -39,7 +39,7 @@ const LOCAL_BUSINESS_JSONLD = {
   "@type": "ElectricalContractor",
   name: "ELEKTRO - MLM, s.r.o.",
   url: "https://www.elektro-mlm.sk",
-  telephone: "+421948344377",
+  telephone: "+421918812027",
   email: "info@elektro-mlm.sk",
   foundingDate: "2007",
   address: {
@@ -245,20 +245,25 @@ const stats = [
   { num: "2", label: "Predajne v Prievidzi" },
 ];
 
+const OWNER_PHONE = "0918 812 027";
+
 const shops = [
   {
     id: "01",
     name: "Predajňa Stavbárov",
     note: "Svietidlá & elektromateriál",
     address: "Stavbárov 12, 971 01 Prievidza",
-    phones: ["0948 344 377", "0948 344 378"],
+    phones: [
+      { label: "Predajňa svietidiel", num: "0948 344 377" },
+      { label: "Predajňa elektromateriálu", num: "0948 344 378" },
+    ],
   },
   {
     id: "02",
     name: "Predajňa Zápotôčky",
     note: "Maloobchodná predajňa, vedľa nadchodu",
     address: "L. N. Tolstého 1885/8, 971 01 Prievidza",
-    phones: ["0948 162 842"],
+    phones: [{ label: "Predajňa", num: "0948 162 842" }],
   },
 ];
 
@@ -340,10 +345,10 @@ function Index() {
               </a>
             ))}
             <a
-              href="tel:+421948344377"
+              href="tel:+421918812027"
               className="rounded-full bg-primary px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
             >
-              0948 344 377
+              0918 812 027
             </a>
           </nav>
           <button
@@ -368,10 +373,10 @@ function Index() {
                 </a>
               ))}
               <a
-                href="tel:+421948344377"
+                href="tel:+421918812027"
                 className="mt-4 rounded-full bg-primary px-5 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground"
               >
-                Zavolať 0948 344 377
+                Zavolať 0918 812 027
               </a>
             </div>
           </div>
@@ -679,7 +684,7 @@ function Index() {
             ))}
           </div>
           <a
-            href="tel:+421948344377"
+            href="tel:+421918812027"
             className="btn-shine mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
           >
             <Phone className="h-4 w-4" /> Dohodnúť termín prenájmu
@@ -810,13 +815,33 @@ function Index() {
                     <span>Po – Pia 7:00 – 17:00 · So 8:00 – 12:00 · Ne zatvorené</span>
                   </li>
                   {s.phones.map((p) => (
-                    <li key={p} className="flex items-start gap-3">
+                    <li key={p.num} className="flex items-start gap-3">
                       <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <a href={`tel:+421${p.replace(/\s|^0/g, "")}`} className="font-semibold hover:text-primary">
-                        {p}
-                      </a>
+                      <span>
+                        <span className="block text-xs uppercase tracking-widest text-muted-foreground">
+                          {p.label}
+                        </span>
+                        <a
+                          href={`tel:+421${p.num.replace(/\s|^0/g, "")}`}
+                          className="font-semibold hover:text-primary"
+                        >
+                          {p.num}
+                        </a>
+                      </span>
                     </li>
                   ))}
+                  <li className="flex items-start gap-3">
+                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>
+                      <span className="block text-xs uppercase tracking-widest text-muted-foreground">
+                        Majiteľ / obhliadky
+                      </span>
+                      <a href="tel:+421918812027" className="font-semibold hover:text-primary">
+                        {OWNER_PHONE}
+                      </a>
+                    </span>
+                  </li>
+
                   <li className="flex items-start gap-3">
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     <a href="mailto:info@elektro-mlm.sk" className="hover:text-primary">
@@ -848,8 +873,8 @@ function Index() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-primary" />
-                  <a href="tel:+421948344377" className="hover:text-primary">
-                    0948 344 377
+                  <a href="tel:+421918812027" className="hover:text-primary">
+                    0918 812 027
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
@@ -958,23 +983,22 @@ function Index() {
       <footer className="bg-foreground py-12 text-background">
         <div className="mx-auto max-w-7xl px-5">
           <div className="flex flex-wrap items-center gap-4">
-            <Zap className="h-8 w-8 text-primary" fill="currentColor" strokeWidth={0} />
-            <span className="text-2xl uppercase italic tracking-tight">
-              MLM <span className="text-primary">Elektro</span>
+            <span className="rounded-xl bg-background px-4 py-2">
+              <img src={logo} alt="ELEKTRO-MLM Prievidza" width={160} height={120} className="h-11 w-auto" />
             </span>
             <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] opacity-70">
               Prievidza · od 2007
             </span>
           </div>
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-y border-background/15 py-5 font-mono text-xs uppercase tracking-widest">
-            <span className="flex items-center gap-2">
+            <a href="#kontakt" className="flex items-center gap-2 hover:text-primary">
               <MapPin className="h-4 w-4 text-primary" /> Prievidza
-            </span>
+            </a>
             <a href="https://www.elektro-mlm.sk" className="flex items-center gap-2 hover:text-primary">
               <Globe className="h-4 w-4 text-primary" /> www.elektro-mlm.sk
             </a>
-            <a href="tel:+421948344377" className="flex items-center gap-2 hover:text-primary">
-              <Phone className="h-4 w-4 text-primary" /> 0948 344 377
+            <a href="tel:+421918812027" className="flex items-center gap-2 hover:text-primary">
+              <Phone className="h-4 w-4 text-primary" /> 0918 812 027
             </a>
           </div>
           <p className="mt-6 text-xs opacity-70">
