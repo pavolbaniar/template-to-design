@@ -39,7 +39,7 @@ const LOCAL_BUSINESS_JSONLD = {
   "@type": "ElectricalContractor",
   name: "ELEKTRO - MLM, s.r.o.",
   url: "https://www.elektro-mlm.sk",
-  telephone: "+421948344377",
+  telephone: "+421918812027",
   email: "info@elektro-mlm.sk",
   foundingDate: "2007",
   address: {
