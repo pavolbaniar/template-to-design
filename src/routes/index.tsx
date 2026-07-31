@@ -983,18 +983,17 @@ function Index() {
       <footer className="bg-foreground py-12 text-background">
         <div className="mx-auto max-w-7xl px-5">
           <div className="flex flex-wrap items-center gap-4">
-            <Zap className="h-8 w-8 text-primary" fill="currentColor" strokeWidth={0} />
-            <span className="text-2xl uppercase italic tracking-tight">
-              MLM <span className="text-primary">Elektro</span>
+            <span className="rounded-xl bg-background px-4 py-2">
+              <img src={logo} alt="ELEKTRO-MLM Prievidza" width={160} height={120} className="h-11 w-auto" />
             </span>
             <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] opacity-70">
               Prievidza · od 2007
             </span>
           </div>
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-y border-background/15 py-5 font-mono text-xs uppercase tracking-widest">
-            <span className="flex items-center gap-2">
+            <a href="#kontakt" className="flex items-center gap-2 hover:text-primary">
               <MapPin className="h-4 w-4 text-primary" /> Prievidza
-            </span>
+            </a>
             <a href="https://www.elektro-mlm.sk" className="flex items-center gap-2 hover:text-primary">
               <Globe className="h-4 w-4 text-primary" /> www.elektro-mlm.sk
             </a>
