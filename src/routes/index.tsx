@@ -348,7 +348,7 @@ function Index() {
               href="tel:+421918812027"
               className="rounded-full bg-primary px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
             >
-              0948 344 377
+              0918 812 027
             </a>
           </nav>
           <button
@@ -874,7 +874,7 @@ function Index() {
                 <li className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-primary" />
                   <a href="tel:+421918812027" className="hover:text-primary">
-                    0948 344 377
+                    0918 812 027
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
@@ -999,7 +999,7 @@ function Index() {
               <Globe className="h-4 w-4 text-primary" /> www.elektro-mlm.sk
             </a>
             <a href="tel:+421918812027" className="flex items-center gap-2 hover:text-primary">
-              <Phone className="h-4 w-4 text-primary" /> 0948 344 377
+              <Phone className="h-4 w-4 text-primary" /> 0918 812 027
             </a>
           </div>
           <p className="mt-6 text-xs opacity-70">
