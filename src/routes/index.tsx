@@ -345,7 +345,7 @@ function Index() {
               </a>
             ))}
             <a
-              href="tel:+421948344377"
+              href="tel:+421918812027"
               className="rounded-full bg-primary px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
             >
               0948 344 377
@@ -373,10 +373,10 @@ function Index() {
                 </a>
               ))}
               <a
-                href="tel:+421948344377"
+                href="tel:+421918812027"
                 className="mt-4 rounded-full bg-primary px-5 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground"
               >
-                Zavolať 0948 344 377
+                Zavolať 0918 812 027
               </a>
             </div>
           </div>
@@ -684,7 +684,7 @@ function Index() {
             ))}
           </div>
           <a
-            href="tel:+421948344377"
+            href="tel:+421918812027"
             className="btn-shine mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
           >
             <Phone className="h-4 w-4" /> Dohodnúť termín prenájmu
@@ -873,7 +873,7 @@ function Index() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-primary" />
-                  <a href="tel:+421948344377" className="hover:text-primary">
+                  <a href="tel:+421918812027" className="hover:text-primary">
                     0948 344 377
                   </a>
                 </li>
@@ -998,7 +998,7 @@ function Index() {
             <a href="https://www.elektro-mlm.sk" className="flex items-center gap-2 hover:text-primary">
               <Globe className="h-4 w-4 text-primary" /> www.elektro-mlm.sk
             </a>
-            <a href="tel:+421948344377" className="flex items-center gap-2 hover:text-primary">
+            <a href="tel:+421918812027" className="flex items-center gap-2 hover:text-primary">
               <Phone className="h-4 w-4 text-primary" /> 0948 344 377
             </a>
           </div>
