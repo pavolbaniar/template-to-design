@@ -245,20 +245,25 @@ const stats = [
   { num: "2", label: "Predajne v Prievidzi" },
 ];
 
+const OWNER_PHONE = "0918 812 027";
+
 const shops = [
   {
     id: "01",
     name: "Predajňa Stavbárov",
     note: "Svietidlá & elektromateriál",
     address: "Stavbárov 12, 971 01 Prievidza",
-    phones: ["0948 344 377", "0948 344 378"],
+    phones: [
+      { label: "Predajňa svietidiel", num: "0948 344 377" },
+      { label: "Predajňa elektromateriálu", num: "0948 344 378" },
+    ],
   },
   {
     id: "02",
     name: "Predajňa Zápotôčky",
     note: "Maloobchodná predajňa, vedľa nadchodu",
     address: "L. N. Tolstého 1885/8, 971 01 Prievidza",
-    phones: ["0948 162 842"],
+    phones: [{ label: "Predajňa", num: "0948 162 842" }],
   },
 ];
 
