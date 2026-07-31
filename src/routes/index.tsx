@@ -815,13 +815,33 @@ function Index() {
                     <span>Po – Pia 7:00 – 17:00 · So 8:00 – 12:00 · Ne zatvorené</span>
                   </li>
                   {s.phones.map((p) => (
-                    <li key={p} className="flex items-start gap-3">
+                    <li key={p.num} className="flex items-start gap-3">
                       <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <a href={`tel:+421${p.replace(/\s|^0/g, "")}`} className="font-semibold hover:text-primary">
-                        {p}
-                      </a>
+                      <span>
+                        <span className="block text-xs uppercase tracking-widest text-muted-foreground">
+                          {p.label}
+                        </span>
+                        <a
+                          href={`tel:+421${p.num.replace(/\s|^0/g, "")}`}
+                          className="font-semibold hover:text-primary"
+                        >
+                          {p.num}
+                        </a>
+                      </span>
                     </li>
                   ))}
+                  <li className="flex items-start gap-3">
+                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>
+                      <span className="block text-xs uppercase tracking-widest text-muted-foreground">
+                        Majiteľ / obhliadky
+                      </span>
+                      <a href="tel:+421918812027" className="font-semibold hover:text-primary">
+                        {OWNER_PHONE}
+                      </a>
+                    </span>
+                  </li>
+
                   <li className="flex items-start gap-3">
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     <a href="mailto:info@elektro-mlm.sk" className="hover:text-primary">
