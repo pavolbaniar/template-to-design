@@ -516,9 +516,21 @@ function Index() {
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-foreground/40 via-transparent to-primary/15"
               />
-              <div className="absolute bottom-4 left-4 rounded-full bg-background/90 px-4 py-2 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] backdrop-blur">
-                Revízie · Prenájom · Fotovoltika
+              <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-xl bg-background/92 px-4 py-2.5 shadow-lg backdrop-blur">
+                <img
+                  src={logo}
+                  alt="ELEKTRO-MLM"
+                  width={160}
+                  height={80}
+                  className="h-7 w-auto md:h-8"
+                />
+                <span className="hidden font-mono text-[0.6rem] font-semibold uppercase leading-tight tracking-[0.16em] text-muted-foreground sm:block">
+                  Revízie · Prenájom
+                  <br />
+                  Fotovoltika
+                </span>
               </div>
+
             </div>
           </div>
           <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4">
