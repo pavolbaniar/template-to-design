@@ -1193,6 +1193,24 @@ function Index() {
         </div>
       </footer>
 
+      {/* MOBILNÁ LIŠTA S KONTAKTOM */}
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-card/95 backdrop-blur md:hidden">
+        <a
+          href="tel:+421918812027"
+          className="flex items-center justify-center gap-2 bg-primary py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground"
+        >
+          <Phone className="h-4 w-4" /> 0918 812 027
+        </a>
+        <a
+          href="#kontakt"
+          className="flex items-center justify-center gap-2 py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em]"
+        >
+          <Mail className="h-4 w-4 text-primary" /> Napísať
+        </a>
+      </div>
+      <div aria-hidden className="h-14 md:hidden" />
+
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSONLD) }}
