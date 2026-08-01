@@ -182,24 +182,37 @@ const strip = [
   {
     icon: ClipboardCheck,
     label: "Revízie & merania",
-    desc: "Revízne správy podľa STN 33 1500, termovízia, cos φ, kvalita siete — do 52 kV.",
+    desc: "Revízne správy podľa STN 33 1500 — do 52 kV.",
+    points: ["Odborné prehliadky a skúšky", "Termovízia a kvalita siete", "Meranie cos φ"],
+    href: "#revizie",
+    cta: "Zistiť viac o revíziách",
   },
   {
     icon: Radar,
     label: "Lokalizácia porúch",
-    desc: "Nájdeme skrat či prerušenie kábla na desiatky centimetrov. Kopete len tam, kde treba.",
+    desc: "Nájdeme skrat či prerušený kábel na desiatky centimetrov.",
+    points: ["Bez zbytočného kopania", "Zemné aj vnútorné rozvody", "Výjazd po dohode"],
+    href: "#kontakt",
+    cta: "Nahlásiť poruchu",
   },
   {
     icon: Wrench,
     label: "Montáže & fotovoltika",
-    desc: "Inštalácie bez obmedzenia napätia, rozvádzače, bleskozvody, FVE na kľúč.",
+    desc: "Inštalácie bez obmedzenia napätia, na kľúč.",
+    points: ["Rozvádzače na mieru", "Bleskozvody a prípojky NN", "FVE vrátane dokumentácie"],
+    href: "#montaze",
+    cta: "Pozrieť montáže",
   },
   {
     icon: ShoppingBag,
     label: "Predaj & prenájom",
-    desc: "Elektromateriál, svietidlá, MAKITA a KNIPEX. Bágre, UNC, plošiny, elektrocentrály.",
+    desc: "Dve predajne v Prievidzi + technika na stavbu.",
+    points: ["Elektromateriál a svietidlá", "MAKITA a KNIPEX", "Bágre, UNC, plošiny, centrály"],
+    href: "#prenajom",
+    cta: "Predaj a prenájom",
   },
 ];
+
 
 const revizie = [
   {
