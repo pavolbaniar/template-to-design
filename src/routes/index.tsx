@@ -182,24 +182,37 @@ const strip = [
   {
     icon: ClipboardCheck,
     label: "Revízie & merania",
-    desc: "Revízne správy podľa STN 33 1500, termovízia, cos φ, kvalita siete — do 52 kV.",
+    desc: "Revízne správy podľa STN 33 1500 — do 52 kV.",
+    points: ["Odborné prehliadky a skúšky", "Termovízia a kvalita siete", "Meranie cos φ"],
+    href: "#revizie",
+    cta: "Zistiť viac o revíziách",
   },
   {
     icon: Radar,
     label: "Lokalizácia porúch",
-    desc: "Nájdeme skrat či prerušenie kábla na desiatky centimetrov. Kopete len tam, kde treba.",
+    desc: "Nájdeme skrat či prerušený kábel na desiatky centimetrov.",
+    points: ["Bez zbytočného kopania", "Zemné aj vnútorné rozvody", "Výjazd po dohode"],
+    href: "#kontakt",
+    cta: "Nahlásiť poruchu",
   },
   {
     icon: Wrench,
     label: "Montáže & fotovoltika",
-    desc: "Inštalácie bez obmedzenia napätia, rozvádzače, bleskozvody, FVE na kľúč.",
+    desc: "Inštalácie bez obmedzenia napätia, na kľúč.",
+    points: ["Rozvádzače na mieru", "Bleskozvody a prípojky NN", "FVE vrátane dokumentácie"],
+    href: "#montaze",
+    cta: "Pozrieť montáže",
   },
   {
     icon: ShoppingBag,
     label: "Predaj & prenájom",
-    desc: "Elektromateriál, svietidlá, MAKITA a KNIPEX. Bágre, UNC, plošiny, elektrocentrály.",
+    desc: "Dve predajne v Prievidzi + technika na stavbu.",
+    points: ["Elektromateriál a svietidlá", "MAKITA a KNIPEX", "Bágre, UNC, plošiny, centrály"],
+    href: "#prenajom",
+    cta: "Predaj a prenájom",
   },
 ];
+
 
 const revizie = [
   {
@@ -569,27 +582,63 @@ function Index() {
       </div>
 
 
-      {/* STRIP */}
-      <div id="sluzby" className="grid border-b border-border bg-secondary sm:grid-cols-2 lg:grid-cols-4">
-        {strip.map((s, i) => {
-          const Icon = s.icon;
-          return (
-            <Reveal key={s.label} delay={i * 90} className="group border-b border-r border-border last:border-r-0">
-              <div className="relative h-full overflow-hidden border-t-[3px] border-t-transparent bg-secondary p-8 transition-colors duration-300 group-hover:border-t-primary group-hover:bg-card">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                />
-                <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:rotate-3">
-                  <Icon className="h-6 w-6" strokeWidth={1.9} />
-                </div>
-                <h3 className="relative mt-4 text-xl uppercase">{s.label}</h3>
-                <p className="relative mt-2 text-sm text-muted-foreground">{s.desc}</p>
-              </div>
-            </Reveal>
-          );
-        })}
-      </div>
+      {/* VSTUPNÉ KARTY */}
+      <section id="sluzby" className="border-b border-border bg-secondary py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-5">
+          <Reveal>
+            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              Čo pre vás robíme
+            </p>
+            <h2 className="mt-3 max-w-2xl text-4xl uppercase italic leading-[1] md:text-5xl">
+              Vyberte si, s čím potrebujete pomôcť
+            </h2>
+          </Reveal>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {strip.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <Reveal key={s.label} delay={i * 90} className="h-full">
+                  <a
+                    href={s.href}
+                    className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-7 transition-colors duration-300 hover:border-primary/50"
+                  >
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                    <div className="relative flex items-start justify-between">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:rotate-3">
+                        <Icon className="h-6 w-6" strokeWidth={1.9} />
+                      </div>
+                      <span className="font-mono text-3xl font-semibold leading-none text-muted-foreground/25">
+                        0{i + 1}
+                      </span>
+                    </div>
+                    <h3 className="relative mt-5 text-xl uppercase">{s.label}</h3>
+                    <p className="relative mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                    <ul className="relative mt-4 space-y-1.5">
+                      {s.points.map((p) => (
+                        <li key={p} className="flex items-start gap-2 text-sm text-foreground/85">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2} />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                    <span className="relative mt-6 inline-flex items-center gap-2 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                      {s.cta}
+                      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </span>
+                  </a>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
 
       {/* PREDAJ */}
       <section id="predaj" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
@@ -1143,6 +1192,24 @@ function Index() {
           </p>
         </div>
       </footer>
+
+      {/* MOBILNÁ LIŠTA S KONTAKTOM */}
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-card/95 backdrop-blur md:hidden">
+        <a
+          href="tel:+421918812027"
+          className="flex items-center justify-center gap-2 bg-primary py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground"
+        >
+          <Phone className="h-4 w-4" /> 0918 812 027
+        </a>
+        <a
+          href="#kontakt"
+          className="flex items-center justify-center gap-2 py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em]"
+        >
+          <Mail className="h-4 w-4 text-primary" /> Napísať
+        </a>
+      </div>
+      <div aria-hidden className="h-14 md:hidden" />
+
 
       <script
         type="application/ld+json"
