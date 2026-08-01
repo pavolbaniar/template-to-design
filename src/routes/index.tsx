@@ -866,7 +866,7 @@ function Index() {
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {shops.map((s) => (
-              <article key={s.id} className="card-lift frame-brand p-7">
+              <article key={s.id} className="card-lift frame-brand flex h-full flex-col p-7">
                 <span className="font-mono text-xs font-bold tracking-widest text-primary">{s.id}</span>
                 <h3 className="mt-2 text-2xl uppercase leading-tight">{s.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{s.note}</p>
@@ -919,14 +919,16 @@ function Index() {
                     </a>
                   </li>
                 </ul>
-                <div className="mt-6 overflow-hidden rounded-xl border border-border">
-                  <iframe
-                    title={`Mapa — ${s.name}`}
-                    src={`https://www.google.com/maps?q=${encodeURIComponent(s.address)}&output=embed`}
-                    className="h-56 w-full"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
+                <div className="mt-auto pt-6">
+                  <div className="overflow-hidden rounded-xl border border-border">
+                    <iframe
+                      title={`Mapa — ${s.name}`}
+                      src={`https://www.google.com/maps?q=${encodeURIComponent(s.address)}&output=embed`}
+                      className="h-56 w-full"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
                 </div>
               </article>
             ))}
