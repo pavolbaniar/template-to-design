@@ -57,6 +57,53 @@ const LOCAL_BUSINESS_JSONLD = {
   hasCredential: "ISO 9001:2008",
 };
 
+const FAQ_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Ako často treba robiť revíziu elektrického zariadenia?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Interval závisí od typu priestoru a prostredia podľa STN 33 1500 — byt má iný cyklus ako sklad, hala alebo priestor s nebezpečenstvom výbuchu.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Čo presne je odborná prehliadka a odborná skúška?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Odborná prehliadka je vizuálna a meracia kontrola stavu zariadenia, odborná skúška overuje jeho funkčnosť a bezpečnosť v prevádzke. Spolu tvoria revíziu a výsledkom je revízna správa.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Potrebujem revíziu aj na bleskozvod?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Áno, bleskozvod je samostatné zariadenie s vlastnou periodickou kontrolou.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Robíte revízie aj pre firmy, haly a priemyselné prevádzky?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Áno, meriame a revidujeme zariadenia do 52 kV — od bytov cez sklady až po výrobné haly a priestory s nebezpečenstvom výbuchu.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Ako rýchlo sa mi ozvete po odoslaní dopytu?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Spravidla do 24 hodín, telefonicky alebo e-mailom.",
+      },
+    },
+  ],
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -82,10 +129,10 @@ export const Route = createFileRoute("/")({
 });
 
 const nav = [
-  { href: "#revizie", label: "Revízie" },
-  { href: "#sluzby", label: "Služby" },
   { href: "#predaj", label: "Predaj" },
   { href: "#prenajom", label: "Prenájom" },
+  { href: "#revizie", label: "Revízie" },
+  { href: "#sluzby", label: "Služby" },
   { href: "#montaze", label: "Montáže" },
   { href: "#kontakt", label: "Kontakt" },
 ];
@@ -169,6 +216,29 @@ const revizie = [
     icon: Gauge,
     title: "Účinník cos φ a kvalita siete",
     desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia a navrhneme kompenzáciu — investícia sa zvyčajne vráti do 12 mesiacov.",
+  },
+];
+
+const faq = [
+  {
+    q: "Ako často treba robiť revíziu elektrického zariadenia?",
+    a: "Interval závisí od typu priestoru a prostredia podľa STN 33 1500 — byt má iný cyklus ako sklad, hala alebo priestor s nebezpečenstvom výbuchu. Radi vám na mieste povieme presný interval pre váš konkrétny prípad.",
+  },
+  {
+    q: "Čo presne je odborná prehliadka a odborná skúška?",
+    a: "Odborná prehliadka je vizuálna a meracia kontrola stavu zariadenia, odborná skúška overuje jeho funkčnosť a bezpečnosť v prevádzke. Spolu tvoria revíziu a výsledkom je revízna správa.",
+  },
+  {
+    q: "Potrebujem revíziu aj na bleskozvod?",
+    a: "Áno, bleskozvod je samostatné zariadenie s vlastnou periodickou kontrolou. Bez platnej revíznej správy naň sa poisťovňa pri škode môže odvolávať.",
+  },
+  {
+    q: "Robíte revízie aj pre firmy, haly a priemyselné prevádzky?",
+    a: "Áno, meriame a revidujeme zariadenia do 52 kV — od bytov cez sklady až po výrobné haly a priestory s nebezpečenstvom výbuchu.",
+  },
+  {
+    q: "Ako rýchlo sa mi ozvete po odoslaní dopytu?",
+    a: "Spravidla do 24 hodín, telefonicky alebo e-mailom, podľa toho, čo si vyberiete v kontaktnom formulári nižšie.",
   },
 ];
 
@@ -317,6 +387,7 @@ function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; 
 function Index() {
   const [open, setOpen] = useState(false);
   const [openSortiment, setOpenSortiment] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const [form, setForm] = useState({
     name: "",
@@ -415,8 +486,8 @@ function Index() {
             </span>
           </h1>
           <p className="mt-7 max-w-xl text-lg text-muted-foreground">
-            Revízie a merania do 52 kV, lokalizácia porúch bez zbytočných výkopov, elektroinštalácie a fotovoltika.
-            K tomu predajne elektromateriálu a prenájom bágrov, UNC, plošín a elektrocentrál. Prievidza od roku 2007.
+            Elektroinštalačný materiál, svietidlá a profi náradie, prenájom bágrov, UNC, plošín a elektrocentrál —
+            k tomu odborné revízie a merania do 52 kV, lokalizácia porúch aj fotovoltika. Prievidza od roku 2007.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
@@ -507,47 +578,6 @@ function Index() {
           );
         })}
       </div>
-
-      {/* REVÍZIE */}
-      <section id="revizie" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
-        <Reveal>
-          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-            Robíme revízie — profesionálne
-          </p>
-          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
-            Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {revizie.map((r, i) => {
-            const Icon = r.icon;
-            return (
-              <Reveal key={r.title} delay={i * 110} className="h-full">
-                <article className="card-lift frame-brand h-full p-7">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
-                    <Icon className="h-7 w-7" strokeWidth={1.8} />
-                  </div>
-                  <h3 className="mt-5 text-2xl uppercase leading-tight">{r.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
-        <Reveal delay={120}>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-secondary px-7 py-5">
-            {["Revízie bytov a domov", "Priemysel a haly", "Bleskozvody", "FVE a nabíjacie stanice", "Periodické revízie"].map(
-              (t) => (
-                <span key={t} className="flex items-center gap-2 text-sm font-medium">
-                  <CheckCircle2 className="h-4 w-4 text-primary" />
-                  {t}
-                </span>
-              ),
-            )}
-          </div>
-        </Reveal>
-      </section>
-
 
       {/* PREDAJ */}
       <section id="predaj" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
@@ -690,6 +720,46 @@ function Index() {
             <Phone className="h-4 w-4" /> Dohodnúť termín prenájmu
           </a>
         </div>
+      </section>
+
+      {/* REVÍZIE */}
+      <section id="revizie" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
+        <Reveal>
+          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            Robíme revízie — profesionálne
+          </p>
+          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+            Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {revizie.map((r, i) => {
+            const Icon = r.icon;
+            return (
+              <Reveal key={r.title} delay={i * 110} className="h-full">
+                <article className="card-lift frame-brand h-full p-7">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
+                  </div>
+                  <h3 className="mt-5 text-2xl uppercase leading-tight">{r.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+        <Reveal delay={120}>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-secondary px-7 py-5">
+            {["Revízie bytov a domov", "Priemysel a haly", "Bleskozvody", "FVE a nabíjacie stanice", "Periodické revízie"].map(
+              (t) => (
+                <span key={t} className="flex items-center gap-2 text-sm font-medium">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                  {t}
+                </span>
+              ),
+            )}
+          </div>
+        </Reveal>
       </section>
 
       {/* MONTÁŽE */}
@@ -849,6 +919,15 @@ function Index() {
                     </a>
                   </li>
                 </ul>
+                <div className="mt-6 overflow-hidden rounded-xl border border-border">
+                  <iframe
+                    title={`Mapa — ${s.name}`}
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(s.address)}&output=embed`}
+                    className="h-56 w-full"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </article>
             ))}
           </div>
@@ -980,6 +1059,50 @@ function Index() {
       </section>
 
       {/* FOOTER */}
+      {/* FAQ */}
+      <section className="border-t border-border py-20 md:py-24">
+        <div className="mx-auto max-w-4xl px-5">
+          <Reveal>
+            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              Časté otázky
+            </p>
+            <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+              Čo vás <span className="text-primary">najčastejšie zaujíma</span>
+            </h2>
+          </Reveal>
+          <div className="mt-10 space-y-3">
+            {faq.map((f, i) => {
+              const isOpen = openFaq === i;
+              return (
+                <Reveal key={f.q} delay={i * 70}>
+                  <div className="overflow-hidden rounded-xl border border-border bg-card">
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between gap-4 p-5 text-left"
+                    >
+                      <span className="text-base font-semibold md:text-lg">{f.q}</span>
+                      <span
+                        aria-hidden
+                        className={`shrink-0 font-mono text-xl text-primary transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                      >
+                        +
+                      </span>
+                    </button>
+                    <p
+                      className={`grid px-5 text-sm text-muted-foreground transition-all duration-300 ${isOpen ? "grid-rows-[1fr] pb-5 opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                    >
+                      <span className="overflow-hidden">{f.a}</span>
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-foreground py-12 text-background">
         <div className="mx-auto max-w-7xl px-5">
           <div className="flex flex-wrap items-center gap-4">
@@ -1010,6 +1133,10 @@ function Index() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSONLD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSONLD) }}
       />
     </div>
   );
