@@ -543,17 +543,17 @@ function Index() {
                 partner SSD
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-2 md:flex-nowrap">
                 {stats.map((s) => {
                   const Icon = s.icon;
                   return (
                     <div
-                      key={s.label}
-                      className="flex items-center gap-2 rounded-full border border-border bg-secondary px-3.5 py-2"
+                      key={s.text}
+                      className="flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1.5"
                     >
-                      <Icon className="h-4 w-4 text-primary" strokeWidth={2} />
-                      <span className="font-mono text-[0.65rem] font-semibold uppercase tracking-wider text-foreground">
-                        {s.num} <span className="text-muted-foreground">{s.label}</span>
+                      <Icon className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
+                      <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-foreground">
+                        {s.text}
                       </span>
                     </div>
                   );
