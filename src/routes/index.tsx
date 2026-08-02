@@ -18,6 +18,8 @@ import {
   CheckCircle2,
   Menu,
   X,
+  Handshake,
+  CalendarDays,
 } from "lucide-react";
 import logo from "@/assets/mlm-logo.svg";
 import heroImage from "@/assets/hero-elektro.jpg";
