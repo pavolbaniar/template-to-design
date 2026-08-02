@@ -157,6 +157,7 @@ const montaze = [
   "Elektroinštalácie silnoprúdu",
   "Slaboprúdové rozvody",
   "Prípojky NN (nízke napätie)",
+  "Projekcia a realizácia VN trafostaníc — zmluvný partner SSD",
   "Bleskozvody a uzemnenie",
   "Vnútorné a vonkajšie osvetlenie",
   "Elektrické vykurovanie",
@@ -350,6 +351,7 @@ const stats = [
   { num: "52 kV", label: "Revízie do napätia" },
   { num: "ISO", label: "Certifikát 9001" },
   { num: "2", label: "Predajne v Prievidzi" },
+  { num: "SSD", label: "Zmluvný partner" },
 ];
 
 const OWNER_PHONE = "0918 812 027";
@@ -570,10 +572,10 @@ function Index() {
 
             </div>
           </div>
-          <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4">
+          <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-5">
 
             {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 80}>
+              <Reveal key={s.label} delay={i * 80} className={i === stats.length - 1 ? "col-span-2 md:col-span-1" : ""}>
                 <div className="card-lift h-full rounded-xl border border-border bg-secondary px-5 py-4">
                   <div className="font-mono text-2xl font-bold leading-none text-primary">{s.num}</div>
                   <div className="mt-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
