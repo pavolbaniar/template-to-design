@@ -369,11 +369,11 @@ const sortiment = [
 ];
 
 const stats = [
-  { num: "17+", label: "Rokov skúseností" },
-  { num: "52 kV", label: "Revízie do napätia" },
-  { num: "ISO", label: "Certifikát 9001" },
-  { num: "2", label: "Predajne v Prievidzi" },
-  { num: "SSD", label: "Zmluvný partner" },
+  { icon: CalendarDays, num: "17+", label: "Rokov skúseností" },
+  { icon: Zap, num: "52 kV", label: "Revízie do napätia" },
+  { icon: ShieldCheck, num: "ISO", label: "Certifikát 9001" },
+  { icon: MapPin, num: "2", label: "Predajne v Prievidzi" },
+  { icon: Handshake, num: "SSD", label: "Zmluvný partner" },
 ];
 
 const OWNER_PHONE = "0918 812 027";
