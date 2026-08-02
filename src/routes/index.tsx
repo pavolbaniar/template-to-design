@@ -304,7 +304,7 @@ const faq = [
 
 const rentals = [
   {
-    img: excavator,
+    img: excavator.url,
     title: "Bágre",
     slogan: "Kopeme presne tam, kde treba",
     desc: "Výkopové a zemné práce pre prípojky, stavby aj terénne úpravy.",
