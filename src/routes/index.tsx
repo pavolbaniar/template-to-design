@@ -24,7 +24,7 @@ import {
 import logo from "@/assets/mlm-logo.svg";
 import heroImage from "@/assets/hero-elektro.jpg";
 
-import excavator from "@/assets/excavator.webp";
+import excavator from "@/assets/excavator.png.asset.json";
 import skidSteer from "@/assets/skid_steer.webp";
 import boomLift from "@/assets/boom_lift.webp";
 import generator from "@/assets/generator.webp";
@@ -304,7 +304,7 @@ const faq = [
 
 const rentals = [
   {
-    img: excavator,
+    img: excavator.url,
     title: "Bágre",
     slogan: "Kopeme presne tam, kde treba",
     desc: "Výkopové a zemné práce pre prípojky, stavby aj terénne úpravy.",
