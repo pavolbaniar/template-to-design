@@ -18,6 +18,8 @@ import {
   CheckCircle2,
   Menu,
   X,
+  Handshake,
+  CalendarDays,
 } from "lucide-react";
 import logo from "@/assets/mlm-logo.svg";
 import heroImage from "@/assets/hero-elektro.jpg";
@@ -367,11 +369,11 @@ const sortiment = [
 ];
 
 const stats = [
-  { num: "17+", label: "Rokov skúseností" },
-  { num: "52 kV", label: "Revízie do napätia" },
-  { num: "ISO", label: "Certifikát 9001" },
-  { num: "2", label: "Predajne v Prievidzi" },
-  { num: "SSD", label: "Zmluvný partner" },
+  { icon: CalendarDays, text: "17+ rokov" },
+  { icon: Zap, text: "52 kV" },
+  { icon: ShieldCheck, text: "ISO 9001" },
+  { icon: MapPin, text: "2 predajne" },
+  { icon: Handshake, text: "SSD partner" },
 ];
 
 const OWNER_PHONE = "0918 812 027";
@@ -527,42 +529,65 @@ function Index() {
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"
         />
-        <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
-            <span className="text-primary">M</span>eranie · <span className="text-primary">L</span>okalizácia ·{" "}
-            <span className="text-primary">M</span>ontáž
-          </p>
-          <h1 className="mt-7 max-w-[16ch] text-5xl uppercase italic leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
-            Napätie, ktoré{" "}
-            <span className="relative inline-block text-primary">
-              nesklame
-              <span
-                aria-hidden
-                className="absolute -bottom-1 left-0 h-[6px] w-full bg-primary/25 [clip-path:polygon(0_60%,100%_0,100%_100%,0%_100%)]"
-              />
-            </span>
-          </h1>
-          <p className="mt-7 max-w-xl text-lg text-muted-foreground">
-            Elektroinštalačný materiál, svietidlá a profi náradie, prenájom bágrov, UNC, plošín a elektrocentrál —
-            k tomu odborné revízie a merania do 52 kV, lokalizácia porúch aj fotovoltika. Prievidza od roku 2007.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href="#kontakt"
-              className="btn-shine rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
-            >
-              Nezáväzná ponuka
-            </a>
-            <a
-              href="#revizie"
-              className="rounded-full border-2 border-foreground px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-foreground hover:text-background"
-            >
-              Objednať revíziu →
-            </a>
-          </div>
+        <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28 lg:py-32">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl font-extrabold uppercase italic leading-[0.95] tracking-tight md:text-6xl lg:text-7xl">
+                Elektroinštalácie, revízie a prenájom techniky
+              </h1>
+              <p className="mt-4 text-xl font-medium italic text-primary md:text-2xl">
+                Napätie, ktoré nesklame
+              </p>
+              <p className="mt-6 max-w-xl text-sm font-mono font-semibold uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
+                Od roku 2007 · Revízie do 52 kV · Fotovoltika · Prenájom bágrov, plošín a elektrocentrál · Zmluvný
+                partner SSD
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-2 md:flex-nowrap">
+                {stats.map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <div
+                      key={s.text}
+                      className="flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1.5"
+                    >
+                      <Icon className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
+                      <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-foreground">
+                        {s.text}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+                <a
+                  href="#revizie"
+                  className="btn-shine rounded-full bg-primary px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
+                >
+                  Revízie
+                </a>
+                <a
+                  href="#prenajom"
+                  className="rounded-full border-2 border-foreground px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] transition-colors hover:bg-foreground hover:text-background"
+                >
+                  Prenájom
+                </a>
+                <a
+                  href="#montaze"
+                  className="rounded-full border border-border bg-card px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-primary/50 hover:bg-secondary"
+                >
+                  Fotovoltika
+                </a>
+                <a
+                  href="#kontakt"
+                  className="rounded-full border border-border bg-card px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-primary/50 hover:bg-secondary"
+                >
+                  Kontakt
+                </a>
+              </div>
             </div>
+
             <div className="frame-brand relative overflow-hidden shadow-[0_30px_70px_-40px_color-mix(in_oklab,var(--brand-red)_75%,transparent)]">
               <img
                 src={heroImage}
@@ -576,34 +601,14 @@ function Index() {
                 className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-foreground/40 via-transparent to-primary/15"
               />
               <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-xl bg-background/92 px-4 py-2.5 shadow-lg backdrop-blur">
-                <img
-                  src={logo}
-                  alt="ELEKTRO-MLM"
-                  width={160}
-                  height={80}
-                  className="h-7 w-auto md:h-8"
-                />
+                <img src={logo} alt="ELEKTRO-MLM" width={160} height={80} className="h-7 w-auto md:h-8" />
                 <span className="hidden font-mono text-[0.6rem] font-semibold uppercase leading-tight tracking-[0.16em] text-muted-foreground sm:block">
                   Revízie · Prenájom
                   <br />
                   Fotovoltika
                 </span>
               </div>
-
             </div>
-          </div>
-          <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-5">
-
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 80} className={i === stats.length - 1 ? "col-span-2 md:col-span-1" : ""}>
-                <div className="card-lift h-full rounded-xl border border-border bg-secondary px-5 py-4">
-                  <div className="font-mono text-2xl font-bold leading-none text-primary">{s.num}</div>
-                  <div className="mt-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
-                    {s.label}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
