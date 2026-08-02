@@ -26,14 +26,14 @@ import heroImage from "@/assets/hero-elektro.jpg";
 
 import excavator from "@/assets/excavator.png.asset.json";
 import skidSteer from "@/assets/skid_steer.webp";
-import boomLift from "@/assets/boom_lift.webp";
-import generator from "@/assets/generator.webp";
+import boomLift from "@/assets/boom_lift.png";
+import generator from "@/assets/generator.png";
 import drillPhoto from "@/assets/drill.webp";
 import makitaPhoto from "@/assets/makita.webp";
 import knipexPhoto from "@/assets/knipex_tools.webp";
 import distributionBoxPhoto from "@/assets/rozvadzac.webp";
 import materialPhoto from "@/assets/material.webp";
-import bleskozvodPhoto from "@/assets/bleskozvod.webp";
+import bleskozvodPhoto from "@/assets/bleskozvod.png";
 
 
 const LOCAL_BUSINESS_JSONLD = {
