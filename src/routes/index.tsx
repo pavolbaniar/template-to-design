@@ -304,7 +304,15 @@ const faq = [
   },
 ];
 
-const rentals = [
+type RentalItem = {
+  title: string;
+  slogan: string;
+  desc: string;
+  img?: string;
+  icon?: typeof Truck;
+};
+
+const rentals: RentalItem[] = [
   {
     img: excavator,
     title: "Bágre",
