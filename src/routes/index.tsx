@@ -18,6 +18,9 @@ import {
   CheckCircle2,
   Menu,
   X,
+  Handshake,
+  CalendarDays,
+  Truck,
 } from "lucide-react";
 import logo from "@/assets/mlm-logo.svg";
 import heroImage from "@/assets/hero-elektro.jpg";
@@ -162,7 +165,8 @@ const montazeCategories = [
       "Prípojky NN (nízke napätie)",
       "Projekcia a realizácia VN trafostaníc — zmluvný partner SSD",
       "Rozvádzače a ich osadenie",
-      "Elektroprojekty a dokumentácia",
+      "Projektová dokumentácia elektrického vedenia — NN, VN, VVN aj ZVN",
+      "Návrhy a statické posúdenia podporných bodov líniových stavieb",
       "Poradenská a inžinierska činnosť",
       "Údržba, servis a opravy",
       "Pretlaky pod cestou a chodníkom (rakety Grundomat, Atlas Copco)",
@@ -265,7 +269,7 @@ const revizie = [
   {
     icon: Gauge,
     title: "Účinník cos φ a kvalita siete",
-    desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia a navrhneme kompenzáciu — investícia sa zvyčajne vráti do 12 mesiacov.",
+    desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia a navrhneme kompenzáciu aj dekompenzáciu — vždy na mieru podľa nameraných hodnôt konkrétneho odberu, nie podľa šablóny. Investícia sa zvyčajne vráti do 12 mesiacov.",
   },
 ];
 
@@ -309,9 +313,9 @@ const rentals = [
   },
   {
     img: skidSteer,
-    title: "UNC nakladače",
+    title: "Locust 060",
     slogan: "Sila do úzkych miest",
-    desc: "Kompaktné šmykom riadené nakladače na presun materiálu a úpravy terénu.",
+    desc: "Kompaktný šmykom riadený nakladač na presun materiálu a úpravy terénu.",
   },
   {
     img: boomLift,
@@ -324,6 +328,12 @@ const rentals = [
     title: "Elektrocentrály",
     slogan: "Prúd aj tam, kde nie je zásuvka",
     desc: "Mobilné zdroje energie pre stavby, akcie a záložné napájanie prevádzok.",
+  },
+  {
+    icon: Truck,
+    title: "MAN TGS 41.500 8x6",
+    slogan: "Palfinger PK92002 — ťažký kalibr",
+    desc: "Nákladný hydraulický žeriav pre presun a osadenie ťažkých bremien priamo na stavbe.",
   },
 ];
 
@@ -367,11 +377,11 @@ const sortiment = [
 ];
 
 const stats = [
-  { num: "17+", label: "Rokov skúseností" },
-  { num: "52 kV", label: "Revízie do napätia" },
-  { num: "ISO", label: "Certifikát 9001" },
-  { num: "2", label: "Predajne v Prievidzi" },
-  { num: "SSD", label: "Zmluvný partner" },
+  { icon: CalendarDays, text: "17+ rokov" },
+  { icon: Zap, text: "52 kV" },
+  { icon: ShieldCheck, text: "ISO 9001" },
+  { icon: MapPin, text: "2 predajne" },
+  { icon: Handshake, text: "SSD partner" },
 ];
 
 const OWNER_PHONE = "0918 812 027";
@@ -527,42 +537,65 @@ function Index() {
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"
         />
-        <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
-            <span className="text-primary">M</span>eranie · <span className="text-primary">L</span>okalizácia ·{" "}
-            <span className="text-primary">M</span>ontáž
-          </p>
-          <h1 className="mt-7 max-w-[16ch] text-5xl uppercase italic leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
-            Napätie, ktoré{" "}
-            <span className="relative inline-block text-primary">
-              nesklame
-              <span
-                aria-hidden
-                className="absolute -bottom-1 left-0 h-[6px] w-full bg-primary/25 [clip-path:polygon(0_60%,100%_0,100%_100%,0%_100%)]"
-              />
-            </span>
-          </h1>
-          <p className="mt-7 max-w-xl text-lg text-muted-foreground">
-            Elektroinštalačný materiál, svietidlá a profi náradie, prenájom bágrov, UNC, plošín a elektrocentrál —
-            k tomu odborné revízie a merania do 52 kV, lokalizácia porúch aj fotovoltika. Prievidza od roku 2007.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href="#kontakt"
-              className="btn-shine rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
-            >
-              Nezáväzná ponuka
-            </a>
-            <a
-              href="#revizie"
-              className="rounded-full border-2 border-foreground px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-foreground hover:text-background"
-            >
-              Objednať revíziu →
-            </a>
-          </div>
+        <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28 lg:py-32">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl font-extrabold uppercase italic leading-[0.95] tracking-tight md:text-6xl lg:text-7xl">
+                Elektroinštalácie, revízie a prenájom techniky
+              </h1>
+              <p className="mt-4 text-xl font-medium italic text-primary md:text-2xl">
+                Napätie, ktoré nesklame
+              </p>
+              <p className="mt-6 max-w-xl text-sm font-mono font-semibold uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
+                Od roku 2007 · Revízie do 52 kV · Fotovoltika · Prenájom bágrov, plošín a elektrocentrál · Zmluvný
+                partner SSD
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-2 md:flex-nowrap">
+                {stats.map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <div
+                      key={s.text}
+                      className="flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1.5"
+                    >
+                      <Icon className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
+                      <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-foreground">
+                        {s.text}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+                <a
+                  href="#revizie"
+                  className="btn-shine rounded-full bg-primary px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
+                >
+                  Revízie
+                </a>
+                <a
+                  href="#prenajom"
+                  className="rounded-full border-2 border-foreground px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] transition-colors hover:bg-foreground hover:text-background"
+                >
+                  Prenájom
+                </a>
+                <a
+                  href="#montaze"
+                  className="rounded-full border border-border bg-card px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-primary/50 hover:bg-secondary"
+                >
+                  Fotovoltika
+                </a>
+                <a
+                  href="#kontakt"
+                  className="rounded-full border border-border bg-card px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-primary/50 hover:bg-secondary"
+                >
+                  Kontakt
+                </a>
+              </div>
             </div>
+
             <div className="frame-brand relative overflow-hidden shadow-[0_30px_70px_-40px_color-mix(in_oklab,var(--brand-red)_75%,transparent)]">
               <img
                 src={heroImage}
@@ -576,34 +609,14 @@ function Index() {
                 className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-foreground/40 via-transparent to-primary/15"
               />
               <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-xl bg-background/92 px-4 py-2.5 shadow-lg backdrop-blur">
-                <img
-                  src={logo}
-                  alt="ELEKTRO-MLM"
-                  width={160}
-                  height={80}
-                  className="h-7 w-auto md:h-8"
-                />
+                <img src={logo} alt="ELEKTRO-MLM" width={160} height={80} className="h-7 w-auto md:h-8" />
                 <span className="hidden font-mono text-[0.6rem] font-semibold uppercase leading-tight tracking-[0.16em] text-muted-foreground sm:block">
                   Revízie · Prenájom
                   <br />
                   Fotovoltika
                 </span>
               </div>
-
             </div>
-          </div>
-          <div className="mt-14 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-5">
-
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 80} className={i === stats.length - 1 ? "col-span-2 md:col-span-1" : ""}>
-                <div className="card-lift h-full rounded-xl border border-border bg-secondary px-5 py-4">
-                  <div className="font-mono text-2xl font-bold leading-none text-primary">{s.num}</div>
-                  <div className="mt-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
-                    {s.label}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
@@ -788,13 +801,13 @@ function Index() {
               Prenájom mechanizácie
             </p>
             <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
-              Bágre · UNC · Plošiny · <span className="text-primary">Elektrocentrály</span>
+              Bágre · Locust · Plošiny · <span className="text-primary">Elektrocentrály</span>
             </h2>
             <p className="mt-4 max-w-xl text-muted-foreground">
               Požičiame na deň aj na celú stavbu. Stroje sú pripravené v Prievidzi — stačí zavolať.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {rentals.map((r, i) => (
               <Reveal key={r.title} delay={i * 90} className="h-full">
                 <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
@@ -803,14 +816,20 @@ function Index() {
                       aria-hidden
                       className="pointer-events-none absolute inset-x-8 bottom-4 h-24 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
                     />
-                    <img
-                      src={r.img}
-                      alt={`Prenájom — ${r.title}`}
-                      loading="lazy"
-                      width={1024}
-                      height={1024}
-                      className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
-                    />
+                    {r.img ? (
+                      <img
+                        src={r.img}
+                        alt={`Prenájom — ${r.title}`}
+                        loading="lazy"
+                        width={1024}
+                        height={1024}
+                        className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
+                      />
+                    ) : (
+                      r.icon && (
+                        <r.icon className="relative h-20 w-20 text-primary transition-transform duration-500 group-hover:scale-105" strokeWidth={1.4} />
+                      )
+                    )}
                   </div>
                   <div className="p-6 pt-0">
                     <h3 className="text-2xl uppercase leading-none">{r.title}</h3>
