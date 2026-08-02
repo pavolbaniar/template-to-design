@@ -153,20 +153,40 @@ const nav = [
   { href: "#kontakt", label: "Kontakt" },
 ];
 
-const montaze = [
-  "Elektroinštalácie silnoprúdu",
-  "Slaboprúdové rozvody",
-  "Prípojky NN (nízke napätie)",
-  "Projekcia a realizácia VN trafostaníc — zmluvný partner SSD",
-  "Bleskozvody a uzemnenie",
-  "Vnútorné a vonkajšie osvetlenie",
-  "Elektrické vykurovanie",
-  "Rozvádzače a ich osadenie",
-  "Elektronické zabezpečovacie systémy",
-  "Meranie a regulácia",
-  "Údržba, servis a opravy",
-  "Elektroprojekty a dokumentácia",
-  "Poradenská a inžinierska činnosť",
+const montazeCategories = [
+  {
+    category: "Priemyselné inštalácie",
+    items: [
+      "Elektroinštalácie silnoprúdu",
+      "Slaboprúdové rozvody",
+      "Prípojky NN (nízke napätie)",
+      "Projekcia a realizácia VN trafostaníc — zmluvný partner SSD",
+      "Rozvádzače a ich osadenie",
+      "Elektroprojekty a dokumentácia",
+      "Poradenská a inžinierska činnosť",
+      "Údržba, servis a opravy",
+      "Pretlaky pod cestou a chodníkom (rakety Grundomat, Atlas Copco)",
+    ],
+  },
+  {
+    category: "Domáce a inteligentné inštalácie",
+    items: [
+      "Vnútorné a vonkajšie osvetlenie",
+      "Elektrické vykurovanie",
+      "Bleskozvody a uzemnenie",
+      "Inteligentné (smart) domácnosti",
+      "Meranie a regulácia",
+    ],
+  },
+  {
+    category: "Zabezpečovacie a kamerové systémy",
+    items: [
+      "Kamerové systémy (CCTV)",
+      "EZS — elektronický zabezpečovací systém",
+      "EPS — elektrická požiarna signalizácia",
+      "HSP — hlasová signalizácia požiaru",
+    ],
+  },
 ];
 
 const preco = [
@@ -741,7 +761,8 @@ function Index() {
               <div>
                 <h3 className="text-2xl uppercase leading-tight">Fotovoltika na kľúč</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Návrh, montáž, revízna správa aj papierovačky so ZSD — slnko, ktoré sa vám vráti.
+                  Návrh, montáž, revízna správa aj papierovačky so ZSD — vrátane vybavenia dotácie
+                  Zelená domácnostiam. Slnko, ktoré sa vám vráti.
                 </p>
               </div>
             </div>
@@ -894,12 +915,19 @@ function Index() {
               s platnou dokumentáciou.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-            {montaze.map((m, i) => (
-              <Reveal key={m} delay={i * 45}>
-                <div className="flex items-center gap-3 border-b border-border py-3">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" strokeWidth={2.2} />
-                  <span className="text-sm font-medium">{m}</span>
+          <div className="mt-12 space-y-10">
+            {montazeCategories.map((cat, ci) => (
+              <Reveal key={cat.category} delay={ci * 90}>
+                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                  {cat.category}
+                </h3>
+                <div className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {cat.items.map((m) => (
+                    <div key={m} className="flex items-center gap-3 border-b border-border py-3">
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" strokeWidth={2.2} />
+                      <span className="text-sm font-medium">{m}</span>
+                    </div>
+                  ))}
                 </div>
               </Reveal>
             ))}
