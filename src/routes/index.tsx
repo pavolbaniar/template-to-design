@@ -816,7 +816,9 @@ function Index() {
             </p>
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {rentals.map((r, i) => (
+            {rentals.map((r, i) => {
+              const Icon = r.icon;
+              return (
               <Reveal key={r.title} delay={i * 90} className="h-full">
                 <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
                   <div className="relative flex h-44 items-center justify-center overflow-hidden p-4">
@@ -834,8 +836,8 @@ function Index() {
                         className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
                       />
                     ) : (
-                      r.icon && (
-                        <r.icon className="relative h-20 w-20 text-primary transition-transform duration-500 group-hover:scale-105" strokeWidth={1.4} />
+                      Icon && (
+                        <Icon className="relative h-20 w-20 text-primary transition-transform duration-500 group-hover:scale-105" strokeWidth={1.4} />
                       )
                     )}
                   </div>
@@ -846,7 +848,8 @@ function Index() {
                   </div>
                 </article>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-3">
