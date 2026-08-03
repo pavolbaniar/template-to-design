@@ -25,7 +25,8 @@ import {
 import logo from "@/assets/mlm-logo.svg";
 import heroImage from "@/assets/hero-elektro.jpg";
 
-import excavator from "@/assets/excavator.webp";
+import excavator from "@/assets/excavator.png";
+import manCrane from "@/assets/man_crane.png";
 import skidSteer from "@/assets/skid_steer.webp";
 import boomLift from "@/assets/boom_lift.webp";
 import generator from "@/assets/generator.webp";
@@ -130,13 +131,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Revízie a merania do 52 kV, elektroinštalácie a fotovoltika, predaj elektromateriálu a prenájom bágrov, UNC nakladačov, plošín a elektrocentrál. Prievidza od roku 2007.",
+          "Revízie a merania do 52 kV, elektroinštalácie a fotovoltika, predaj elektromateriálu a prenájom bágrov, Locust nakladačov, plošín a elektrocentrál. Prievidza od roku 2007.",
       },
       { property: "og:title", content: "ELEKTRO-MLM Prievidza — napätie, ktoré nesklame" },
       {
         property: "og:description",
         content:
-          "Revízne správy podľa STN, lokalizácia porúch, montáže a fotovoltika. Prenájom bágrov, UNC, plošín a elektrocentrál.",
+          "Revízne správy podľa STN, lokalizácia porúch, montáže a fotovoltika. Prenájom bágrov, Locust, plošín a elektrocentrál.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: logo },
@@ -165,11 +166,19 @@ const montazeCategories = [
       "Prípojky NN (nízke napätie)",
       "Projekcia a realizácia VN trafostaníc — zmluvný partner SSD",
       "Rozvádzače a ich osadenie",
-      "Projektová dokumentácia elektrického vedenia — NN, VN, VVN aj ZVN",
-      "Návrhy a statické posúdenia podporných bodov líniových stavieb",
       "Poradenská a inžinierska činnosť",
       "Údržba, servis a opravy",
       "Pretlaky pod cestou a chodníkom (rakety Grundomat, Atlas Copco)",
+    ],
+  },
+  {
+    category: "Projekty a dokumentácia",
+    items: [
+      "Projektové dokumentácie pre výstavbu elektrických vedení — nn, vn, vvn aj zvn",
+      "Návrhy podporných bodov líniových stavieb (stožiare, konzoly, uchytenia)",
+      "Statické posúdenia podporných bodov a výpočty zaťaženia",
+      "Kompenzácie a dekompenzácie účinníka — návrh na mieru podľa meraní",
+      "Inžiniering a podklady k povoleniam pre stavebný úrad a distribútora",
     ],
   },
   {
@@ -215,7 +224,7 @@ const preco = [
 const referencie = [
   { name: "Priemyselné haly a výrobné prevádzky", text: "NN rozvody, osvetlenie, bleskozvody a elektromontážne práce vrátane východiskových revízií." },
   { name: "Bytové domy a novostavby", text: "Kompletné elektroinštalácie, prípojky NN, rozvádzače a odovzdanie s revíznou správou." },
-  { name: "Stavebné firmy a živnostníci", text: "Dlhodobý prenájom bágrov, UNC nakladačov, plošín a elektrocentrál vrátane dovozu na stavbu." },
+  { name: "Stavebné firmy a živnostníci", text: "Dlhodobý prenájom bágrov, Locust nakladačov, plošín a elektrocentrál vrátane dovozu na stavbu." },
 ];
 
 
@@ -266,7 +275,12 @@ const revizie = [
   {
     icon: Gauge,
     title: "Účinník cos φ a kvalita siete",
-    desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia a navrhneme kompenzáciu aj dekompenzáciu — vždy na mieru podľa nameraných hodnôt konkrétneho odberu, nie podľa šablóny. Investícia sa zvyčajne vráti do 12 mesiacov.",
+    desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia — a presne vieme, kde odchádzajú peniaze.",
+  },
+  {
+    icon: Zap,
+    title: "Kompenzácie a dekompenzácie",
+    desc: "Navrhujeme kompenzáciu aj dekompenzáciu vždy individuálne — na základe reálnych meraní vo vašom odbere. Dostanete presne taký výkon a stupňovanie, aké potrebujete, nič naviac. Bez šablón a bez zbytočnej investície.",
   },
 ];
 
@@ -318,7 +332,7 @@ const rentals: RentalItem[] = [
   },
   {
     img: skidSteer,
-    title: "UNC nakladače",
+    title: "Locust nakladače",
     slogan: "Sila do úzkych miest",
     desc: "Presun materiálu a úpravy terénu.",
   },
@@ -333,6 +347,12 @@ const rentals: RentalItem[] = [
     title: "Elektrocentrály",
     slogan: "Prúd aj tam, kde nie je zásuvka",
     desc: "Mobilné a záložné napájanie.",
+  },
+  {
+    img: manCrane,
+    title: "MAN TGS 41.500 8x6",
+    slogan: "Hydraulická ruka Palfinger PK92002",
+    desc: "Preprava a presná manipulácia s ťažkými bremenami.",
   },
 ];
 
@@ -416,7 +436,7 @@ const ticker = [
   "Fotovoltika na kľúč",
   "Bleskozvody",
   "Prenájom bágrov",
-  "UNC nakladače",
+  "Locust nakladače",
   "Vysokozdvižné plošiny",
   "Elektrocentrály",
   "MAKITA · KNIPEX",
@@ -781,7 +801,8 @@ function Index() {
               Požičiame na deň aj na celú stavbu. Stroje sú pripravené v Prievidzi — stačí zavolať.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+
             {rentals.map((r, i) => (
               <Reveal key={r.title} delay={i * 90} className="h-full">
                 <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
