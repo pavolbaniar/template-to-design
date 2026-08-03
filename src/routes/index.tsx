@@ -166,9 +166,18 @@ const montazeCategories = [
       "Projekcia a realizácia VN trafostaníc — zmluvný partner SSD",
       "Rozvádzače a ich osadenie",
       "Poradenská a inžinierska činnosť",
-      "Poradenská a inžinierska činnosť",
       "Údržba, servis a opravy",
       "Pretlaky pod cestou a chodníkom (rakety Grundomat, Atlas Copco)",
+    ],
+  },
+  {
+    category: "Projekty a dokumentácia",
+    items: [
+      "Projektové dokumentácie pre výstavbu elektrických vedení — nn, vn, vvn aj zvn",
+      "Návrhy podporných bodov líniových stavieb (stožiare, konzoly, uchytenia)",
+      "Statické posúdenia podporných bodov a výpočty zaťaženia",
+      "Kompenzácie a dekompenzácie účinníka — návrh na mieru podľa meraní",
+      "Inžiniering a podklady k povoleniam pre stavebný úrad a distribútora",
     ],
   },
   {
