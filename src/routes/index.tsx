@@ -131,13 +131,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Revízie a merania do 52 kV, elektroinštalácie a fotovoltika, predaj elektromateriálu a prenájom bágrov, UNC nakladačov, plošín a elektrocentrál. Prievidza od roku 2007.",
+          "Revízie a merania do 52 kV, elektroinštalácie a fotovoltika, predaj elektromateriálu a prenájom bágrov, Locust nakladačov, plošín a elektrocentrál. Prievidza od roku 2007.",
       },
       { property: "og:title", content: "ELEKTRO-MLM Prievidza — napätie, ktoré nesklame" },
       {
         property: "og:description",
         content:
-          "Revízne správy podľa STN, lokalizácia porúch, montáže a fotovoltika. Prenájom bágrov, UNC, plošín a elektrocentrál.",
+          "Revízne správy podľa STN, lokalizácia porúch, montáže a fotovoltika. Prenájom bágrov, Locust, plošín a elektrocentrál.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: logo },
@@ -224,7 +224,7 @@ const preco = [
 const referencie = [
   { name: "Priemyselné haly a výrobné prevádzky", text: "NN rozvody, osvetlenie, bleskozvody a elektromontážne práce vrátane východiskových revízií." },
   { name: "Bytové domy a novostavby", text: "Kompletné elektroinštalácie, prípojky NN, rozvádzače a odovzdanie s revíznou správou." },
-  { name: "Stavebné firmy a živnostníci", text: "Dlhodobý prenájom bágrov, UNC nakladačov, plošín a elektrocentrál vrátane dovozu na stavbu." },
+  { name: "Stavebné firmy a živnostníci", text: "Dlhodobý prenájom bágrov, Locust nakladačov, plošín a elektrocentrál vrátane dovozu na stavbu." },
 ];
 
 
@@ -436,7 +436,7 @@ const ticker = [
   "Fotovoltika na kľúč",
   "Bleskozvody",
   "Prenájom bágrov",
-  "UNC nakladače",
+  "Locust nakladače",
   "Vysokozdvižné plošiny",
   "Elektrocentrály",
   "MAKITA · KNIPEX",
