@@ -801,7 +801,8 @@ function Index() {
               Požičiame na deň aj na celú stavbu. Stroje sú pripravené v Prievidzi — stačí zavolať.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+
             {rentals.map((r, i) => (
               <Reveal key={r.title} delay={i * 90} className="h-full">
                 <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
