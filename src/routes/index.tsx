@@ -25,7 +25,8 @@ import {
 import logo from "@/assets/mlm-logo.svg";
 import heroImage from "@/assets/hero-elektro.jpg";
 
-import excavator from "@/assets/excavator.webp";
+import excavator from "@/assets/excavator.png";
+import manCrane from "@/assets/man_crane.png";
 import skidSteer from "@/assets/skid_steer.webp";
 import boomLift from "@/assets/boom_lift.webp";
 import generator from "@/assets/generator.webp";
