@@ -456,7 +456,6 @@ function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; 
 
 function Index() {
   const [open, setOpen] = useState(false);
-  const [openSortiment, setOpenSortiment] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const [form, setForm] = useState({
