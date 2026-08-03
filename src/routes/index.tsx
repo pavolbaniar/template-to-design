@@ -274,7 +274,12 @@ const revizie = [
   {
     icon: Gauge,
     title: "Účinník cos φ a kvalita siete",
-    desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia a navrhneme kompenzáciu aj dekompenzáciu — vždy na mieru podľa nameraných hodnôt konkrétneho odberu, nie podľa šablóny. Investícia sa zvyčajne vráti do 12 mesiacov.",
+    desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia — a presne vieme, kde odchádzajú peniaze.",
+  },
+  {
+    icon: Zap,
+    title: "Kompenzácie a dekompenzácie",
+    desc: "Navrhujeme kompenzáciu aj dekompenzáciu vždy individuálne — na základe reálnych meraní vo vašom odbere. Dostanete presne taký výkon a stupňovanie, aké potrebujete, nič naviac. Bez šablón a bez zbytočnej investície.",
   },
 ];
 
