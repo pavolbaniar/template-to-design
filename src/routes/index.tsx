@@ -332,7 +332,7 @@ const rentals: RentalItem[] = [
   },
   {
     img: skidSteer,
-    title: "UNC nakladače",
+    title: "Locust nakladače",
     slogan: "Sila do úzkych miest",
     desc: "Presun materiálu a úpravy terénu.",
   },
@@ -347,6 +347,12 @@ const rentals: RentalItem[] = [
     title: "Elektrocentrály",
     slogan: "Prúd aj tam, kde nie je zásuvka",
     desc: "Mobilné a záložné napájanie.",
+  },
+  {
+    img: manCrane,
+    title: "MAN TGS 41.500 8x6",
+    slogan: "Hydraulická ruka Palfinger PK92002",
+    desc: "Preprava a presná manipulácia s ťažkými bremenami.",
   },
 ];
 
