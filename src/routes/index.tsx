@@ -223,36 +223,33 @@ const strip = [
   {
     icon: ClipboardCheck,
     label: "Revízie & merania",
-    desc: "Revízne správy podľa STN 33 1500 — do 52 kV.",
-    points: ["Odborné prehliadky a skúšky", "Termovízia a kvalita siete", "Meranie cos φ"],
+    points: ["Revízne správy do 52 kV", "Termovízia", "Kvalita siete a cos φ"],
     href: "#revizie",
-    cta: "Zistiť viac o revíziách",
+    cta: "Revízie",
   },
   {
     icon: Radar,
     label: "Lokalizácia porúch",
-    desc: "Nájdeme skrat či prerušený kábel na desiatky centimetrov.",
-    points: ["Bez zbytočného kopania", "Zemné aj vnútorné rozvody", "Výjazd po dohode"],
+    points: ["Presnosť na centimetre", "Bez zbytočného kopania", "Výjazd po dohode"],
     href: "#kontakt",
     cta: "Nahlásiť poruchu",
   },
   {
     icon: Wrench,
     label: "Montáže & fotovoltika",
-    desc: "Inštalácie bez obmedzenia napätia, na kľúč.",
-    points: ["Rozvádzače na mieru", "Bleskozvody a prípojky NN", "FVE vrátane dokumentácie"],
+    points: ["Elektroinštalácie na kľúč", "Bleskozvody a rozvádzače", "FVE s dokumentáciou"],
     href: "#montaze",
-    cta: "Pozrieť montáže",
+    cta: "Montáže",
   },
   {
     icon: ShoppingBag,
     label: "Predaj & prenájom",
-    desc: "Dve predajne v Prievidzi + technika na stavbu.",
-    points: ["Elektromateriál a svietidlá", "MAKITA a KNIPEX", "Bágre, UNC, plošiny, centrály"],
+    points: ["2 predajne v Prievidzi", "MAKITA · KNIPEX", "Bágre, plošiny, centrály"],
     href: "#prenajom",
     cta: "Predaj a prenájom",
   },
 ];
+
 
 
 const revizie = [
@@ -317,72 +314,68 @@ const rentals: RentalItem[] = [
     img: excavator,
     title: "Bágre",
     slogan: "Kopeme presne tam, kde treba",
-    desc: "Výkopové a zemné práce pre prípojky, stavby aj terénne úpravy.",
+    desc: "Výkopy pre prípojky, stavby a terénne úpravy.",
   },
   {
     img: skidSteer,
-    title: "Locust 060",
+    title: "UNC nakladače",
     slogan: "Sila do úzkych miest",
-    desc: "Kompaktný šmykom riadený nakladač na presun materiálu a úpravy terénu.",
+    desc: "Presun materiálu a úpravy terénu.",
   },
   {
     img: boomLift,
     title: "Plošiny",
     slogan: "Bezpečne aj tam, kde rebrík nestačí",
-    desc: "Vysokozdvižné plošiny na montáže, osvetlenie a prácu vo výškach.",
+    desc: "Montáže a práca vo výškach.",
   },
   {
     img: generator,
     title: "Elektrocentrály",
     slogan: "Prúd aj tam, kde nie je zásuvka",
-    desc: "Mobilné zdroje energie pre stavby, akcie a záložné napájanie prevádzok.",
-  },
-  {
-    icon: Truck,
-    title: "MAN TGS 41.500 8x6",
-    slogan: "Palfinger PK92002 — ťažký kalibr",
-    desc: "Nákladný hydraulický žeriav pre presun a osadenie ťažkých bremien priamo na stavbe.",
+    desc: "Mobilné a záložné napájanie.",
   },
 ];
+
 
 const sortiment = [
   {
     img: materialPhoto,
     title: "Elektroinštalačný materiál",
-    tags: "Káble · Ističe · Zásuvky · Bleskozvody",
-    desc: "Od vypínača a kábla cez ističe, DIN lišty a skrutky až po sadrokartónové príchytky a PU penu — nájdete u nás naozaj všetko, čo elektroinštalácia potrebuje.",
+    tags: "Káble · Ističe · Zásuvky",
+    desc: "Všetko pre elektroinštaláciu na jednom mieste.",
   },
   {
     img: drillPhoto,
-    title: "Svietidlá a LED osvetlenie",
+    title: "Svietidlá a LED",
     tags: "Interiér · Exteriér · Priemysel",
-    desc: "Máme celý rad svietidiel pre interiér aj exteriér a radi vám poradíme, aby ste si vybrali presne to, s čím budete spokojní.",
+    desc: "Široký výber svietidiel vrátane poradenstva.",
   },
   {
     img: makitaPhoto,
     title: "Náradie MAKITA",
-    tags: "Akumulátorové · Sieťové · Príslušenstvo",
-    desc: "Široký výber akumulátorového aj sieťového náradia MAKITA a príslušenstva pre profesionálov aj domácich majstrov.",
+    tags: "Aku · Sieťové · Príslušenstvo",
+    desc: "Profesionálne náradie a príslušenstvo MAKITA.",
   },
   {
     img: knipexPhoto,
-    title: "KNIPEX a profi náradie",
-    tags: "Kvalita · Spoľahlivosť · Odolnosť",
-    desc: "Kliešte, cvakačky, štiepačky a ďalšie profesionálne náradie KNIPEX — a omnoho viac.",
+    title: "KNIPEX náradie",
+    tags: "Kvalita · Odolnosť",
+    desc: "Kliešte, štiepačky a profi ručné náradie.",
   },
   {
     img: distributionBoxPhoto,
     title: "Rozvádzače na mieru",
-    tags: "Certifikácia · Výroba na mieru",
-    desc: "Rozvádzače vyrábame s certifikáciou, na mieru podľa projektu aj podľa vašich vlastných požiadaviek.",
+    tags: "Certifikácia · Výroba",
+    desc: "Výroba podľa projektu, s certifikáciou.",
   },
   {
     img: bleskozvodPhoto,
     title: "Bleskozvodná technika",
     tags: "Materiál · Projekt · Revízia",
-    desc: "Búrka sa nepýta. Poradíme, navrhneme aj namontujeme ochranu na mieru vašej strechy — od zvodov a svoriek až po uzemnenie a revíznu správu na konci.",
+    desc: "Ochrana strechy od zvodov po revíznu správu.",
   },
 ];
+
 
 const stats = [
   { icon: CalendarDays, text: "17+ rokov" },
@@ -463,7 +456,6 @@ function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; 
 
 function Index() {
   const [open, setOpen] = useState(false);
-  const [openSortiment, setOpenSortiment] = useState<number | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const [form, setForm] = useState({
@@ -661,48 +653,48 @@ function Index() {
             </h2>
           </Reveal>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {strip.map((s, i) => {
               const Icon = s.icon;
               return (
                 <Reveal key={s.label} delay={i * 90} className="h-full">
-                  <a
-                    href={s.href}
-                    className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-7 transition-colors duration-300 hover:border-primary/50"
-                  >
+                  <div className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-8 transition-colors duration-300 hover:border-primary/50">
                     <span
                       aria-hidden
                       className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     />
                     <div className="relative flex items-start justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:rotate-3">
-                        <Icon className="h-6 w-6" strokeWidth={1.9} />
+                      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:-translate-y-0.5">
+                        <Icon className="h-7 w-7" strokeWidth={1.9} />
                       </div>
                       <span className="font-mono text-3xl font-semibold leading-none text-muted-foreground/25">
                         0{i + 1}
                       </span>
                     </div>
-                    <h3 className="relative mt-5 text-xl uppercase">{s.label}</h3>
-                    <p className="relative mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                    <ul className="relative mt-4 space-y-1.5">
+                    <h3 className="relative mt-6 text-xl uppercase leading-tight">{s.label}</h3>
+                    <ul className="relative mt-4 space-y-2">
                       {s.points.map((p) => (
-                        <li key={p} className="flex items-start gap-2 text-sm text-foreground/85">
+                        <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">
                           <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2} />
                           {p}
                         </li>
                       ))}
                     </ul>
-                    <span className="relative mt-6 inline-flex items-center gap-2 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                    <a
+                      href={s.href}
+                      className="btn-shine relative mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-brand-dark"
+                    >
                       {s.cta}
                       <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
                         →
                       </span>
-                    </span>
-                  </a>
+                    </a>
+                  </div>
                 </Reveal>
               );
             })}
           </div>
+
         </div>
       </section>
 
@@ -718,59 +710,33 @@ function Index() {
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {sortiment.map((c, i) => {
-            const isOpen = openSortiment === i;
-            return (
-              <Reveal key={c.title} delay={i * 90} className="h-full">
-                <article className="card-lift h-full overflow-hidden rounded-2xl border border-border bg-card">
-                  <button
-                    type="button"
-                    onClick={() => setOpenSortiment(isOpen ? null : i)}
-                    aria-expanded={isOpen}
-                    className="group flex w-full flex-col text-left"
-                  >
-                    <div className="relative flex h-40 items-center justify-center overflow-hidden bg-secondary p-5">
-                      <span
-                        aria-hidden
-                        className="pointer-events-none absolute inset-x-6 bottom-2 h-14 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
-                      />
-                      <img
-                        src={c.img}
-                        alt={c.title}
-                        loading="lazy"
-                        width={800}
-                        height={800}
-                        className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_8px_10px_color-mix(in_oklab,var(--foreground)_18%,transparent))]"
-                      />
-                      <span className="absolute bottom-2.5 right-2.5 flex h-6 w-6 items-center justify-center rounded-md bg-background/80 shadow-sm backdrop-blur-sm">
-                        <Zap className="h-3.5 w-3.5 fill-primary text-primary" strokeWidth={2.4} />
-                      </span>
-                    </div>
-                    <div className="p-5">
-                      <div className="flex items-start justify-between gap-3">
-                        <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
-                        <span
-                          aria-hidden
-                          className={`mt-1 shrink-0 font-mono text-lg text-primary transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
-                        >
-                          +
-                        </span>
-                      </div>
-                      <p className="mt-1.5 font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
-                        {c.tags}
-                      </p>
-                      <p
-                        className={`grid text-sm text-muted-foreground transition-all duration-300 ${isOpen ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
-                      >
-                        <span className="overflow-hidden">{c.desc}</span>
-                      </p>
-                    </div>
-                  </button>
-                </article>
-              </Reveal>
-            );
-          })}
+          {sortiment.map((c, i) => (
+            <Reveal key={c.title} delay={i * 80} className="h-full">
+              <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
+                <div className="relative flex h-40 items-center justify-center overflow-hidden bg-secondary p-5">
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-6 bottom-2 h-14 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
+                  />
+                  <img
+                    src={c.img}
+                    alt={c.title}
+                    loading="lazy"
+                    width={800}
+                    height={800}
+                    className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_8px_10px_color-mix(in_oklab,var(--foreground)_18%,transparent))]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col border-t border-border p-6">
+                  <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
+                  <p className="mt-2 font-mono text-[0.68rem] uppercase tracking-widest text-primary">{c.tags}</p>
+                  <p className="mt-3 text-sm text-muted-foreground">{c.desc}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
+
         <Reveal delay={100}>
           <div className="relative mt-6 flex flex-col gap-5 overflow-hidden rounded-2xl border-2 border-primary bg-card p-7 sm:flex-row sm:items-center sm:justify-between">
             <span
@@ -815,42 +781,43 @@ function Index() {
               Požičiame na deň aj na celú stavbu. Stroje sú pripravené v Prievidzi — stačí zavolať.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {rentals.map((r, i) => {
-              const Icon = r.icon;
-              return (
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {rentals.map((r, i) => (
               <Reveal key={r.title} delay={i * 90} className="h-full">
                 <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
-                  <div className="relative flex h-44 items-center justify-center overflow-hidden p-4">
+                  <div className="relative flex h-40 items-center justify-center overflow-hidden bg-secondary/60 p-4">
                     <span
                       aria-hidden
-                      className="pointer-events-none absolute inset-x-8 bottom-4 h-24 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
+                      className="pointer-events-none absolute inset-x-8 bottom-4 h-20 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
                     />
-                    {r.img ? (
-                      <img
-                        src={r.img}
-                        alt={`Prenájom — ${r.title}`}
-                        loading="lazy"
-                        width={1024}
-                        height={1024}
-                        className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
-                      />
-                    ) : (
-                      Icon && (
-                        <Icon className="relative h-20 w-20 text-primary transition-transform duration-500 group-hover:scale-105" strokeWidth={1.4} />
-                      )
-                    )}
+                    <span className="absolute left-3 top-3 font-mono text-[0.7rem] font-semibold text-muted-foreground/40">
+                      0{i + 1}
+                    </span>
+                    <img
+                      src={r.img}
+                      alt={`Prenájom — ${r.title}`}
+                      loading="lazy"
+                      width={1024}
+                      height={1024}
+                      className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
+                    />
                   </div>
-                  <div className="p-6 pt-0">
+                  <div className="flex flex-1 flex-col border-t border-border p-6">
                     <h3 className="text-2xl uppercase leading-none">{r.title}</h3>
                     <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-widest text-primary">{r.slogan}</p>
                     <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+                    <a
+                      href="tel:+421918812027"
+                      className="mt-5 inline-flex items-center gap-2 self-start rounded-full border border-border px-4 py-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] transition-colors hover:border-primary hover:text-primary"
+                    >
+                      <Phone className="h-3.5 w-3.5" /> Dopyt
+                    </a>
                   </div>
                 </article>
               </Reveal>
-              );
-            })}
+            ))}
           </div>
+
 
           <div className="mt-14 grid gap-6 sm:grid-cols-3">
             {[
