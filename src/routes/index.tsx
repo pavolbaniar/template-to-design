@@ -21,6 +21,13 @@ import {
   Handshake,
   CalendarDays,
   Truck,
+  Factory,
+  Home,
+  Camera,
+  FileText,
+  Layers,
+  Timer,
+  Award,
 } from "lucide-react";
 import logo from "@/assets/mlm-logo.svg";
 import heroImage from "@/assets/hero-elektro.jpg";
@@ -160,71 +167,76 @@ const nav = [
 const montazeCategories = [
   {
     category: "Priemyselné inštalácie",
+    icon: Factory,
     items: [
-      "Elektroinštalácie silnoprúdu",
-      "Slaboprúdové rozvody",
-      "Prípojky NN (nízke napätie)",
-      "Projekcia a realizácia VN trafostaníc — zmluvný partner SSD",
-      "Rozvádzače a ich osadenie",
-      "Poradenská a inžinierska činnosť",
+      "Silnoprúd a slaboprúdové rozvody",
+      "Prípojky NN, rozvádzače a osadenie",
+      "VN trafostanice — partner SSD",
       "Údržba, servis a opravy",
-      "Pretlaky pod cestou a chodníkom (rakety Grundomat, Atlas Copco)",
-    ],
-  },
-  {
-    category: "Projekty a dokumentácia",
-    items: [
-      "Projektové dokumentácie pre výstavbu elektrických vedení — nn, vn, vvn aj zvn",
-      "Návrhy podporných bodov líniových stavieb (stožiare, konzoly, uchytenia)",
-      "Statické posúdenia podporných bodov a výpočty zaťaženia",
-      "Kompenzácie a dekompenzácie účinníka — návrh na mieru podľa meraní",
-      "Inžiniering a podklady k povoleniam pre stavebný úrad a distribútora",
+      "Pretlaky pod cestou a chodníkom",
     ],
   },
   {
     category: "Domáce a inteligentné inštalácie",
+    icon: Home,
     items: [
+      "Elektroinštalácie domov a bytov",
       "Vnútorné a vonkajšie osvetlenie",
       "Elektrické vykurovanie",
       "Bleskozvody a uzemnenie",
-      "Inteligentné (smart) domácnosti",
-      "Meranie a regulácia",
+      "Smart domácnosti, meranie a regulácia",
     ],
   },
   {
     category: "Zabezpečovacie a kamerové systémy",
+    icon: Camera,
     items: [
       "Kamerové systémy (CCTV)",
-      "EZS — elektronický zabezpečovací systém",
-      "EPS — elektrická požiarna signalizácia",
+      "EZS — zabezpečovací systém",
+      "EPS — požiarna signalizácia",
       "HSP — hlasová signalizácia požiaru",
+    ],
+  },
+  {
+    category: "Projekty a dokumentácia",
+    icon: FileText,
+    items: [
+      "Projekty vedení nn · vn · vvn · zvn",
+      "Návrhy podporných bodov líniových stavieb",
+      "Statické posúdenia a výpočty zaťaženia",
+      "Kompenzácie a dekompenzácie na mieru",
+      "Inžiniering a povolenia",
     ],
   },
 ];
 
 const preco = [
   {
-    title: "Od roku 2007 na trhu",
-    text: "Domáca prievidzská firma — poznáte nás z predajní, z revízií aj z techniky na stavbách v celom regióne.",
+    icon: CalendarDays,
+    title: "Od roku 2007",
+    text: "Domáca prievidzská firma — poznáte nás z predajní aj zo stavieb v regióne.",
   },
   {
+    icon: Layers,
     title: "Všetko na jednom mieste",
-    text: "Projekt, montáž, revízna správa, materiál aj stroje. Nemusíte volať štyrom firmám — stačí jeden telefonát.",
+    text: "Projekt, montáž, revízia, materiál aj stroje. Stačí jeden telefonát.",
   },
   {
+    icon: Award,
     title: "Papiere, ktoré obstoja",
-    text: "Revízne správy podľa platných STN, protokoly z termovízie a meraní — pripravené pre poisťovňu aj kolaudáciu.",
+    text: "Revízne správy podľa STN a protokoly z meraní — pre poisťovňu aj kolaudáciu.",
   },
   {
+    icon: Timer,
     title: "Rýchle termíny",
-    text: "Havária alebo porucha? Ozvite sa — lokalizáciu poruchy riešime prednostne, technika ide na stavbu do 24 hodín.",
+    text: "Poruchy riešime prednostne, technika ide na stavbu do 24 hodín.",
   },
 ];
 
 const referencie = [
-  { name: "Priemyselné haly a výrobné prevádzky", text: "NN rozvody, osvetlenie, bleskozvody a elektromontážne práce vrátane východiskových revízií." },
-  { name: "Bytové domy a novostavby", text: "Kompletné elektroinštalácie, prípojky NN, rozvádzače a odovzdanie s revíznou správou." },
-  { name: "Stavebné firmy a živnostníci", text: "Dlhodobý prenájom bágrov, Locust nakladačov, plošín a elektrocentrál vrátane dovozu na stavbu." },
+  { name: "Priemyselné haly a prevádzky", text: "NN rozvody, osvetlenie, bleskozvody a východiskové revízie." },
+  { name: "Bytové domy a novostavby", text: "Elektroinštalácie, prípojky NN, rozvádzače a revízna správa." },
+  { name: "Stavebné firmy a živnostníci", text: "Prenájom bágrov, Locust, plošín a elektrocentrál s dovozom." },
 ];
 
 
@@ -265,22 +277,22 @@ const revizie = [
   {
     icon: ShieldCheck,
     title: "Odborné prehliadky a skúšky do 52 kV",
-    desc: "Byty, haly, sklady, priestory s nebezpečenstvom výbuchu aj bleskozvody. Výsledkom je revízna správa podľa STN 33 1500 — bez nej zariadenie legálne neprevádzkujete.",
+    desc: "Byty, haly, sklady aj bleskozvody. Revízna správa podľa STN 33 1500.",
   },
   {
     icon: Thermometer,
     title: "Termovízne merania",
-    desc: "Prehriaty spoj, preťažený istič či chybná izolácia sa odhalia skôr, než spôsobia požiar. Meriame počas plnej prevádzky, bez vypínania a prestojov.",
+    desc: "Odhalíme prehriate spoje a chybnú izoláciu — počas plnej prevádzky.",
   },
   {
     icon: Gauge,
     title: "Účinník cos φ a kvalita siete",
-    desc: "Platíte za jalový výkon? Zmeriame účinník, harmonické skreslenie a výkyvy napätia — a presne vieme, kde odchádzajú peniaze.",
+    desc: "Meranie účinníka, harmonických a výkyvov napätia. Vieme, kde miznú peniaze.",
   },
   {
     icon: Zap,
     title: "Kompenzácie a dekompenzácie",
-    desc: "Navrhujeme kompenzáciu aj dekompenzáciu vždy individuálne — na základe reálnych meraní vo vašom odbere. Dostanete presne taký výkon a stupňovanie, aké potrebujete, nič naviac. Bez šablón a bez zbytočnej investície.",
+    desc: "Návrh vždy na mieru podľa reálnych meraní vo vašom odbere.",
   },
 ];
 
@@ -887,17 +899,17 @@ function Index() {
             Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {revizie.map((r, i) => {
             const Icon = r.icon;
             return (
-              <Reveal key={r.title} delay={i * 110} className="h-full">
-                <article className="card-lift frame-brand h-full p-7">
+              <Reveal key={r.title} delay={i * 90} className="h-full">
+                <article className="card-lift flex h-full flex-col rounded-2xl border border-border bg-card p-7">
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
                     <Icon className="h-7 w-7" strokeWidth={1.8} />
                   </div>
-                  <h3 className="mt-5 text-2xl uppercase leading-tight">{r.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+                  <h3 className="mt-6 text-lg font-semibold uppercase leading-tight">{r.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
                 </article>
               </Reveal>
             );
@@ -928,27 +940,34 @@ function Index() {
               Od projektu po <span className="text-primary">revíznu správu</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Robíme kompletné elektroinštalačné práce a všetko, čo s nimi súvisí — pre rodinné domy,
-              bytovky, firmy aj priemyselné haly. Navrhneme, namontujeme, odskúšame a odovzdáme
-              s platnou dokumentáciou.
+              Navrhneme, namontujeme, odskúšame a odovzdáme s platnou dokumentáciou — pre domy,
+              bytovky, firmy aj priemyselné haly.
             </p>
           </Reveal>
-          <div className="mt-12 space-y-10">
-            {montazeCategories.map((cat, ci) => (
-              <Reveal key={cat.category} delay={ci * 90}>
-                <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                  {cat.category}
-                </h3>
-                <div className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {cat.items.map((m) => (
-                    <div key={m} className="flex items-center gap-3 border-b border-border py-3">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" strokeWidth={2.2} />
-                      <span className="text-sm font-medium">{m}</span>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            {montazeCategories.map((cat, ci) => {
+              const Icon = cat.icon;
+              return (
+                <Reveal key={cat.category} delay={ci * 90} className="h-full">
+                  <article className="card-lift flex h-full flex-col rounded-2xl border border-border bg-card p-7 md:p-8">
+                    <div className="flex items-center gap-4">
+                      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25">
+                        <Icon className="h-6 w-6" strokeWidth={1.8} />
+                      </span>
+                      <h3 className="text-lg font-semibold uppercase leading-tight">{cat.category}</h3>
                     </div>
-                  ))}
-                </div>
-              </Reveal>
-            ))}
+                    <ul className="mt-6 space-y-3">
+                      {cat.items.map((m) => (
+                        <li key={m} className="flex items-start gap-3">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.4} />
+                          <span className="text-sm text-muted-foreground">{m}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -963,15 +982,21 @@ function Index() {
             Sme tu pre vás — <span className="text-primary">bez zbytočných rečí</span>
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {preco.map((p, i) => (
-            <Reveal key={p.title} delay={i * 80} className="h-full">
-              <article className="frame-brand card-lift h-full rounded-2xl bg-card p-7">
-                <h3 className="text-xl uppercase leading-tight">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.text}</p>
-              </article>
-            </Reveal>
-          ))}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {preco.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <Reveal key={p.title} delay={i * 80} className="h-full">
+                <article className="card-lift flex h-full flex-col rounded-2xl border border-border bg-card p-7">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25">
+                    <Icon className="h-6 w-6" strokeWidth={1.8} />
+                  </span>
+                  <h3 className="mt-6 text-lg font-semibold uppercase leading-tight">{p.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal delay={60}>
