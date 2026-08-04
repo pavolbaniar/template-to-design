@@ -628,19 +628,23 @@ function Index() {
               </div>
             </div>
 
-            <div className="frame-brand relative overflow-hidden shadow-[0_30px_70px_-40px_color-mix(in_oklab,var(--brand-red)_75%,transparent)]">
+            <div className="frame-brand relative overflow-hidden rounded-2xl bg-gradient-to-br from-muted via-background to-secondary shadow-[0_30px_70px_-40px_color-mix(in_oklab,var(--brand-red)_75%,transparent)]">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 [background-image:radial-gradient(color-mix(in_oklab,var(--foreground)_6%,transparent)_1px,transparent_1px)] [background-size:24px_24px] opacity-40"
+              />
               <img
-                src={heroImage}
-                alt="Mini báger, rozvádzače a fotovoltické panely — ELEKTRO-MLM Prievidza"
+                src={manCrane}
+                alt="MAN TGS 41.500 8x6 s rukou Palfinger PK92002 — prenájom techniky Prievidza"
                 width={1600}
                 height={1008}
-                className="h-full w-full rounded-2xl object-cover"
+                className="relative z-10 h-full w-full rounded-2xl object-contain p-4 md:p-6"
               />
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-foreground/40 via-transparent to-primary/15"
+                className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-foreground/20 via-transparent to-primary/10"
               />
-              <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-xl bg-background/92 px-4 py-2.5 shadow-lg backdrop-blur">
+              <div className="absolute bottom-4 left-4 z-20 flex items-center gap-3 rounded-xl bg-background/92 px-4 py-2.5 shadow-lg backdrop-blur">
                 <img src={logo} alt="ELEKTRO-MLM" width={160} height={80} className="h-7 w-auto md:h-8" />
                 <span className="hidden font-mono text-[0.6rem] font-semibold uppercase leading-tight tracking-[0.16em] text-muted-foreground sm:block">
                   Revízie · Prenájom
