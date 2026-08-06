@@ -961,9 +961,10 @@ function Index() {
               Od projektu po <span className="text-primary">revíznu správu</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Navrhneme, namontujeme, odskúšame a odovzdáme s platnou dokumentáciou — pre domy,
-              bytovky, firmy aj priemyselné haly.
+              Navrhneme, namontujeme, odskúšame a odovzdáme s platnou dokumentáciou — od bytu
+              a rodinného domu až po priemyselnú halu a trafostanicu.
             </p>
+
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {montazeCategories.map((cat, ci) => {
