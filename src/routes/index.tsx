@@ -42,7 +42,7 @@ import makitaPhoto from "@/assets/makita.webp";
 import knipexPhoto from "@/assets/knipex_tools.webp";
 import distributionBoxPhoto from "@/assets/rozvadzac.webp";
 import materialPhoto from "@/assets/material.webp";
-import bleskozvodPhoto from "@/assets/bleskozvod.webp";
+import bleskozvodPhoto from "@/assets/bleskozvod.png";
 
 
 const LOCAL_BUSINESS_JSONLD = {
