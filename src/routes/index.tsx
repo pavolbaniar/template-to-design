@@ -276,25 +276,26 @@ const strip = [
 const revizie = [
   {
     icon: ShieldCheck,
-    title: "Odborné prehliadky a skúšky do 52 kV",
-    desc: "Byty, haly, sklady aj bleskozvody. Revízna správa podľa STN 33 1500.",
+    title: "Prehliadky a skúšky do 52 kV",
+    desc: "Byty, haly, sklady, bleskozvody, FVE. Výstupom je revízna správa podľa STN 33 1500.",
   },
   {
     icon: Thermometer,
     title: "Termovízne merania",
-    desc: "Odhalíme prehriate spoje a chybnú izoláciu — počas plnej prevádzky.",
+    desc: "Prehriate spoje a chybnú izoláciu nájdeme počas plnej prevádzky, bez odstávky.",
   },
   {
     icon: Gauge,
-    title: "Účinník cos φ a kvalita siete",
-    desc: "Meranie účinníka, harmonických a výkyvov napätia. Vieme, kde miznú peniaze.",
+    title: "Kvalita siete a cos φ",
+    desc: "Meranie účinníka, harmonických a výkyvov napätia s protokolom a odporúčaniami.",
   },
   {
     icon: Zap,
     title: "Kompenzácie a dekompenzácie",
-    desc: "Návrh vždy na mieru podľa reálnych meraní vo vašom odbere.",
+    desc: "Návrh rozvádzača na mieru podľa reálnych meraní vášho odberu.",
   },
 ];
+
 
 const faq = [
   {
