@@ -169,30 +169,30 @@ const montazeCategories = [
     category: "Priemyselné inštalácie",
     icon: Factory,
     items: [
-      "Silnoprúd a slaboprúdové rozvody",
-      "Prípojky NN, rozvádzače a osadenie",
+      "Silnoprúd a slaboprúd",
+      "Prípojky NN a rozvádzače",
       "VN trafostanice — partner SSD",
-      "Údržba, servis a opravy",
-      "Pretlaky pod cestou a chodníkom",
+      "Údržba a servis prevádzok",
+      "Pretlaky pod cestou",
     ],
   },
   {
     category: "Domáce a inteligentné inštalácie",
     icon: Home,
     items: [
-      "Elektroinštalácie domov a bytov",
+      "Domy, byty, novostavby",
       "Vnútorné a vonkajšie osvetlenie",
       "Elektrické vykurovanie",
       "Bleskozvody a uzemnenie",
-      "Smart domácnosti, meranie a regulácia",
+      "Smart riadenie, meranie a regulácia",
     ],
   },
   {
     category: "Zabezpečovacie a kamerové systémy",
     icon: Camera,
     items: [
-      "Kamerové systémy (CCTV)",
-      "EZS — zabezpečovací systém",
+      "Kamerové systémy CCTV",
+      "EZS — zabezpečovacia signalizácia",
       "EPS — požiarna signalizácia",
       "HSP — hlasová signalizácia požiaru",
     ],
@@ -202,10 +202,10 @@ const montazeCategories = [
     icon: FileText,
     items: [
       "Projekty vedení nn · vn · vvn · zvn",
-      "Návrhy podporných bodov líniových stavieb",
-      "Statické posúdenia a výpočty zaťaženia",
-      "Kompenzácie a dekompenzácie na mieru",
-      "Inžiniering a povolenia",
+      "Návrhy podporných bodov",
+      "Statické posúdenia a výpočty",
+      "Fotovoltika na kľúč vrátane povolení",
+      "Inžiniering a komunikácia s úradmi",
     ],
   },
 ];
@@ -213,31 +213,41 @@ const montazeCategories = [
 const preco = [
   {
     icon: CalendarDays,
-    title: "Od roku 2007",
-    text: "Domáca prievidzská firma — poznáte nás z predajní aj zo stavieb v regióne.",
+    title: "Domáca firma z Prievidze",
+    text: "Od roku 2007 v regióne. Poznáte nás z predajní aj zo stavieb v okolí.",
   },
   {
     icon: Layers,
-    title: "Všetko na jednom mieste",
-    text: "Projekt, montáž, revízia, materiál aj stroje. Stačí jeden telefonát.",
+    title: "Jeden dodávateľ",
+    text: "Projekt, montáž, revízia, materiál aj technika — bez koordinovania piatich firiem.",
   },
   {
     icon: Award,
-    title: "Papiere, ktoré obstoja",
-    text: "Revízne správy podľa STN a protokoly z meraní — pre poisťovňu aj kolaudáciu.",
+    title: "Oprávnenia a kvalita",
+    text: "ISO 9001, zmluvný partner SSD a oprávnení revízni technici pre nn aj vn.",
   },
   {
     icon: Timer,
-    title: "Rýchle termíny",
-    text: "Poruchy riešime prednostne, technika ide na stavbu do 24 hodín.",
+    title: "Reagujeme rýchlo",
+    text: "Poruchy riešime prednostne, techniku dovezieme na stavbu spravidla do 24 hodín.",
   },
 ];
 
 const referencie = [
-  { name: "Priemyselné haly a prevádzky", text: "NN rozvody, osvetlenie, bleskozvody a východiskové revízie." },
-  { name: "Bytové domy a novostavby", text: "Elektroinštalácie, prípojky NN, rozvádzače a revízna správa." },
-  { name: "Stavebné firmy a živnostníci", text: "Prenájom bágrov, Locust, plošín a elektrocentrál s dovozom." },
+  {
+    name: "Priemysel a výrobné haly",
+    text: "Trafostanice, rozvody NN, priemyselné osvetlenie a periodické revízie počas prevádzky.",
+  },
+  {
+    name: "Bytové domy a novostavby",
+    text: "Prípojky NN, stúpačky, spoločné priestory, bleskozvod a odovzdanie ku kolaudácii.",
+  },
+  {
+    name: "Stavebné firmy a živnostníci",
+    text: "Bágre, Locust, plošiny, elektrocentrály a MAN s hydraulickou rukou vrátane dovozu.",
+  },
 ];
+
 
 
 const strip = [
@@ -276,25 +286,26 @@ const strip = [
 const revizie = [
   {
     icon: ShieldCheck,
-    title: "Odborné prehliadky a skúšky do 52 kV",
-    desc: "Byty, haly, sklady aj bleskozvody. Revízna správa podľa STN 33 1500.",
+    title: "Prehliadky a skúšky do 52 kV",
+    desc: "Byty, haly, sklady, bleskozvody, FVE. Výstupom je revízna správa podľa STN 33 1500.",
   },
   {
     icon: Thermometer,
     title: "Termovízne merania",
-    desc: "Odhalíme prehriate spoje a chybnú izoláciu — počas plnej prevádzky.",
+    desc: "Prehriate spoje a chybnú izoláciu nájdeme počas plnej prevádzky, bez odstávky.",
   },
   {
     icon: Gauge,
-    title: "Účinník cos φ a kvalita siete",
-    desc: "Meranie účinníka, harmonických a výkyvov napätia. Vieme, kde miznú peniaze.",
+    title: "Kvalita siete a cos φ",
+    desc: "Meranie účinníka, harmonických a výkyvov napätia s protokolom a odporúčaniami.",
   },
   {
     icon: Zap,
     title: "Kompenzácie a dekompenzácie",
-    desc: "Návrh vždy na mieru podľa reálnych meraní vo vašom odbere.",
+    desc: "Návrh rozvádzača na mieru podľa reálnych meraní vášho odberu.",
   },
 ];
+
 
 const faq = [
   {
@@ -897,12 +908,18 @@ function Index() {
       <section id="revizie" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
         <Reveal>
           <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-            Robíme revízie — profesionálne
+            Revízie a merania
           </p>
           <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
             Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Oprávnení revízni technici pre nn aj vn. Odmeriame, vyhodnotíme a odovzdáme
+            správu, s ktorou sa dá ďalej pracovať.
+          </p>
         </Reveal>
+
+
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {revizie.map((r, i) => {
             const Icon = r.icon;
@@ -944,9 +961,10 @@ function Index() {
               Od projektu po <span className="text-primary">revíznu správu</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Navrhneme, namontujeme, odskúšame a odovzdáme s platnou dokumentáciou — pre domy,
-              bytovky, firmy aj priemyselné haly.
+              Navrhneme, namontujeme, odskúšame a odovzdáme s platnou dokumentáciou — od bytu
+              a rodinného domu až po priemyselnú halu a trafostanicu.
             </p>
+
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {montazeCategories.map((cat, ci) => {
