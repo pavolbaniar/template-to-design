@@ -169,30 +169,30 @@ const montazeCategories = [
     category: "Priemyselné inštalácie",
     icon: Factory,
     items: [
-      "Silnoprúd a slaboprúdové rozvody",
-      "Prípojky NN, rozvádzače a osadenie",
+      "Silnoprúd a slaboprúd",
+      "Prípojky NN a rozvádzače",
       "VN trafostanice — partner SSD",
-      "Údržba, servis a opravy",
-      "Pretlaky pod cestou a chodníkom",
+      "Údržba a servis prevádzok",
+      "Pretlaky pod cestou",
     ],
   },
   {
     category: "Domáce a inteligentné inštalácie",
     icon: Home,
     items: [
-      "Elektroinštalácie domov a bytov",
+      "Domy, byty, novostavby",
       "Vnútorné a vonkajšie osvetlenie",
       "Elektrické vykurovanie",
       "Bleskozvody a uzemnenie",
-      "Smart domácnosti, meranie a regulácia",
+      "Smart riadenie, meranie a regulácia",
     ],
   },
   {
     category: "Zabezpečovacie a kamerové systémy",
     icon: Camera,
     items: [
-      "Kamerové systémy (CCTV)",
-      "EZS — zabezpečovací systém",
+      "Kamerové systémy CCTV",
+      "EZS — zabezpečovacia signalizácia",
       "EPS — požiarna signalizácia",
       "HSP — hlasová signalizácia požiaru",
     ],
@@ -202,10 +202,10 @@ const montazeCategories = [
     icon: FileText,
     items: [
       "Projekty vedení nn · vn · vvn · zvn",
-      "Návrhy podporných bodov líniových stavieb",
-      "Statické posúdenia a výpočty zaťaženia",
-      "Kompenzácie a dekompenzácie na mieru",
-      "Inžiniering a povolenia",
+      "Návrhy podporných bodov",
+      "Statické posúdenia a výpočty",
+      "Fotovoltika na kľúč vrátane povolení",
+      "Inžiniering a komunikácia s úradmi",
     ],
   },
 ];
@@ -213,31 +213,41 @@ const montazeCategories = [
 const preco = [
   {
     icon: CalendarDays,
-    title: "Od roku 2007",
-    text: "Domáca prievidzská firma — poznáte nás z predajní aj zo stavieb v regióne.",
+    title: "Domáca firma z Prievidze",
+    text: "Od roku 2007 v regióne. Poznáte nás z predajní aj zo stavieb v okolí.",
   },
   {
     icon: Layers,
-    title: "Všetko na jednom mieste",
-    text: "Projekt, montáž, revízia, materiál aj stroje. Stačí jeden telefonát.",
+    title: "Jeden dodávateľ",
+    text: "Projekt, montáž, revízia, materiál aj technika — bez koordinovania piatich firiem.",
   },
   {
     icon: Award,
-    title: "Papiere, ktoré obstoja",
-    text: "Revízne správy podľa STN a protokoly z meraní — pre poisťovňu aj kolaudáciu.",
+    title: "Oprávnenia a kvalita",
+    text: "ISO 9001, zmluvný partner SSD a oprávnení revízni technici pre nn aj vn.",
   },
   {
     icon: Timer,
-    title: "Rýchle termíny",
-    text: "Poruchy riešime prednostne, technika ide na stavbu do 24 hodín.",
+    title: "Reagujeme rýchlo",
+    text: "Poruchy riešime prednostne, techniku dovezieme na stavbu spravidla do 24 hodín.",
   },
 ];
 
 const referencie = [
-  { name: "Priemyselné haly a prevádzky", text: "NN rozvody, osvetlenie, bleskozvody a východiskové revízie." },
-  { name: "Bytové domy a novostavby", text: "Elektroinštalácie, prípojky NN, rozvádzače a revízna správa." },
-  { name: "Stavebné firmy a živnostníci", text: "Prenájom bágrov, Locust, plošín a elektrocentrál s dovozom." },
+  {
+    name: "Priemysel a výrobné haly",
+    text: "Trafostanice, rozvody NN, priemyselné osvetlenie a periodické revízie počas prevádzky.",
+  },
+  {
+    name: "Bytové domy a novostavby",
+    text: "Prípojky NN, stúpačky, spoločné priestory, bleskozvod a odovzdanie ku kolaudácii.",
+  },
+  {
+    name: "Stavebné firmy a živnostníci",
+    text: "Bágre, Locust, plošiny, elektrocentrály a MAN s hydraulickou rukou vrátane dovozu.",
+  },
 ];
+
 
 
 const strip = [
