@@ -908,12 +908,16 @@ function Index() {
       <section id="revizie" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
         <Reveal>
           <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-            Robíme revízie — profesionálne
+            Revízie a merania
           </p>
           <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
             Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
           </h2>
-        </Reveal>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Oprávnení revízni technici pre nn aj vn. Odmeriame, vyhodnotíme a odovzdáme
+            správu, s ktorou sa dá ďalej pracovať.
+          </p>
+
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {revizie.map((r, i) => {
             const Icon = r.icon;
