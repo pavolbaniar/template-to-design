@@ -917,6 +917,8 @@ function Index() {
             Oprávnení revízni technici pre nn aj vn. Odmeriame, vyhodnotíme a odovzdáme
             správu, s ktorou sa dá ďalej pracovať.
           </p>
+        </Reveal>
+
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {revizie.map((r, i) => {
