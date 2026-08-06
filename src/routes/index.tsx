@@ -32,11 +32,11 @@ import {
 import logo from "@/assets/mlm-logo.svg";
 
 
-import excavator from "@/assets/excavator.png";
-import manCrane from "@/assets/man_crane.png";
-import skidSteer from "@/assets/skid_steer.webp";
-import boomLift from "@/assets/boom_lift.webp";
-import generator from "@/assets/generator.webp";
+import excavator from "@/assets/rent-excavator.png";
+import manCrane from "@/assets/rent-man.png";
+import skidSteer from "@/assets/rent-locust.png";
+import boomLift from "@/assets/rent-boomlift.png";
+import generator from "@/assets/rent-generator.png";
 import drillPhoto from "@/assets/drill.webp";
 import makitaPhoto from "@/assets/makita.webp";
 import knipexPhoto from "@/assets/knipex_tools.webp";
