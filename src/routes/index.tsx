@@ -37,11 +37,11 @@ import manCrane from "@/assets/rent-man.png";
 import skidSteer from "@/assets/rent-locust.png";
 import boomLift from "@/assets/rent-boomlift.png";
 import generator from "@/assets/rent-generator.png";
-import drillPhoto from "@/assets/drill.webp";
-import makitaPhoto from "@/assets/makita.webp";
-import knipexPhoto from "@/assets/knipex_tools.webp";
+import drillPhoto from "@/assets/drill.png";
+import makitaPhoto from "@/assets/makita.png";
+import knipexPhoto from "@/assets/knipex.png";
 import distributionBoxPhoto from "@/assets/rozvadzac.png";
-import materialPhoto from "@/assets/material.webp";
+import materialPhoto from "@/assets/material.png";
 import bleskozvodPhoto from "@/assets/bleskozvod.png";
 
 
