@@ -40,7 +40,7 @@ import generator from "@/assets/rent-generator.png";
 import drillPhoto from "@/assets/drill.webp";
 import makitaPhoto from "@/assets/makita.webp";
 import knipexPhoto from "@/assets/knipex_tools.webp";
-import distributionBoxPhoto from "@/assets/rozvadzac.webp";
+import distributionBoxPhoto from "@/assets/rozvadzac.png";
 import materialPhoto from "@/assets/material.webp";
 import bleskozvodPhoto from "@/assets/bleskozvod.png";
 
