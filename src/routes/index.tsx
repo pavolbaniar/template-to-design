@@ -534,25 +534,38 @@ function Index() {
               0918 812 027
             </a>
           </nav>
-          <button
-            aria-label="Menu"
-            onClick={() => setOpen((v) => !v)}
-            className="rounded-md border border-border p-2 lg:hidden"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <a
+              href="tel:+421918812027"
+              className="rounded-full bg-primary px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground"
+            >
+              Volať
+            </a>
+            <button
+              aria-label="Menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="flex items-center gap-2 rounded-full bg-foreground px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.14em] text-background shadow-lg"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <span>{open ? "Zavrieť" : "Menu"}</span>
+            </button>
+          </div>
         </div>
         {open && (
-          <div className="border-t border-border bg-background lg:hidden">
+          <div className="border-t-2 border-primary bg-background shadow-2xl lg:hidden">
             <div className="mx-auto flex max-w-7xl flex-col px-5 py-3">
               {nav.map((n) => (
                 <a
                   key={n.href}
                   href={n.href}
                   onClick={() => setOpen(false)}
-                  className="border-b border-border py-3 font-mono text-xs font-semibold uppercase tracking-[0.14em]"
+                  className="flex items-center justify-between border-b border-border py-4 font-mono text-sm font-bold uppercase tracking-[0.14em] text-foreground transition-colors hover:text-primary"
                 >
                   {n.label}
+                  <span aria-hidden className="text-primary">
+                    →
+                  </span>
                 </a>
               ))}
               <a
@@ -564,6 +577,7 @@ function Index() {
             </div>
           </div>
         )}
+
       </header>
 
       {/* HERO */}
