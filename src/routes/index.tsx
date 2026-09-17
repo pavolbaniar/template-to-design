@@ -37,6 +37,8 @@ import manCrane from "@/assets/rent-man.png";
 import skidSteer from "@/assets/rent-locust.png";
 import boomLift from "@/assets/rent-boomlift.png";
 import generator from "@/assets/rent-generator.png";
+import hattatTractor from "@/assets/rent-hattat.png";
+import isuzuFlatbed from "@/assets/rent-isuzu.png";
 import drillPhoto from "@/assets/drill.png";
 import makitaPhoto from "@/assets/makita.png";
 import knipexPhoto from "@/assets/knipex.png";
@@ -342,6 +344,7 @@ type RentalItem = {
   title: string;
   slogan: string;
   desc: string;
+  alt: string;
   img?: string;
   icon?: typeof Truck;
 };
@@ -352,30 +355,49 @@ const rentals: RentalItem[] = [
     title: "Bágre",
     slogan: "Kopeme presne tam, kde treba",
     desc: "Výkopy pre prípojky, stavby a terénne úpravy.",
+    alt: "Báger na prenájom pre výkopy a terénne úpravy",
   },
   {
     img: skidSteer,
     title: "Locust nakladače",
     slogan: "Sila do úzkych miest",
     desc: "Presun materiálu a úpravy terénu.",
+    alt: "Locust nakladač na prenájom pre presun materiálu",
   },
   {
     img: boomLift,
     title: "Plošiny",
     slogan: "Bezpečne aj tam, kde rebrík nestačí",
     desc: "Montáže a práca vo výškach.",
+    alt: "Pracovná plošina na prenájom pre montáže vo výškach",
   },
   {
     img: generator,
     title: "Elektrocentrály",
     slogan: "Prúd aj tam, kde nie je zásuvka",
     desc: "Mobilné a záložné napájanie.",
+    alt: "Elektrocentrála na prenájom pre mobilné a záložné napájanie",
   },
   {
     img: manCrane,
     title: "MAN TGS 41.500 8x6",
     slogan: "Hydraulická ruka Palfinger PK92002",
     desc: "Preprava a presná manipulácia s ťažkými bremenami.",
+    alt: "MAN TGS 41.500 8x6 s hydraulickou rukou Palfinger PK92002",
+  },
+  {
+    img: hattatTractor,
+    title: "Traktor HATTAT s plošinou a navijakom",
+    slogan: "Do terénu aj do výšky",
+    desc: "Pracovná plošina a predný navijak na údržbu, manipuláciu a práce na vedeniach.",
+    alt: "Traktor HATTAT s pracovnou plošinou a predným navijakom na prenájom",
+  },
+  {
+    img: isuzuFlatbed,
+    title: "Valník ISUZU NPR 3,5 t",
+    slogan: "Spoľahlivá preprava na stavbu",
+    desc: "Ľahké úžitkové vozidlo na prepravu materiálu, náradia a techniky.",
+    alt: "Valník ISUZU NPR 3,5 t na prenájom a prepravu materiálu",
   },
 ];
 
@@ -842,7 +864,7 @@ function Index() {
               Požičiame na deň aj na celú stavbu. Stroje sú pripravené v Prievidzi — stačí zavolať.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-12 xl:[&>*]:col-span-3 xl:[&>*:nth-last-child(3)]:col-start-3">
 
             {rentals.map((r, i) => (
               <Reveal key={r.title} delay={i * 90} className="h-full">
@@ -857,7 +879,7 @@ function Index() {
                     </span>
                     <img
                       src={r.img}
-                      alt={`Prenájom — ${r.title}`}
+                      alt={r.alt}
                       loading="lazy"
                       width={1024}
                       height={1024}
