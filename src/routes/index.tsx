@@ -29,6 +29,7 @@ import {
   Timer,
   Award,
 } from "lucide-react";
+import { Certificates } from "@/components/Certificates";
 import logo from "@/assets/mlm-logo.svg";
 
 
@@ -163,6 +164,7 @@ const nav = [
   { href: "#revizie", label: "Revízie" },
   { href: "#sluzby", label: "Služby" },
   { href: "#montaze", label: "Montáže" },
+  { href: "#certifikaty", label: "Certifikáty" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
@@ -1099,6 +1101,8 @@ function Index() {
           </div>
         </Reveal>
       </section>
+
+      <Certificates Reveal={Reveal} />
 
       {/* KONTAKT */}
       <section id="kontakt" className="border-t border-border bg-secondary py-20 md:py-24">
