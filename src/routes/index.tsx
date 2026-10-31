@@ -464,7 +464,10 @@ const shops = [
       { label: "Predajňa svietidiel", num: "0948 344 377" },
       { label: "Predajňa elektromateriálu", num: "0948 344 378" },
     ],
-    hours: "Po – Pia 7:00 – 17:00 · So 8:00 – 12:00 · Ne zatvorené",
+    hours: [
+      "Elektromateriál: Po – Pia 7:00 – 17:00 · So 8:00 – 12:00",
+      "Svietidlá: Po – Pia 8:00 – 17:00 · So 8:00 – 12:00",
+    ],
   },
   {
     id: "02",
@@ -472,7 +475,7 @@ const shops = [
     note: "Maloobchodná predajňa, vedľa nadchodu",
     address: "L. N. Tolstého 1885/8, 971 01 Prievidza",
     phones: [{ label: "Predajňa", num: "0948 162 842" }],
-    hours: "Po – Pia 7:30 – 16:45 · So 8:00 – 12:00 · Ne zatvorené",
+    hours: ["Po – Pia 7:30 – 17:00 · So 8:00 – 12:00"],
   },
 ];
 
@@ -1133,7 +1136,7 @@ function Index() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span>{s.hours}</span>
+                    <span className="flex flex-col">{s.hours.map((h) => <span key={h}>{h}</span>)}</span>
                   </li>
                   {s.phones.map((p) => (
                     <li key={p.num} className="flex items-start gap-3">
