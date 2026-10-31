@@ -367,11 +367,11 @@ const rentals: RentalItem[] = [
     alt: "Locust nakladač na prenájom pre presun materiálu",
   },
   {
-    img: boomLift,
-    title: "Plošiny",
-    slogan: "Bezpečne aj tam, kde rebrík nestačí",
-    desc: "Montáže a práca vo výškach.",
-    alt: "Pracovná plošina na prenájom pre montáže vo výškach",
+    img: hattatTractor,
+    title: "Traktor HATTAT s plošinou a navijakom",
+    slogan: "Do terénu aj do výšky",
+    desc: "Pracovná plošina a predný navijak na údržbu, manipuláciu a práce na vedeniach.",
+    alt: "Traktor HATTAT s pracovnou plošinou a predným navijakom na prenájom",
   },
   {
     img: generator,
@@ -388,11 +388,11 @@ const rentals: RentalItem[] = [
     alt: "MAN TGS 41.500 8x6 s hydraulickou rukou Palfinger PK92002",
   },
   {
-    img: hattatTractor,
-    title: "Traktor HATTAT s plošinou a navijakom",
-    slogan: "Do terénu aj do výšky",
-    desc: "Pracovná plošina a predný navijak na údržbu, manipuláciu a práce na vedeniach.",
-    alt: "Traktor HATTAT s pracovnou plošinou a predným navijakom na prenájom",
+    img: boomLift,
+    title: "Plošiny",
+    slogan: "Bezpečne aj tam, kde rebrík nestačí",
+    desc: "Montáže a práca vo výškach.",
+    alt: "Pracovná plošina na prenájom pre montáže vo výškach",
   },
   {
     img: isuzuFlatbed,
