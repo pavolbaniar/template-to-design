@@ -3,6 +3,8 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Award, ChevronLeft, ChevronRight, ExternalLink, FileText, ShieldCheck, X, ZoomIn } from "lucide-react";
 
 import iso9001 from "@/assets/certifikaty/01_Certifikat_ISO_9001_SK.jpg";
+import iso9001en from "@/assets/certifikaty/02_Certifikat_ISO_9001_EN.jpg";
+import iso9001de from "@/assets/certifikaty/03_Certifikat_ISO_9001_DE.jpg";
 import c04 from "@/assets/certifikaty/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
 import c05 from "@/assets/certifikaty/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
 import c06 from "@/assets/certifikaty/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg";
@@ -13,6 +15,8 @@ import c10 from "@/assets/certifikaty/10_Osvedcenie_odborna_sposobilost_tepelna_
 import c11 from "@/assets/certifikaty/11_Opravnenie_vyroba_technickych_elektrickych_zariadeni.jpg";
 import c12 from "@/assets/certifikaty/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg";
 import t01 from "@/assets/certifikaty/thumbs/01_Certifikat_ISO_9001_SK.jpg";
+import t02 from "@/assets/certifikaty/thumbs/02_Certifikat_ISO_9001_EN.jpg";
+import t03 from "@/assets/certifikaty/thumbs/03_Certifikat_ISO_9001_DE.jpg";
 import t04 from "@/assets/certifikaty/thumbs/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
 import t05 from "@/assets/certifikaty/thumbs/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
 import t06 from "@/assets/certifikaty/thumbs/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg";
@@ -51,7 +55,9 @@ type Certificate = {
 
 // Nový certifikát = nový riadok v tomto poli.
 const certificates: Certificate[] = [
-  { id: "01", file: iso9001, thumb: t01, w: 453, h: 640, title: "Certifikát ISO 9001:2008", group: "kvalita", note: "Certifikát je k dispozícii aj v anglickom a nemeckom jazyku na požiadanie." },
+  { id: "01", file: iso9001, thumb: t01, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (slovensky)", group: "kvalita" },
+  { id: "02", file: iso9001en, thumb: t02, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (anglicky)", group: "kvalita" },
+  { id: "03", file: iso9001de, thumb: t03, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (nemecky)", group: "kvalita" },
   { id: "04", file: c04, thumb: t04, w: 454, h: 640, title: "Oprávnenie na odborné prehliadky, skúšky a opravy el. zariadení", group: "opravnenia" },
   { id: "05", file: c05, thumb: t05, w: 453, h: 640, title: "Oprávnenie na výrobu elektrických rozvádzačov", group: "opravnenia" },
   { id: "06", file: c06, thumb: t06, w: 454, h: 640, title: "Osvedčenie na prehliadky a skúšky el. zariadení vrátane bleskozvodov", group: "opravnenia" },
