@@ -55,7 +55,9 @@ type Certificate = {
 
 // Nový certifikát = nový riadok v tomto poli.
 const certificates: Certificate[] = [
-  { id: "01", file: iso9001, thumb: t01, w: 453, h: 640, title: "Certifikát ISO 9001:2008", group: "kvalita", note: "Certifikát je k dispozícii aj v anglickom a nemeckom jazyku na požiadanie." },
+  { id: "01", file: iso9001, thumb: t01, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (slovensky)", group: "kvalita" },
+  { id: "02", file: iso9001en, thumb: t02, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (anglicky)", group: "kvalita" },
+  { id: "03", file: iso9001de, thumb: t03, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (nemecky)", group: "kvalita" },
   { id: "04", file: c04, thumb: t04, w: 454, h: 640, title: "Oprávnenie na odborné prehliadky, skúšky a opravy el. zariadení", group: "opravnenia" },
   { id: "05", file: c05, thumb: t05, w: 453, h: 640, title: "Oprávnenie na výrobu elektrických rozvádzačov", group: "opravnenia" },
   { id: "06", file: c06, thumb: t06, w: 454, h: 640, title: "Osvedčenie na prehliadky a skúšky el. zariadení vrátane bleskozvodov", group: "opravnenia" },
