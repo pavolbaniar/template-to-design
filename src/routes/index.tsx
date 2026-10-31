@@ -844,7 +844,8 @@ function Index() {
               </div>
             </div>
             <a
-              href="#kontakt"
+              href="#kontaktny-formular"
+              onClick={() => setForm((current) => ({ ...current, topic: "Fotovoltika" }))}
               className="btn-shine relative shrink-0 rounded-full bg-primary px-6 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark"
             >
               Dopyt na FVE
@@ -1189,7 +1190,7 @@ function Index() {
           </div>
 
           {/* KONTAKTNÝ FORMULÁR */}
-          <div className="mt-16 grid gap-8 rounded-2xl border border-border bg-card p-7 md:grid-cols-[1fr_1.2fr] md:p-10">
+          <div id="kontaktny-formular" className="mt-16 grid scroll-mt-28 gap-8 rounded-2xl border border-border bg-card p-7 md:grid-cols-[1fr_1.2fr] md:p-10">
             <div>
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">Napíšte nám</p>
               <h3 className="mt-3 text-3xl uppercase italic leading-[1]">
