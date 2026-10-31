@@ -3,6 +3,8 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Award, ChevronLeft, ChevronRight, ExternalLink, FileText, ShieldCheck, X, ZoomIn } from "lucide-react";
 
 import iso9001 from "@/assets/certifikaty/01_Certifikat_ISO_9001_SK.jpg";
+import iso9001en from "@/assets/certifikaty/02_Certifikat_ISO_9001_EN.jpg";
+import iso9001de from "@/assets/certifikaty/03_Certifikat_ISO_9001_DE.jpg";
 import c04 from "@/assets/certifikaty/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
 import c05 from "@/assets/certifikaty/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
 import c06 from "@/assets/certifikaty/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg";
@@ -13,6 +15,8 @@ import c10 from "@/assets/certifikaty/10_Osvedcenie_odborna_sposobilost_tepelna_
 import c11 from "@/assets/certifikaty/11_Opravnenie_vyroba_technickych_elektrickych_zariadeni.jpg";
 import c12 from "@/assets/certifikaty/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg";
 import t01 from "@/assets/certifikaty/thumbs/01_Certifikat_ISO_9001_SK.jpg";
+import t02 from "@/assets/certifikaty/thumbs/02_Certifikat_ISO_9001_EN.jpg";
+import t03 from "@/assets/certifikaty/thumbs/03_Certifikat_ISO_9001_DE.jpg";
 import t04 from "@/assets/certifikaty/thumbs/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
 import t05 from "@/assets/certifikaty/thumbs/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
 import t06 from "@/assets/certifikaty/thumbs/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg";
