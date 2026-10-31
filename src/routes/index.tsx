@@ -1214,7 +1214,7 @@ function Index() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Clock className="h-4 w-4 text-primary" />
-                  <span>Po – Pia 7:00 – 17:00 · So 8:00 – 12:00</span>
+                  <span>Po – Pia 8:00 – 17:00 · So 8:00 – 12:00</span>
                 </li>
               </ul>
             </div>
