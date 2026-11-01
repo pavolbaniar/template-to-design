@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Domain iconography lives in `src/components/TechnicalIcons.tsx`: use shared 24-unit, currentColor SVG symbols for technical subjects and Lucide for semantically accurate general/UI symbols, keeping geometry and theming consistent.

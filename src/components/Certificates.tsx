@@ -1,6 +1,6 @@
 import { useRef, useState, type ComponentType, type ReactNode } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Award, ChevronLeft, ChevronRight, ExternalLink, FileText, ShieldCheck, X, ZoomIn } from "lucide-react";
+import { BadgeCheck, ChevronLeft, ChevronRight, ExternalLink, FileText, FileBadge, X, ZoomIn } from "lucide-react";
 
 import iso9001 from "@/assets/certifikaty/01_Certifikat_ISO_9001_SK.jpg";
 import iso9001en from "@/assets/certifikaty/02_Certifikat_ISO_9001_EN.jpg";
@@ -70,9 +70,9 @@ const certificates: Certificate[] = [
 ];
 
 const pills = [
-  { icon: Award, text: "ISO 9001" },
+  { icon: BadgeCheck, text: "ISO 9001" },
   { icon: FileText, text: `${certificates.length} dokumentov` },
-  { icon: ShieldCheck, text: "Oprávnené revízie do 52 kV" },
+  { icon: FileBadge, text: "Oprávnené revízie do 52 kV" },
 ];
 
 type RevealType = ComponentType<{ children: ReactNode; delay?: number; className?: string }>;
@@ -133,7 +133,7 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visible.map((c, i) => {
-            const Icon = c.group === "kvalita" ? Award : ShieldCheck;
+            const Icon = c.group === "kvalita" ? BadgeCheck : FileBadge;
             return (
               <Reveal key={c.id} delay={(i % 4) * 70} className="h-full">
                 <div className="flex h-full flex-col">

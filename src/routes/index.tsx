@@ -1,15 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ComponentType, type ReactNode, type SVGProps } from "react";
 import {
-  ClipboardCheck,
-  Radar,
-  Wrench,
-  ShoppingBag,
-  Sun,
   Zap,
-  ShieldCheck,
-  Thermometer,
-  Gauge,
   MapPin,
   Phone,
   Mail,
@@ -20,15 +12,20 @@ import {
   X,
   Handshake,
   CalendarDays,
-  Truck,
   Factory,
-  Home,
-  Camera,
+  Cctv,
   FileText,
-  Layers,
+  Workflow,
   Timer,
-  Award,
+  BadgeCheck,
 } from "lucide-react";
+import {
+  MeterIcon, ThermalCameraIcon, AnalyzerIcon, CompensationIcon,
+  DistributionBoardIcon, SolarPanelIcon, LightningRodIcon, ChargingStationIcon,
+  InstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
+  LightingIcon, PliersIcon, DrillIcon, ExcavatorIcon, SkidSteerIcon, PlatformIcon,
+  GeneratorIcon, CraneTruckIcon, TractorIcon, FlatbedIcon,
+} from "@/components/TechnicalIcons";
 import { Certificates } from "@/components/Certificates";
 import logo from "@/assets/mlm-logo.svg";
 
@@ -150,7 +147,6 @@ export const Route = createFileRoute("/")({
           "Revízne správy podľa STN, lokalizácia porúch, montáže a fotovoltika. Prenájom bágrov, Locust, plošín a elektrocentrál.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: logo },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://www.elektro-mlm.sk/" }],
@@ -182,7 +178,7 @@ const montazeCategories = [
   },
   {
     category: "Domáce a inteligentné inštalácie",
-    icon: Home,
+    icon: InstallationIcon,
     items: [
       "Domy, byty, novostavby",
       "Vnútorné a vonkajšie osvetlenie",
@@ -193,7 +189,7 @@ const montazeCategories = [
   },
   {
     category: "Zabezpečovacie a kamerové systémy",
-    icon: Camera,
+    icon: Cctv,
     items: [
       "Kamerové systémy CCTV",
       "EZS — zabezpečovacia signalizácia",
@@ -221,12 +217,12 @@ const preco = [
     text: "Od roku 2007 v regióne. Poznáte nás z predajní aj zo stavieb v okolí.",
   },
   {
-    icon: Layers,
+    icon: Workflow,
     title: "Jeden dodávateľ",
     text: "Projekt, montáž, revízia, materiál aj technika — bez koordinovania piatich firiem.",
   },
   {
-    icon: Award,
+    icon: BadgeCheck,
     title: "Oprávnenia a kvalita",
     text: "ISO 9001, zmluvný partner SSD a oprávnení revízni technici pre nn aj vn.",
   },
@@ -256,28 +252,28 @@ const referencie = [
 
 const strip = [
   {
-    icon: ClipboardCheck,
+    icon: MeterIcon,
     label: "Revízie & merania",
     points: ["Revízne správy do 52 kV", "Termovízia", "Kvalita siete a cos φ"],
     href: "#revizie",
     cta: "Revízie",
   },
   {
-    icon: Radar,
+    icon: CableLocatorIcon,
     label: "Lokalizácia porúch",
     points: ["Presnosť na centimetre", "Bez zbytočného kopania", "Výjazd po dohode"],
     href: "#kontakt",
     cta: "Nahlásiť poruchu",
   },
   {
-    icon: Wrench,
+    icon: SolarPanelIcon,
     label: "Montáže & fotovoltika",
     points: ["Elektroinštalácie na kľúč", "Bleskozvody a rozvádzače", "FVE s dokumentáciou"],
     href: "#montaze",
     cta: "Montáže",
   },
   {
-    icon: ShoppingBag,
+    icon: ExcavatorIcon,
     label: "Predaj & prenájom",
     points: ["2 predajne v Prievidzi", "MAKITA · KNIPEX", "Bágre, plošiny, centrály"],
     href: "#prenajom",
@@ -289,22 +285,22 @@ const strip = [
 
 const revizie = [
   {
-    icon: ShieldCheck,
+    icon: MeterIcon,
     title: "Prehliadky a skúšky do 52 kV",
     desc: "Byty, haly, sklady, bleskozvody, FVE. Výstupom je revízna správa podľa STN 33 1500.",
   },
   {
-    icon: Thermometer,
+    icon: ThermalCameraIcon,
     title: "Termovízne merania",
     desc: "Prehriate spoje a chybnú izoláciu nájdeme počas plnej prevádzky, bez odstávky.",
   },
   {
-    icon: Gauge,
+    icon: AnalyzerIcon,
     title: "Kvalita siete a cos φ",
     desc: "Meranie účinníka, harmonických a výkyvov napätia s protokolom a odporúčaniami.",
   },
   {
-    icon: Zap,
+    icon: CompensationIcon,
     title: "Kompenzácie a dekompenzácie",
     desc: "Návrh rozvádzača na mieru podľa reálnych meraní vášho odberu.",
   },
@@ -348,12 +344,13 @@ type RentalItem = {
   desc: string;
   alt: string;
   img?: string;
-  icon?: typeof Truck;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
 };
 
 const rentals: RentalItem[] = [
   {
     img: excavator,
+    icon: ExcavatorIcon,
     title: "Bágre",
     slogan: "Kopeme presne tam, kde treba",
     desc: "Výkopy pre prípojky, stavby a terénne úpravy.",
@@ -361,6 +358,7 @@ const rentals: RentalItem[] = [
   },
   {
     img: skidSteer,
+    icon: SkidSteerIcon,
     title: "Locust nakladače",
     slogan: "Sila do úzkych miest",
     desc: "Presun materiálu a úpravy terénu.",
@@ -368,6 +366,7 @@ const rentals: RentalItem[] = [
   },
   {
     img: hattatTractor,
+    icon: TractorIcon,
     title: "Traktor HATTAT s plošinou a navijakom",
     slogan: "Do terénu aj do výšky",
     desc: "Pracovná plošina a predný navijak na údržbu, manipuláciu a práce na vedeniach.",
@@ -375,6 +374,7 @@ const rentals: RentalItem[] = [
   },
   {
     img: generator,
+    icon: GeneratorIcon,
     title: "Elektrocentrály",
     slogan: "Prúd aj tam, kde nie je zásuvka",
     desc: "Mobilné a záložné napájanie.",
@@ -382,6 +382,7 @@ const rentals: RentalItem[] = [
   },
   {
     img: manCrane,
+    icon: CraneTruckIcon,
     title: "MAN TGS 41.500 8x6",
     slogan: "Hydraulická ruka Palfinger PK92002",
     desc: "Preprava a presná manipulácia s ťažkými bremenami.",
@@ -389,6 +390,7 @@ const rentals: RentalItem[] = [
   },
   {
     img: boomLift,
+    icon: PlatformIcon,
     title: "Plošiny",
     slogan: "Bezpečne aj tam, kde rebrík nestačí",
     desc: "Montáže a práca vo výškach.",
@@ -396,6 +398,7 @@ const rentals: RentalItem[] = [
   },
   {
     img: isuzuFlatbed,
+    icon: FlatbedIcon,
     title: "Valník ISUZU NPR 3,5 t",
     slogan: "Spoľahlivá preprava na stavbu",
     desc: "Ľahké úžitkové vozidlo na prepravu materiálu, náradia a techniky.",
@@ -407,36 +410,42 @@ const rentals: RentalItem[] = [
 const sortiment = [
   {
     img: materialPhoto,
+    icon: ElectricalMaterialIcon,
     title: "Elektroinštalačný materiál",
     tags: "Káble · Ističe · Zásuvky",
     desc: "Všetko pre elektroinštaláciu na jednom mieste.",
   },
   {
     img: drillPhoto,
+    icon: LightingIcon,
     title: "Svietidlá a LED",
     tags: "Interiér · Exteriér · Priemysel",
     desc: "Široký výber svietidiel vrátane poradenstva.",
   },
   {
     img: makitaPhoto,
+    icon: DrillIcon,
     title: "Náradie MAKITA",
     tags: "Aku · Sieťové · Príslušenstvo",
     desc: "Profesionálne náradie a príslušenstvo MAKITA.",
   },
   {
     img: knipexPhoto,
+    icon: PliersIcon,
     title: "KNIPEX náradie",
     tags: "Kvalita · Odolnosť",
     desc: "Kliešte, štiepačky a profi ručné náradie.",
   },
   {
     img: distributionBoxPhoto,
+    icon: DistributionBoardIcon,
     title: "Rozvádzače na mieru",
     tags: "Certifikácia · Výroba",
     desc: "Výroba podľa projektu, s certifikáciou.",
   },
   {
     img: bleskozvodPhoto,
+    icon: LightningRodIcon,
     title: "Bleskozvodná technika",
     tags: "Materiál · Projekt · Revízia",
     desc: "Ochrana strechy od zvodov po revíznu správu.",
@@ -447,7 +456,7 @@ const sortiment = [
 const stats = [
   { icon: CalendarDays, text: "17+ rokov" },
   { icon: Zap, text: "52 kV" },
-  { icon: ShieldCheck, text: "ISO 9001" },
+  { icon: BadgeCheck, text: "ISO 9001" },
   { icon: MapPin, text: "2 predajne" },
   { icon: Handshake, text: "SSD partner" },
 ];
@@ -755,7 +764,7 @@ function Index() {
                     />
                     <div className="relative flex items-start justify-between">
                       <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:-translate-y-0.5">
-                        <Icon className="h-7 w-7" strokeWidth={1.9} />
+                        <Icon className="h-7 w-7" strokeWidth={1.8} aria-hidden="true" />
                       </div>
                       <span className="font-mono text-3xl font-semibold leading-none text-muted-foreground/25">
                         0{i + 1}
@@ -816,6 +825,7 @@ function Index() {
                     height={800}
                     className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_8px_10px_color-mix(in_oklab,var(--foreground)_18%,transparent))]"
                   />
+                  <c.icon className="pointer-events-none absolute right-3 top-3 h-6 w-6 text-primary" strokeWidth={1.8} />
                 </div>
                 <div className="flex flex-1 flex-col border-t border-border p-6">
                   <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
@@ -834,7 +844,7 @@ function Index() {
               className="glow-blob pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-50"
             />
             <div className="relative flex items-start gap-4">
-              <Sun className="h-10 w-10 shrink-0 text-primary" strokeWidth={1.9} />
+              <SolarPanelIcon className="h-10 w-10 shrink-0 text-primary" strokeWidth={1.8} />
               <div>
                 <h3 className="text-2xl uppercase leading-tight">Fotovoltika na kľúč</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
@@ -893,6 +903,7 @@ function Index() {
                       height={1024}
                       className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 [filter:drop-shadow(0_10px_14px_color-mix(in_oklab,var(--foreground)_22%,transparent))]"
                     />
+                    {r.icon && <r.icon className="pointer-events-none absolute right-3 top-3 h-6 w-6 text-primary" strokeWidth={1.8} />}
                   </div>
                   <div className="flex flex-1 flex-col border-t border-border p-6">
                     <h3 className="text-2xl uppercase leading-none">{r.title}</h3>
@@ -982,11 +993,17 @@ function Index() {
         </div>
         <Reveal delay={120}>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-secondary px-7 py-5">
-            {["Revízie bytov a domov", "Priemysel a haly", "Bleskozvody", "FVE a nabíjacie stanice", "Periodické revízie"].map(
-              (t) => (
-                <span key={t} className="flex items-center gap-2 text-sm font-medium">
-                  <CheckCircle2 className="h-4 w-4 text-primary" />
-                  {t}
+            {[
+              { text: "Revízie bytov a domov", icon: InstallationIcon },
+              { text: "Priemysel a haly", icon: Factory },
+              { text: "Bleskozvody", icon: LightningRodIcon },
+              { text: "FVE a nabíjacie stanice", icon: ChargingStationIcon },
+              { text: "Periodické revízie", icon: MeterIcon },
+            ].map(
+              (item) => (
+                <span key={item.text} className="flex items-center gap-2 text-sm font-medium">
+                  <item.icon className="h-4 w-4 text-primary" strokeWidth={1.8} aria-hidden="true" />
+                  {item.text}
                 </span>
               ),
             )}
@@ -1025,7 +1042,12 @@ function Index() {
                     <ul className="mt-6 space-y-3">
                       {cat.items.map((m) => (
                         <li key={m} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.4} />
+                          {m === "Silnoprúd a slaboprúd" ? <CableConnectorIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            : m === "Prípojky NN a rozvádzače" ? <DistributionBoardIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            : m === "Vnútorné a vonkajšie osvetlenie" ? <LightingIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            : m === "Bleskozvody a uzemnenie" ? <LightningRodIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            : m === "Fotovoltika na kľúč vrátane povolení" ? <SolarPanelIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            : <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={1.8} aria-hidden="true" />}
                           <span className="text-sm text-muted-foreground">{m}</span>
                         </li>
                       ))}
