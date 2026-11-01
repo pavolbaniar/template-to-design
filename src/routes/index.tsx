@@ -18,6 +18,7 @@ import {
   Workflow,
   Timer,
   BadgeCheck,
+  Store,
 } from "lucide-react";
 import {
   MeterIcon, ThermalCameraIcon, AnalyzerIcon, CompensationIcon,
@@ -273,7 +274,7 @@ const strip = [
     cta: "Montáže",
   },
   {
-    icon: ExcavatorIcon,
+    icon: Store,
     label: "Predaj & prenájom",
     points: ["2 predajne v Prievidzi", "MAKITA · KNIPEX", "Bágre, plošiny, centrály"],
     href: "#prenajom",
