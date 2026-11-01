@@ -23,7 +23,7 @@ import {
 import {
   MeterIcon, ThermalCameraIcon, AnalyzerIcon, CompensationIcon,
   DistributionBoardIcon, SolarPanelIcon, LightningRodIcon, ChargingStationIcon,
-  InstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
+  InstallationIcon, IndustrialInstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
   LightingIcon, PliersIcon, DrillIcon, ExcavatorIcon, SkidSteerIcon, PlatformIcon,
   GeneratorIcon, CraneTruckIcon, TractorIcon, FlatbedIcon,
 } from "@/components/TechnicalIcons";
@@ -168,7 +168,7 @@ const nav = [
 const montazeCategories = [
   {
     category: "Priemyselné inštalácie",
-    icon: Factory,
+    icon: IndustrialInstallationIcon,
     items: [
       "Silnoprúd a slaboprúd",
       "Prípojky NN a rozvádzače",
