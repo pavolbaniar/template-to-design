@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ComponentType, type ReactNode, type SVGProps } from "react";
 import {
   Zap,
-  ShieldCheck,
   MapPin,
   Phone,
   Mail,
@@ -13,7 +12,6 @@ import {
   X,
   Handshake,
   CalendarDays,
-  Truck,
   Factory,
   Cctv,
   FileText,
@@ -346,7 +344,7 @@ type RentalItem = {
   desc: string;
   alt: string;
   img?: string;
-  icon?: typeof Truck;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
 };
 
 const rentals: RentalItem[] = [
