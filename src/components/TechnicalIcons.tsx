@@ -42,6 +42,10 @@ export const ChargingStationIcon = technicalIcon("charging-station", <>
 export const InstallationIcon = technicalIcon("electrical-installation", <>
   <path d="m2 10 10-8 10 8M5 8v13h14V8M12 7v5H8v3m4-3h4v3" /><rect x="6" y="15" width="4" height="4" rx="1" /><circle cx="16" cy="17" r="2" /><path d="M7.5 17h1m7.5-1v2" />
 </>);
+export const IndustrialInstallationIcon = technicalIcon("industrial-electrical-installation", <>
+  <path d="M2 22h20M5 22V9h14v13M3 9h18M8 9V5m4 4V5m4 4V5M7 5h2m2 0h2m2 0h2M8 2v1m4-1v1m4-1v1" />
+  <path d="m13 12-4 5h5l-3 4M2 13h3m14 0h3M2 17h3m14 0h3" />
+</>);
 export const CableLocatorIcon = technicalIcon("cable-locator", <>
   <path d="M2 19h7l2-2 2 2h9M2 22h20M6 3h7v5H6zM9.5 8v6m-2 0h4M15 8c2 1 3 3 3 5M16 4c4 2 6 5 6 9" /><circle cx="11" cy="19" r="1" />
 </>);
