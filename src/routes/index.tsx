@@ -1103,7 +1103,7 @@ function Index() {
           {referencie.map((r, i) => (
             <Reveal key={r.name} delay={i * 90} className="h-full">
               <article className="card-lift h-full rounded-2xl border border-border bg-card p-6">
-                <Zap className="h-7 w-7 text-primary" strokeWidth={2.2} />
+                <r.icon className="h-7 w-7 text-primary" strokeWidth={1.8} />
                 <h3 className="mt-4 text-lg uppercase leading-tight">{r.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{r.text}</p>
               </article>
