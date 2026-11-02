@@ -25,6 +25,7 @@ import {
   InstallationIcon, IndustrialInstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
   LightingIcon, PliersIcon, DrillIcon, ExcavatorIcon, SkidSteerIcon, PlatformIcon,
   GeneratorIcon, CraneTruckIcon, TractorIcon, FlatbedIcon,
+  SingleSupplierIcon,
 } from "@/components/TechnicalIcons";
 import { Certificates } from "@/components/Certificates";
 import logo from "@/assets/mlm-logo.svg";
@@ -217,7 +218,7 @@ const preco = [
     text: "Od roku 2007 v regióne. Poznáte nás z predajní aj zo stavieb v okolí.",
   },
   {
-    icon: Workflow,
+    icon: SingleSupplierIcon,
     title: "Jeden dodávateľ",
     text: "Projekt, montáž, revízia, materiál aj technika — bez koordinovania piatich firiem.",
   },
