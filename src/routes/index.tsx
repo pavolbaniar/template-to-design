@@ -25,7 +25,7 @@ import {
   InstallationIcon, IndustrialInstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
   LightingIcon, PliersIcon, DrillIcon, ExcavatorIcon, SkidSteerIcon, PlatformIcon,
   GeneratorIcon, CraneTruckIcon, TractorIcon, FlatbedIcon,
-  SingleSupplierIcon,
+  SingleSupplierIcon, ApartmentBuildingIcon,
 } from "@/components/TechnicalIcons";
 import { Certificates } from "@/components/Certificates";
 import logo from "@/assets/mlm-logo.svg";
@@ -236,14 +236,17 @@ const preco = [
 
 const referencie = [
   {
+    icon: IndustrialInstallationIcon,
     name: "Priemysel a výrobné haly",
     text: "Trafostanice, rozvody NN, priemyselné osvetlenie a periodické revízie počas prevádzky.",
   },
   {
+    icon: ApartmentBuildingIcon,
     name: "Bytové domy a novostavby",
     text: "Prípojky NN, stúpačky, spoločné priestory, bleskozvod a odovzdanie ku kolaudácii.",
   },
   {
+    icon: ExcavatorIcon,
     name: "Stavebné firmy a živnostníci",
     text: "Bágre, Locust, plošiny, elektrocentrály a MAN s hydraulickou rukou vrátane dovozu.",
   },
@@ -1100,7 +1103,7 @@ function Index() {
           {referencie.map((r, i) => (
             <Reveal key={r.name} delay={i * 90} className="h-full">
               <article className="card-lift h-full rounded-2xl border border-border bg-card p-6">
-                <Zap className="h-7 w-7 text-primary" strokeWidth={2.2} />
+                <r.icon className="h-7 w-7 text-primary" strokeWidth={1.8} />
                 <h3 className="mt-4 text-lg uppercase leading-tight">{r.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{r.text}</p>
               </article>

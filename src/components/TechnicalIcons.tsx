@@ -89,6 +89,11 @@ export const SingleSupplierIcon = technicalIcon("single-supplier", <>
   <path d="M12 8.8V5.1M15 11l3.3-1.2M14.3 14.6l2.8 3.6M9.7 14.6l-2.8 3.6M9 11L5.7 9.8" />
   <circle cx="12" cy="3.8" r="1.3" /><circle cx="19.6" cy="9.4" r="1.3" /><circle cx="17.9" cy="19.2" r="1.3" /><circle cx="6.1" cy="19.2" r="1.3" /><circle cx="4.4" cy="9.4" r="1.3" />
 </>);
+// Apartment block (panelák): three window bands over a ground-floor entrance.
+export const ApartmentBuildingIcon = technicalIcon("apartment-building", <>
+  <path d="M3 21h18M5 21V4h14v17M5 9h14M5 14h14" />
+  <path d="M8 6h3v3H8zM13 6h3v3h-3zM8 11h3v3H8zM13 11h3v3h-3zM7 16.5h2.2v3H7zM14.8 16.5h2.2v3h-2.2zM10.5 21v-4.5h3V21" />
+</>);
 export const FlatbedIcon = technicalIcon("flatbed-truck", <>
   <circle cx="6" cy="20" r="2" /><circle cx="18" cy="20" r="2" /><path d="M2 18V8h6l3 5v5h11v-5H11M3 10h4l2 4H3zM12 13v-3h10v3M15 10v3m4-3v3M2 18h20" />
 </>);
