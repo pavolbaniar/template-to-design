@@ -25,7 +25,7 @@ import {
   InstallationIcon, IndustrialInstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
   LightingIcon, PliersIcon, DrillIcon, ExcavatorIcon, SkidSteerIcon, PlatformIcon,
   GeneratorIcon, CraneTruckIcon, TractorIcon, FlatbedIcon,
-  SingleSupplierIcon,
+  SingleSupplierIcon, ApartmentBuildingIcon,
 } from "@/components/TechnicalIcons";
 import { Certificates } from "@/components/Certificates";
 import logo from "@/assets/mlm-logo.svg";
@@ -236,14 +236,17 @@ const preco = [
 
 const referencie = [
   {
+    icon: IndustrialInstallationIcon,
     name: "Priemysel a výrobné haly",
     text: "Trafostanice, rozvody NN, priemyselné osvetlenie a periodické revízie počas prevádzky.",
   },
   {
+    icon: ApartmentBuildingIcon,
     name: "Bytové domy a novostavby",
     text: "Prípojky NN, stúpačky, spoločné priestory, bleskozvod a odovzdanie ku kolaudácii.",
   },
   {
+    icon: ExcavatorIcon,
     name: "Stavebné firmy a živnostníci",
     text: "Bágre, Locust, plošiny, elektrocentrály a MAN s hydraulickou rukou vrátane dovozu.",
   },
