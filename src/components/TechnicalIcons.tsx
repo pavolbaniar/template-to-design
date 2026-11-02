@@ -82,6 +82,13 @@ export const CraneTruckIcon = technicalIcon("crane-truck", <>
 export const TractorIcon = technicalIcon("tractor-platform", <>
   <circle cx="8" cy="18" r="4" /><circle cx="19" cy="20" r="2" /><path d="M5 14V5h8v11h7v2M8 5v7h5m0-4h3v8M2 15v5h2M2 11h3M2 8h3M5 4h8M17 12h5v4h-5M19 12V9" />
 </>);
+// One supplier: five services converge into a single point (project, assembly,
+// inspection, material, machinery) instead of coordinating several companies.
+export const SingleSupplierIcon = technicalIcon("single-supplier", <>
+  <circle cx="12" cy="12" r="3.2" /><path d="M12.9 10.3l-1.9 2.2h1.5l-1.4 1.9" />
+  <path d="M12 8.8V5.1M15 11l3.3-1.2M14.3 14.6l2.8 3.6M9.7 14.6l-2.8 3.6M9 11L5.7 9.8" />
+  <circle cx="12" cy="3.8" r="1.3" /><circle cx="19.6" cy="9.4" r="1.3" /><circle cx="17.9" cy="19.2" r="1.3" /><circle cx="6.1" cy="19.2" r="1.3" /><circle cx="4.4" cy="9.4" r="1.3" />
+</>);
 export const FlatbedIcon = technicalIcon("flatbed-truck", <>
   <circle cx="6" cy="20" r="2" /><circle cx="18" cy="20" r="2" /><path d="M2 18V8h6l3 5v5h11v-5H11M3 10h4l2 4H3zM12 13v-3h10v3M15 10v3m4-3v3M2 18h20" />
 </>);
