@@ -72,8 +72,8 @@ export const ExcavatorIcon = technicalIcon("excavator", <>
 export const ExcavatorSiteIcon = technicalIcon("excavator-site", <>
   <rect x="2.5" y="14.5" width="12" height="5" rx="2.5" /><path d="M5.2 17h6.6" />
   <path d="M4.5 14.5V7.5h4.5l1.8 3.5v3.5M10.8 14.5v-3h2.4v3" />
-  <path d="m11.8 11.5 4.8-8M16.6 3.5 21 10.5" />
-  <path d="M21 10.5 22 14.5 19 15.3 18.8 13" />
+  <path d="m11.8 11.5 4.8-8M16.6 3.5 21 10.2" />
+  <path d="M21 10.2 22.2 14.8 18.6 15.6 18.2 12.6" />
 </>);
 export const SkidSteerIcon = technicalIcon("skid-steer", <>
   <circle cx="6" cy="19" r="3" /><circle cx="15" cy="19" r="3" /><path d="M3 16V8h11l2 8M6 8v6h6V8M3 14h12l4-4 1 8h3v3h-5M6 5h7l1 3" />
