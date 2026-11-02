@@ -246,7 +246,7 @@ const referencie = [
     text: "Prípojky NN, stúpačky, spoločné priestory, bleskozvod a odovzdanie ku kolaudácii.",
   },
   {
-    icon: ExcavatorIcon,
+    icon: ExcavatorSiteIcon,
     name: "Stavebné firmy a živnostníci",
     text: "Bágre, Locust, plošiny, elektrocentrály a MAN s hydraulickou rukou vrátane dovozu.",
   },
