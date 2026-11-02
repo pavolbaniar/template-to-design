@@ -67,6 +67,14 @@ export const DrillIcon = technicalIcon("power-drill", <>
 export const ExcavatorIcon = technicalIcon("excavator", <>
   <rect x="2" y="18" width="13" height="4" rx="2" /><path d="M4 18v-7h6l3 7M5 11V7h5v7H4M13 15l3-10 5 7m-5-7-4-2-3 4M21 12l1 6-4-1 1-3M6 20h5" />
 </>);
+//crawler excavator: pill tracks with a tread line, cab with sloped windscreen,
+//engine hood, boom rising to an elbow, stick and an open scoop bucket.
+export const ExcavatorSiteIcon = technicalIcon("excavator-site", <>
+  <rect x="2.5" y="14.5" width="12" height="4.5" rx="2.25" /><path d="M5.2 16.75h6.6" />
+  <path d="M4.5 14.5V8h4.5l1.8 3.2v3.3M10.8 14.5v-3h2.4v3" />
+  <path d="m11.4 11.4 5.2-6.6M16.6 4.8 20.8 11.4" />
+  <path d="M20.8 11.4 21.8 15 18.8 15.8 18.6 13.8" />
+</>);
 export const SkidSteerIcon = technicalIcon("skid-steer", <>
   <circle cx="6" cy="19" r="3" /><circle cx="15" cy="19" r="3" /><path d="M3 16V8h11l2 8M6 8v6h6V8M3 14h12l4-4 1 8h3v3h-5M6 5h7l1 3" />
 </>);

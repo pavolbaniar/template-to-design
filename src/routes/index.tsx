@@ -25,7 +25,7 @@ import {
   InstallationIcon, IndustrialInstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
   LightingIcon, PliersIcon, DrillIcon, ExcavatorIcon, SkidSteerIcon, PlatformIcon,
   GeneratorIcon, CraneTruckIcon, TractorIcon, FlatbedIcon,
-  SingleSupplierIcon, ApartmentBuildingIcon,
+  SingleSupplierIcon, ApartmentBuildingIcon, ExcavatorSiteIcon,
 } from "@/components/TechnicalIcons";
 import { Certificates } from "@/components/Certificates";
 import logo from "@/assets/mlm-logo.svg";
