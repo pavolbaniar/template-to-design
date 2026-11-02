@@ -15,7 +15,6 @@ import {
   Factory,
   Cctv,
   FileText,
-  Workflow,
   Timer,
   BadgeCheck,
   Store,
