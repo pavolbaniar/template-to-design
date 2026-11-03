@@ -25,7 +25,7 @@ import {
   InstallationIcon, IndustrialInstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
   LightingIcon, PliersIcon, DrillIcon, ExcavatorIcon, SkidSteerIcon, PlatformIcon,
   GeneratorIcon, CraneTruckIcon, TractorIcon, FlatbedIcon,
-  SingleSupplierIcon, ApartmentBuildingIcon, ExcavatorSiteIcon,
+  SingleSupplierIcon, ApartmentBuildingIcon, ExcavatorSilhouetteIcon,
 } from "@/components/TechnicalIcons";
 import { Certificates } from "@/components/Certificates";
 import logo from "@/assets/mlm-logo.svg";
@@ -246,7 +246,7 @@ const referencie = [
     text: "Prípojky NN, stúpačky, spoločné priestory, bleskozvod a odovzdanie ku kolaudácii.",
   },
   {
-    icon: ExcavatorSiteIcon,
+    icon: ExcavatorSilhouetteIcon,
     name: "Stavebné firmy a živnostníci",
     text: "Bágre, Locust, plošiny, elektrocentrály a MAN s hydraulickou rukou vrátane dovozu.",
   },

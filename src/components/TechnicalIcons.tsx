@@ -67,13 +67,16 @@ export const DrillIcon = technicalIcon("power-drill", <>
 export const ExcavatorIcon = technicalIcon("excavator", <>
   <rect x="2" y="18" width="13" height="4" rx="2" /><path d="M4 18v-7h6l3 7M5 11V7h5v7H4M13 15l3-10 5 7m-5-7-4-2-3 4M21 12l1 6-4-1 1-3M6 20h5" />
 </>);
-//crawler excavator: pill tracks with a tread line, cab with sloped windscreen,
-//engine hood, boom rising to an elbow, stick and an open scoop bucket.
-export const ExcavatorSiteIcon = technicalIcon("excavator-site", <>
-  <rect x="2.5" y="14.5" width="12" height="5" rx="2.5" /><path d="M5.2 17h6.6" />
-  <path d="M4.5 14.5V7.5h4.5l1.8 3.5v3.5M10.8 14.5v-3h2.4v3" />
-  <path d="m11.8 11.5 4.8-8M16.6 3.5 21 10.2" />
-  <path d="M21 10.2 22.2 14.8 18.6 15.6 18.2 12.6" />
+//crawler excavator silhouette: capsule-slotted tracks, cab with enclosed window,
+//boom rising to an elbow knuckle, stick, wrist and a V-mouth scoop bucket.
+export const ExcavatorSilhouetteIcon = technicalIcon("excavator-silhouette", <>
+  <path fill="currentColor" stroke="none" fillRule="evenodd" d="M9.4 17.2h12.4a2 2 0 0 1 0 4H9.4a2 2 0 0 1 0-4ZM11.8 18.1h7.6a.9.9 0 0 1 0 1.8h-7.6a.9.9 0 0 1 0-1.8Z" />
+  <path fill="currentColor" stroke="none" fillRule="evenodd" d="M10.4 17.2V12.2L12 8.4h3.2v2.8h4.6a1.6 1.6 0 0 1 1.6 1.6v4.4ZM11.8 12H14.2v2.6h-2.8Z" />
+  <path fill="currentColor" stroke="none" d="M12.74 11.1 14.46 8.9 8.06 3.9 6.34 6.1Z" />
+  <circle cx="7.2" cy="5" r="1.6" fill="currentColor" stroke="none" />
+  <path fill="currentColor" stroke="none" d="M6 4.66 8.4 5.34 6.3 12.74 3.9 12.06Z" />
+  <path fill="currentColor" stroke="none" d="M5.1 12.4 1.9 15.2 4.1 18.6 8.5 14.6 6.2 15.1Z" />
+  <circle cx="5.1" cy="12.4" r="1.3" fill="currentColor" stroke="none" />
 </>);
 export const SkidSteerIcon = technicalIcon("skid-steer", <>
   <circle cx="6" cy="19" r="3" /><circle cx="15" cy="19" r="3" /><path d="M3 16V8h11l2 8M6 8v6h6V8M3 14h12l4-4 1 8h3v3h-5M6 5h7l1 3" />
