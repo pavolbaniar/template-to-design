@@ -23,7 +23,7 @@ import {
   MeterIcon, ThermalCameraIcon, AnalyzerIcon, CompensationIcon,
   DistributionBoardIcon, SolarPanelIcon, LightningRodIcon, ChargingStationIcon,
   InstallationIcon, IndustrialInstallationIcon, CableLocatorIcon, ElectricalMaterialIcon, CableConnectorIcon,
-  LightingIcon, PliersIcon, DrillIcon, ExcavatorIcon, SkidSteerIcon, PlatformIcon,
+  LightingIcon, PliersIcon, DrillIcon, SkidSteerIcon, PlatformIcon,
   GeneratorIcon, CraneTruckIcon, TractorIcon, FlatbedIcon,
   SingleSupplierIcon, ApartmentBuildingIcon, ExcavatorSilhouetteIcon,
 } from "@/components/TechnicalIcons";
