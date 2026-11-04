@@ -1163,14 +1163,15 @@ function Index() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span className="flex flex-col gap-1.5">
+                    <span className="flex flex-col gap-2">
                       {s.hours.map((h) => (
-                        <span key={h.text} className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+                        <span key={h.text} className="flex flex-wrap items-center gap-x-3 gap-y-1">
                           <span>{h.text}</span>
                           <a
                             href={`tel:+421${h.num.replace(/\s|^0/g, "")}`}
-                            className="font-mono text-xs font-semibold uppercase tracking-wide text-primary hover:text-brand-dark"
+                            className="ml-auto inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-mono text-xs font-semibold tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                           >
+                            <Phone className="h-3 w-3" />
                             {h.num}
                           </a>
                         </span>
