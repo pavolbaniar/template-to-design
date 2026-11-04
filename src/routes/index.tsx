@@ -472,7 +472,8 @@ const shops = [
     id: "01",
     name: "Predajňa Stavbárov",
     note: "Svietidlá & elektromateriál",
-    address: "Stavbárov 12, 971 01 Prievidza",
+    address: "Stavbárov 63/12, 971 01 Prievidza",
+    coords: { lat: 48.7761261, lng: 18.6239848 },
     phones: [
       { label: "Predajňa svietidiel", num: "0948 344 377" },
       { label: "Predajňa elektromateriálu", num: "0948 344 378" },
@@ -487,6 +488,7 @@ const shops = [
     name: "Predajňa Zápotôčky",
     note: "Maloobchodná predajňa, vedľa nadchodu",
     address: "L. N. Tolstého 1885/8, 971 01 Prievidza",
+    coords: { lat: 48.7782349, lng: 18.6187666 },
     phones: [{ label: "Predajňa", num: "0948 162 842" }],
     hours: [{ text: "Po\u00a0–\u00a0Pia 7:30\u00a0–\u00a017:00 · So 8:00\u00a0–\u00a012:00", num: "0948 162 842" }],
   },
@@ -1155,7 +1157,10 @@ function Index() {
                   <li className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     <a
-                      href={`https://maps.google.com/?q=${encodeURIComponent(s.address)}`}
+                      href={`https://www.google.com/maps/search/?api=1&query=${s.coords.lat},${s.coords.lng}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Otvoriť v Google Maps"
                       className="hover:text-primary"
                     >
                       {s.address}
@@ -1217,7 +1222,7 @@ function Index() {
                   <div className="overflow-hidden rounded-xl border border-border">
                     <iframe
                       title={`Mapa — ${s.name}`}
-                      src={`https://www.google.com/maps?q=${encodeURIComponent(s.address)}&output=embed`}
+                      src={`https://www.google.com/maps?q=${s.coords.lat},${s.coords.lng}&z=17&output=embed`}
                       className="h-56 w-full"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
