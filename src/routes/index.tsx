@@ -354,7 +354,7 @@ type RentalItem = {
 const rentals: RentalItem[] = [
   {
     img: excavator,
-    icon: ExcavatorIcon,
+    icon: ExcavatorSilhouetteIcon,
     title: "Bágre",
     slogan: "Kopeme presne tam, kde treba",
     desc: "Výkopy pre prípojky, stavby a terénne úpravy.",
