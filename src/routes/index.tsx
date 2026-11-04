@@ -56,7 +56,7 @@ const LOCAL_BUSINESS_JSONLD = {
   foundingDate: "2007",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Stavbárov 12",
+    streetAddress: "Stavbárov 63/12",
     postalCode: "971 01",
     addressLocality: "Prievidza",
     addressCountry: "SK",
