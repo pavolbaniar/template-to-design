@@ -478,8 +478,8 @@ const shops = [
       { label: "Predajňa elektromateriálu", num: "0948 344 378" },
     ],
     hours: [
-      "Elektromateriál: Po – Pia 7:00 – 17:00 · So 8:00 – 12:00",
-      "Svietidlá: Po – Pia 8:00 – 17:00 · So 8:00 – 12:00",
+      { text: "Elektromateriál: Po\u00a0–\u00a0Pia 7:00\u00a0–\u00a017:00 · So 8:00\u00a0–\u00a012:00", num: "0948 344 378" },
+      { text: "Svietidlá: Po\u00a0–\u00a0Pia 8:00\u00a0–\u00a017:00 · So 8:00\u00a0–\u00a012:00", num: "0948 344 377" },
     ],
   },
   {
@@ -488,7 +488,7 @@ const shops = [
     note: "Maloobchodná predajňa, vedľa nadchodu",
     address: "L. N. Tolstého 1885/8, 971 01 Prievidza",
     phones: [{ label: "Predajňa", num: "0948 162 842" }],
-    hours: ["Po – Pia 7:30 – 17:00 · So 8:00 – 12:00"],
+    hours: [{ text: "Po\u00a0–\u00a0Pia 7:30\u00a0–\u00a017:00 · So 8:00\u00a0–\u00a012:00", num: "0948 162 842" }],
   },
 ];
 
@@ -1163,7 +1163,20 @@ function Index() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span className="flex flex-col">{s.hours.map((h) => <span key={h}>{h}</span>)}</span>
+                    <span className="flex flex-col gap-2">
+                      {s.hours.map((h) => (
+                        <span key={h.text} className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                          <span>{h.text}</span>
+                          <a
+                            href={`tel:+421${h.num.replace(/\s|^0/g, "")}`}
+                            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-mono text-xs font-semibold tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:ml-auto"
+                          >
+                            <Phone className="h-3 w-3" />
+                            {h.num}
+                          </a>
+                        </span>
+                      ))}
+                    </span>
                   </li>
                   {s.phones.map((p) => (
                     <li key={p.num} className="flex items-start gap-3">
