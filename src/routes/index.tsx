@@ -1243,10 +1243,13 @@ function Index() {
                     info@elektro-mlm.sk
                   </a>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Phone className="h-4 w-4 text-primary" />
-                  <a href="tel:+421918812027" className="hover:text-primary">
-                    0918 812 027
+                <li className="flex justify-center">
+                  <a
+                    href="tel:+421918812027"
+                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-sans text-xs font-semibold tracking-normal text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <Phone className="h-3 w-3" />
+                    {OWNER_PHONE}
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
