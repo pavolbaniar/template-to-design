@@ -193,12 +193,12 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
           >
             {current && (
               <>
-                <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-6">
+                <div className="flex items-center justify-between gap-3 bg-foreground px-4 py-3 sm:px-6">
                   <div className="min-w-0">
                     <p className="font-sans text-xs font-semibold tracking-normal text-primary">
                       {(openIndex ?? 0) + 1} / {visible.length}
                     </p>
-                    <DialogPrimitive.Title className="truncate font-sans text-base font-semibold sm:text-base">
+                    <DialogPrimitive.Title className="font-sans text-base font-semibold leading-snug">
                       {current.title}
                     </DialogPrimitive.Title>
                     <DialogPrimitive.Description className="sr-only">

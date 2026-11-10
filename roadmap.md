@@ -7,4 +7,4 @@
 
 - [x] Update loaded font faces and shared typography/contrast tokens.
 - [x] Apply readable sans-serif typography across all sections and certificate dialogs without changing content or images.
-- [ ] Verify desktop/mobile readability, navigation, certificate previews, and FVE contact link.
+- [x] Verify desktop/mobile readability, navigation, certificate previews, and FVE contact link.

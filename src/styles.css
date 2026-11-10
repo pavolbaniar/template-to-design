@@ -332,3 +332,6 @@ a.hover\:text-primary:hover, button.hover\:text-primary:hover {
 [role="dialog"] a.hover\:text-primary:hover {
   color: var(--brand-ink-inverse);
 }
+.hover\:bg-primary.hover\:text-primary-foreground:hover {
+  color: var(--primary-foreground);
+}
