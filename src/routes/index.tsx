@@ -561,19 +561,19 @@ function Index() {
           <a href="#top" className="flex items-center gap-3">
             <img src={logo} alt="ELEKTRO-MLM Prievidza" width={160} height={120} className="h-11 w-auto" />
           </a>
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             {nav.map((n) => (
               <a
                 key={n.href}
                 href={n.href}
-                className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:text-primary"
+                className="py-2 font-sans text-nav font-semibold tracking-normal text-foreground transition-colors hover:text-primary"
               >
                 {n.label}
               </a>
             ))}
             <a
               href="tel:+421918812027"
-              className="rounded-full bg-primary px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+              className="rounded-full bg-primary px-5 py-2.5 font-sans text-xs font-semibold tracking-normal text-primary-foreground transition-colors hover:bg-brand-dark"
             >
               0918 812 027
             </a>
@@ -581,7 +581,7 @@ function Index() {
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href="tel:+421918812027"
-              className="rounded-full bg-primary px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground"
+              className="rounded-full bg-primary px-4 py-2.5 font-sans text-xs font-semibold tracking-normal text-primary-foreground"
             >
               Volať
             </a>
@@ -589,7 +589,7 @@ function Index() {
               aria-label="Menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="flex items-center gap-2 rounded-full bg-foreground px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.14em] text-background shadow-lg"
+              className="flex items-center gap-2 rounded-full bg-foreground px-4 py-2.5 font-sans text-xs font-bold tracking-normal text-background shadow-lg"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               <span>{open ? "Zavrieť" : "Menu"}</span>
@@ -604,7 +604,7 @@ function Index() {
                   key={n.href}
                   href={n.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between border-b border-border py-4 font-mono text-sm font-bold uppercase tracking-[0.14em] text-foreground transition-colors hover:text-primary"
+                  className="flex items-center justify-between border-b border-border py-4 font-sans text-lg font-semibold tracking-normal text-foreground transition-colors hover:text-primary"
                 >
                   {n.label}
                   <span aria-hidden className="text-primary">
@@ -614,7 +614,7 @@ function Index() {
               ))}
               <a
                 href="tel:+421918812027"
-                className="mt-4 rounded-full bg-primary px-5 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground"
+                className="mt-4 rounded-full bg-primary px-5 py-3 text-center font-sans text-xs font-semibold tracking-normal text-primary-foreground"
               >
                 Zavolať 0918 812 027
               </a>
@@ -641,13 +641,13 @@ function Index() {
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28 lg:py-32">
           <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div className="max-w-2xl">
-              <h1 className="text-4xl font-extrabold uppercase italic leading-[0.95] tracking-tight md:text-6xl lg:text-7xl">
+              <h1 className="text-4xl font-extrabold leading-[1.08] tracking-normal md:text-6xl lg:text-7xl">
                 Elektroinštalácie, revízie a prenájom techniky
               </h1>
               <p className="mt-4 text-xl font-medium italic text-primary md:text-2xl">
                 Napätie, ktoré nesklame
               </p>
-              <p className="mt-6 max-w-xl text-sm font-mono font-semibold uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
+              <p className="mt-6 max-w-xl text-lg font-sans font-medium leading-relaxed tracking-normal md:text-xl text-muted-foreground">
                 Od roku 2007 · Revízie do 52 kV · Fotovoltika · Prenájom bágrov, plošín a elektrocentrál · Zmluvný
                 partner SSD
               </p>
@@ -661,7 +661,7 @@ function Index() {
                       className="flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1.5"
                     >
                       <Icon className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
-                      <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-foreground">
+                      <span className="font-sans text-xs font-semibold tracking-normal text-foreground">
                         {s.text}
                       </span>
                     </div>
@@ -672,25 +672,25 @@ function Index() {
               <div className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
                 <a
                   href="#revizie"
-                  className="btn-shine rounded-full bg-primary px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
+                  className="btn-shine rounded-full bg-primary px-6 py-3.5 text-center font-sans text-xs font-semibold tracking-normal text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
                 >
                   Revízie
                 </a>
                 <a
                   href="#prenajom"
-                  className="rounded-full border-2 border-foreground px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] transition-colors hover:bg-foreground hover:text-background"
+                  className="rounded-full border-2 border-foreground px-6 py-3.5 text-center font-sans text-xs font-semibold tracking-normal transition-colors hover:bg-foreground hover:text-background"
                 >
                   Prenájom
                 </a>
                 <a
                   href="#montaze"
-                  className="rounded-full border border-border bg-card px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-primary/50 hover:bg-secondary"
+                  className="rounded-full border border-border bg-card px-6 py-3.5 text-center font-sans text-xs font-semibold tracking-normal text-foreground transition-colors hover:border-primary/50 hover:bg-secondary"
                 >
                   Fotovoltika
                 </a>
                 <a
                   href="#kontakt"
-                  className="rounded-full border border-border bg-card px-6 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-primary/50 hover:bg-secondary"
+                  className="rounded-full border border-border bg-card px-6 py-3.5 text-center font-sans text-xs font-semibold tracking-normal text-foreground transition-colors hover:border-primary/50 hover:bg-secondary"
                 >
                   Kontakt
                 </a>
@@ -715,7 +715,7 @@ function Index() {
               />
               <div className="absolute bottom-4 left-4 z-20 flex items-center gap-3 rounded-xl bg-background/92 px-4 py-2.5 shadow-lg backdrop-blur">
                 <img src={logo} alt="ELEKTRO-MLM" width={160} height={80} className="h-7 w-auto md:h-8" />
-                <span className="hidden font-mono text-[0.6rem] font-semibold uppercase leading-tight tracking-[0.16em] text-muted-foreground sm:block">
+                <span className="hidden font-sans text-xs font-semibold leading-tight tracking-normal text-muted-foreground sm:block">
                   Revízie · Prenájom
                   <br />
                   Fotovoltika
@@ -734,7 +734,7 @@ function Index() {
               {ticker.map((t) => (
                 <span
                   key={`${k}-${t}`}
-                  className="flex items-center gap-3 whitespace-nowrap px-6 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.22em]"
+                  className="flex items-center gap-3 whitespace-nowrap px-6 font-sans text-xs font-semibold tracking-normal"
                 >
                   <Zap className="h-3.5 w-3.5 text-primary" fill="currentColor" strokeWidth={0} />
                   {t}
@@ -750,10 +750,10 @@ function Index() {
       <section id="sluzby" className="border-b border-border bg-secondary py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5">
           <Reveal>
-            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
               Čo pre vás robíme
             </p>
-            <h2 className="mt-3 max-w-2xl text-4xl uppercase italic leading-[1] md:text-5xl">
+            <h2 className="mt-3 max-w-2xl text-4xl leading-[1.15] md:text-5xl">
               Vyberte si, s čím potrebujete pomôcť
             </h2>
           </Reveal>
@@ -772,14 +772,14 @@ function Index() {
                       <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_10px_22px_-12px_color-mix(in_oklab,var(--brand-red)_90%,transparent)] transition-transform duration-300 group-hover:-translate-y-0.5">
                         <Icon className="h-7 w-7" strokeWidth={1.8} aria-hidden="true" />
                       </div>
-                      <span className="font-mono text-3xl font-semibold leading-none text-muted-foreground/25">
+                      <span className="font-sans text-3xl font-semibold leading-none text-muted-foreground">
                         0{i + 1}
                       </span>
                     </div>
-                    <h3 className="relative mt-6 text-xl uppercase leading-tight">{s.label}</h3>
+                    <h3 className="relative mt-6 text-xl leading-tight">{s.label}</h3>
                     <ul className="relative mt-4 space-y-2">
                       {s.points.map((p) => (
-                        <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <li key={p} className="flex items-start gap-2 text-base text-muted-foreground">
                           <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2} />
                           {p}
                         </li>
@@ -787,7 +787,7 @@ function Index() {
                     </ul>
                     <a
                       href={s.href}
-                      className="btn-shine relative mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-brand-dark"
+                      className="btn-shine relative mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-sans text-xs font-semibold tracking-normal text-primary-foreground transition-colors hover:bg-brand-dark"
                     >
                       {s.cta}
                       <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
@@ -807,10 +807,10 @@ function Index() {
       {/* PREDAJ */}
       <section id="predaj" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
         <Reveal>
-          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+          <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
             Predaj
           </p>
-          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+          <h2 className="mt-3 text-4xl leading-[1.15] md:text-5xl">
             Všetko pre elektrinu <span className="text-primary">pod jednou strechou</span>
           </h2>
         </Reveal>
@@ -834,9 +834,9 @@ function Index() {
                   <c.icon className="pointer-events-none absolute right-3 top-3 h-6 w-6 text-primary" strokeWidth={1.8} />
                 </div>
                 <div className="flex flex-1 flex-col border-t border-border p-6">
-                  <h3 className="text-xl uppercase leading-tight">{c.title}</h3>
-                  <p className="mt-2 font-mono text-[0.68rem] uppercase tracking-widest text-primary">{c.tags}</p>
-                  <p className="mt-3 text-sm text-muted-foreground">{c.desc}</p>
+                  <h3 className="text-xl leading-tight">{c.title}</h3>
+                  <p className="mt-2 font-sans text-xs tracking-normal text-primary">{c.tags}</p>
+                  <p className="mt-3 text-base text-muted-foreground">{c.desc}</p>
                 </div>
               </article>
             </Reveal>
@@ -852,8 +852,8 @@ function Index() {
             <div className="relative flex items-start gap-4">
               <SolarPanelIcon className="h-10 w-10 shrink-0 text-primary" strokeWidth={1.8} />
               <div>
-                <h3 className="text-2xl uppercase leading-tight">Fotovoltika na kľúč</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <h3 className="text-2xl leading-tight">Fotovoltika na kľúč</h3>
+                <p className="mt-1 text-base text-muted-foreground">
                   Návrh, montáž, revízna správa aj papierovačky so ZSD — vrátane vybavenia dotácie
                   Zelená domácnostiam. Slnko, ktoré sa vám vráti.
                 </p>
@@ -862,7 +862,7 @@ function Index() {
             <a
               href="#kontaktny-formular"
               onClick={() => setForm((current) => ({ ...current, topic: "Fotovoltika" }))}
-              className="btn-shine relative shrink-0 rounded-full bg-primary px-6 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark"
+              className="btn-shine relative shrink-0 rounded-full bg-primary px-6 py-3 text-center font-sans text-xs font-semibold tracking-normal text-primary-foreground hover:bg-brand-dark"
             >
               Dopyt na FVE
             </a>
@@ -878,10 +878,10 @@ function Index() {
         />
         <div className="relative mx-auto max-w-7xl px-5">
           <Reveal>
-            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
               Prenájom mechanizácie
             </p>
-            <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+            <h2 className="mt-3 max-w-3xl text-4xl leading-[1.15] md:text-5xl">
               Bágre · Locust · Plošiny · <span className="text-primary">Elektrocentrály</span>
             </h2>
             <p className="mt-4 max-w-xl text-muted-foreground">
@@ -898,7 +898,7 @@ function Index() {
                       aria-hidden
                       className="pointer-events-none absolute inset-x-8 bottom-4 h-20 rounded-[50%] bg-primary/10 blur-xl transition-opacity duration-500 group-hover:bg-primary/25"
                     />
-                    <span className="absolute left-3 top-3 font-mono text-[0.7rem] font-semibold text-muted-foreground/40">
+                    <span className="absolute left-3 top-3 font-sans text-xs font-semibold text-muted-foreground">
                       0{i + 1}
                     </span>
                     <img
@@ -912,12 +912,12 @@ function Index() {
                     {r.icon && <r.icon className="pointer-events-none absolute right-3 top-3 h-6 w-6 text-primary" strokeWidth={1.8} />}
                   </div>
                   <div className="flex flex-1 flex-col border-t border-border p-6">
-                    <h3 className="text-2xl uppercase leading-none">{r.title}</h3>
-                    <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-widest text-primary">{r.slogan}</p>
-                    <p className="mt-3 text-sm text-muted-foreground">{r.desc}</p>
+                    <h3 className="text-2xl leading-[1.15]">{r.title}</h3>
+                    <p className="mt-2 font-sans text-xs tracking-normal text-primary">{r.slogan}</p>
+                    <p className="mt-3 text-base text-muted-foreground">{r.desc}</p>
                     <a
                       href="tel:+421918812027"
-                      className="mt-5 inline-flex items-center gap-2 self-start rounded-full border border-border px-4 py-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] transition-colors hover:border-primary hover:text-primary"
+                      className="mt-5 inline-flex items-center gap-2 self-start rounded-full border border-border px-4 py-2 font-sans text-xs font-semibold tracking-normal transition-colors hover:border-primary hover:text-primary"
                     >
                       <Phone className="h-3.5 w-3.5" /> Dopyt
                     </a>
@@ -947,10 +947,10 @@ function Index() {
               },
             ].map((step) => (
               <div key={step.n} className="flex gap-4">
-                <span className="font-mono text-3xl font-semibold leading-none text-primary/30">{step.n}</span>
+                <span className="font-sans text-3xl font-semibold leading-none text-primary">{step.n}</span>
                 <div>
-                  <h3 className="text-lg font-semibold uppercase leading-tight">{step.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{step.desc}</p>
+                  <h3 className="text-xl font-bold leading-tight">{step.title}</h3>
+                  <p className="mt-1.5 text-base text-muted-foreground">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -958,7 +958,7 @@ function Index() {
 
           <a
             href="tel:+421918812027"
-            className="btn-shine mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
+            className="btn-shine mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-sans text-xs font-semibold tracking-normal text-primary-foreground shadow-[0_14px_30px_-14px_color-mix(in_oklab,var(--brand-red)_80%,transparent)] transition-colors hover:bg-brand-dark"
           >
             <Phone className="h-4 w-4" /> Dohodnúť termín prenájmu
           </a>
@@ -968,10 +968,10 @@ function Index() {
       {/* REVÍZIE */}
       <section id="revizie" className="mx-auto max-w-7xl px-5 py-20 md:py-24">
         <Reveal>
-          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+          <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
             Revízie a merania
           </p>
-          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+          <h2 className="mt-3 max-w-3xl text-4xl leading-[1.15] md:text-5xl">
             Revízna správa, ktorá obstojí <span className="text-primary">pri kontrole aj pri poistke</span>
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
@@ -990,8 +990,8 @@ function Index() {
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
                     <Icon className="h-7 w-7" strokeWidth={1.8} />
                   </div>
-                  <h3 className="mt-6 text-lg font-semibold uppercase leading-tight">{r.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
+                  <h3 className="mt-6 text-xl font-bold leading-tight">{r.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">{r.desc}</p>
                 </article>
               </Reveal>
             );
@@ -1007,7 +1007,7 @@ function Index() {
               { text: "Periodické revízie", icon: MeterIcon },
             ].map(
               (item) => (
-                <span key={item.text} className="flex items-center gap-2 text-sm font-medium">
+                <span key={item.text} className="flex items-center gap-2 text-base font-medium">
                   <item.icon className="h-4 w-4 text-primary" strokeWidth={1.8} aria-hidden="true" />
                   {item.text}
                 </span>
@@ -1021,10 +1021,10 @@ function Index() {
       <section id="montaze" className="border-y border-border bg-secondary py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-5">
           <Reveal>
-            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
               Elektroinštalácie a montáže
             </p>
-            <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+            <h2 className="mt-3 max-w-3xl text-4xl leading-[1.15] md:text-5xl">
               Od projektu po <span className="text-primary">revíznu správu</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
@@ -1043,7 +1043,7 @@ function Index() {
                       <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25">
                         <Icon className="h-6 w-6" strokeWidth={1.8} />
                       </span>
-                      <h3 className="text-lg font-semibold uppercase leading-tight">{cat.category}</h3>
+                      <h3 className="text-xl font-bold leading-tight">{cat.category}</h3>
                     </div>
                     <ul className="mt-6 space-y-3">
                       {cat.items.map((m) => (
@@ -1054,7 +1054,7 @@ function Index() {
                             : m === "Bleskozvody a uzemnenie" ? <LightningRodIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                             : m === "Fotovoltika na kľúč vrátane povolení" ? <SolarPanelIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                             : <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={1.8} aria-hidden="true" />}
-                          <span className="text-sm text-muted-foreground">{m}</span>
+                          <span className="text-base text-muted-foreground">{m}</span>
                         </li>
                       ))}
                     </ul>
@@ -1069,10 +1069,10 @@ function Index() {
       {/* PREČO MY + REFERENCIE */}
       <section className="mx-auto max-w-7xl px-5 py-20 md:py-24">
         <Reveal>
-          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+          <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
             Prečo ELEKTRO-MLM
           </p>
-          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+          <h2 className="mt-3 max-w-3xl text-4xl leading-[1.15] md:text-5xl">
             Sme tu pre vás — <span className="text-primary">bez zbytočných rečí</span>
           </h2>
         </Reveal>
@@ -1085,8 +1085,8 @@ function Index() {
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25">
                     <Icon className="h-6 w-6" strokeWidth={1.8} />
                   </span>
-                  <h3 className="mt-6 text-lg font-semibold uppercase leading-tight">{p.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+                  <h3 className="mt-6 text-xl font-bold leading-tight">{p.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">{p.text}</p>
                 </article>
               </Reveal>
             );
@@ -1094,10 +1094,10 @@ function Index() {
         </div>
 
         <Reveal delay={60}>
-          <p className="eyebrow-line mt-20 font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+          <p className="eyebrow-line mt-20 font-sans text-xs font-semibold tracking-normal text-primary">
             Referencie
           </p>
-          <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+          <h2 className="mt-3 text-4xl leading-[1.15] md:text-5xl">
             Kde sme už <span className="text-primary">svietili</span>
           </h2>
         </Reveal>
@@ -1106,8 +1106,8 @@ function Index() {
             <Reveal key={r.name} delay={i * 90} className="h-full">
               <article className="card-lift h-full rounded-2xl border border-border bg-card p-6">
                 <r.icon className="h-7 w-7 text-primary" strokeWidth={1.8} />
-                <h3 className="mt-4 text-lg uppercase leading-tight">{r.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{r.text}</p>
+                <h3 className="mt-4 text-xl leading-tight">{r.name}</h3>
+                <p className="mt-2 text-base text-muted-foreground">{r.text}</p>
               </article>
             </Reveal>
           ))}
@@ -1117,16 +1117,16 @@ function Index() {
           <div className="relative mt-12 overflow-hidden rounded-2xl bg-foreground px-7 py-10 text-background sm:flex sm:items-center sm:justify-between sm:gap-8">
             <span aria-hidden className="glow-blob pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full opacity-60" />
             <div className="relative">
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              <p className="font-sans text-xs font-semibold tracking-normal text-primary">
                 Potrebujete poradiť?
               </p>
-              <h3 className="mt-3 max-w-xl text-3xl uppercase italic leading-[1.05] md:text-4xl">
+              <h3 className="mt-3 max-w-xl text-3xl leading-[1.15] md:text-4xl">
                 Neváhajte nás kontaktovať — radi vás privítame v našich predajniach.
               </h3>
             </div>
             <a
               href="#kontakt"
-              className="btn-shine relative mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-brand-dark sm:mt-0"
+              className="btn-shine relative mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-sans text-xs font-semibold tracking-normal text-primary-foreground hover:bg-brand-dark sm:mt-0"
             >
               <Phone className="h-4 w-4" /> Kontaktujte nás
             </a>
@@ -1140,20 +1140,20 @@ function Index() {
       <section id="kontakt" className="border-t border-border bg-secondary py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-5">
           <Reveal>
-            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
               Kde nás nájdete
             </p>
-            <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+            <h2 className="mt-3 text-4xl leading-[1.15] md:text-5xl">
               Dve predajne <span className="text-primary">v Prievidzi</span>
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {shops.map((s) => (
               <article key={s.id} className="card-lift frame-brand flex h-full flex-col p-7">
-                <span className="font-mono text-xs font-bold tracking-widest text-primary">{s.id}</span>
-                <h3 className="mt-2 text-2xl uppercase leading-tight">{s.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{s.note}</p>
-                <ul className="mt-5 space-y-3 text-sm">
+                <span className="font-sans text-xs font-bold tracking-normal text-primary">{s.id}</span>
+                <h3 className="mt-2 text-2xl leading-tight">{s.name}</h3>
+                <p className="mt-1 text-base text-muted-foreground">{s.note}</p>
+                <ul className="mt-5 space-y-3 text-base">
                   <li className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     <a
@@ -1174,7 +1174,7 @@ function Index() {
                           <span>{h.text}</span>
                           <a
                             href={`tel:+421${h.num.replace(/\s|^0/g, "")}`}
-                            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-mono text-xs font-semibold tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:ml-auto"
+                            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-sans text-xs font-semibold tracking-normal text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:ml-auto"
                           >
                             <Phone className="h-3 w-3" />
                             {h.num}
@@ -1187,7 +1187,7 @@ function Index() {
                     <li key={p.num} className="flex items-start gap-3">
                       <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                       <span>
-                        <span className="block text-xs uppercase tracking-widest text-muted-foreground">
+                        <span className="block text-xs tracking-normal text-muted-foreground">
                           {p.label}
                         </span>
                         <a
@@ -1202,7 +1202,7 @@ function Index() {
                   <li className="flex items-start gap-3">
                     <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     <span>
-                      <span className="block text-xs uppercase tracking-widest text-muted-foreground">
+                      <span className="block text-xs tracking-normal text-muted-foreground">
                         Majiteľ / obhliadky
                       </span>
                       <a href="tel:+421918812027" className="font-semibold hover:text-primary">
@@ -1236,15 +1236,15 @@ function Index() {
           {/* KONTAKTNÝ FORMULÁR */}
           <div id="kontaktny-formular" className="mt-16 grid scroll-mt-28 gap-8 rounded-2xl border border-border bg-card p-7 md:grid-cols-[1fr_1.2fr] md:p-10">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">Napíšte nám</p>
-              <h3 className="mt-3 text-3xl uppercase italic leading-[1]">
+              <p className="font-sans text-xs font-semibold tracking-normal text-primary">Napíšte nám</p>
+              <h3 className="mt-3 text-3xl leading-[1.15]">
                 Nezáväzný dopyt <span className="text-primary">na e-mail</span>
               </h3>
-              <p className="mt-4 text-sm text-muted-foreground">
+              <p className="mt-4 text-base text-muted-foreground">
                 Revízia, oprava, fotovoltika alebo prenájom techniky? Napíšte, čo potrebujete, a ozveme sa spravidla do
                 24 hodín.
               </p>
-              <ul className="mt-6 space-y-3 text-sm">
+              <ul className="mt-6 space-y-3 text-base">
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-primary" />
                   <a href="mailto:info@elektro-mlm.sk" className="hover:text-primary">
@@ -1283,18 +1283,18 @@ function Index() {
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2">
-                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                  <span className="font-sans text-xs tracking-normal text-muted-foreground">
                     Meno a priezvisko
                   </span>
                   <input
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                    className="rounded-lg border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"
                   />
                 </label>
                 <label className="grid gap-2">
-                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                  <span className="font-sans text-xs tracking-normal text-muted-foreground">
                     Telefón
                   </span>
                   <input
@@ -1302,13 +1302,13 @@ function Index() {
                     type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                    className="rounded-lg border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"
                   />
                 </label>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2">
-                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                  <span className="font-sans text-xs tracking-normal text-muted-foreground">
                     E-mail
                   </span>
                   <input
@@ -1316,17 +1316,17 @@ function Index() {
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                    className="rounded-lg border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"
                   />
                 </label>
                 <label className="grid gap-2">
-                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+                  <span className="font-sans text-xs tracking-normal text-muted-foreground">
                     Čo potrebujete
                   </span>
                   <select
                     value={form.topic}
                     onChange={(e) => setForm({ ...form, topic: e.target.value })}
-                    className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                    className="rounded-lg border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"
                   >
                     <option>Revízia / meranie</option>
                     <option>Lokalizácia poruchy</option>
@@ -1338,18 +1338,18 @@ function Index() {
                 </label>
               </div>
               <label className="grid gap-2">
-                <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">Správa</span>
+                <span className="font-sans text-xs tracking-normal text-muted-foreground">Správa</span>
                 <textarea
                   required
                   rows={4}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                  className="rounded-lg border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"
                 />
               </label>
               <button
                 type="submit"
-                className="justify-self-start rounded-full bg-primary px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-brand-dark"
+                className="justify-self-start rounded-full bg-primary px-7 py-3.5 font-sans text-xs font-semibold tracking-normal text-primary-foreground transition-colors hover:bg-brand-dark"
               >
                 Odoslať dopyt
               </button>
@@ -1364,10 +1364,10 @@ function Index() {
       <section className="border-t border-border py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-5">
           <Reveal>
-            <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
               Časté otázky
             </p>
-            <h2 className="mt-3 text-4xl uppercase italic leading-[1] md:text-5xl">
+            <h2 className="mt-3 text-4xl leading-[1.15] md:text-5xl">
               Čo vás <span className="text-primary">najčastejšie zaujíma</span>
             </h2>
           </Reveal>
@@ -1386,13 +1386,13 @@ function Index() {
                       <span className="text-base font-semibold md:text-lg">{f.q}</span>
                       <span
                         aria-hidden
-                        className={`shrink-0 font-mono text-xl text-primary transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                        className={`shrink-0 font-sans text-xl text-primary transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
                       >
                         +
                       </span>
                     </button>
                     <p
-                      className={`grid px-5 text-sm text-muted-foreground transition-all duration-300 ${isOpen ? "grid-rows-[1fr] pb-5 opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                      className={`grid px-5 text-base text-muted-foreground transition-all duration-300 ${isOpen ? "grid-rows-[1fr] pb-5 opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                     >
                       <span className="overflow-hidden">{f.a}</span>
                     </p>
@@ -1410,11 +1410,11 @@ function Index() {
             <span className="rounded-xl bg-background px-4 py-2">
               <img src={logo} alt="ELEKTRO-MLM Prievidza" width={160} height={120} className="h-11 w-auto" />
             </span>
-            <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] opacity-70">
+            <span className="font-sans text-xs tracking-normal">
               Prievidza · od 2007
             </span>
           </div>
-          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-y border-background/15 py-5 font-mono text-xs uppercase tracking-widest">
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-y border-background/15 py-5 font-sans text-xs tracking-normal">
             <a href="#kontakt" className="flex items-center gap-2 hover:text-primary">
               <MapPin className="h-4 w-4 text-primary" /> Prievidza
             </a>
@@ -1425,7 +1425,7 @@ function Index() {
               <Phone className="h-4 w-4 text-primary" /> 0918 812 027
             </a>
           </div>
-          <p className="mt-6 text-xs opacity-70">
+          <p className="mt-6 text-xs">
             © {new Date().getFullYear()} ELEKTRO – MLM, s.r.o. · Stavbárov 12, Prievidza · IČO: 36 725 463 · ISO 9001
           </p>
         </div>
@@ -1435,13 +1435,13 @@ function Index() {
       <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-card/95 backdrop-blur md:hidden">
         <a
           href="tel:+421918812027"
-          className="flex items-center justify-center gap-2 bg-primary py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground"
+          className="flex items-center justify-center gap-2 bg-primary py-4 font-sans text-xs font-semibold tracking-normal text-primary-foreground"
         >
           <Phone className="h-4 w-4" /> 0918 812 027
         </a>
         <a
           href="#kontakt"
-          className="flex items-center justify-center gap-2 py-4 font-mono text-xs font-semibold uppercase tracking-[0.18em]"
+          className="flex items-center justify-center gap-2 py-4 font-sans text-xs font-semibold tracking-normal"
         >
           <Mail className="h-4 w-4 text-primary" /> Napísať
         </a>

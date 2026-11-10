@@ -19,9 +19,8 @@
  */
 
 @theme inline {
-  --font-display: "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-sans: "Barlow", system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -29,6 +28,14 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  --text-xs: 0.875rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.6;
+  --text-nav: 0.9375rem;
+  --text-nav--line-height: 1.5;
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-ink-inverse: var(--brand-ink-inverse);
   --color-brand: var(--brand-red);
   --color-brand-dark: var(--brand-red-dark);
 
@@ -70,7 +77,7 @@
 :root {
   --radius: 0.875rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.24 0.005 60);
+  --foreground: oklch(0.18 0.005 60);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.24 0.005 60);
   --popover: oklch(1 0 0);
@@ -80,7 +87,7 @@
   --secondary: oklch(0.965 0.005 70);
   --secondary-foreground: oklch(0.24 0.005 60);
   --muted: oklch(0.965 0.005 70);
-  --muted-foreground: oklch(0.52 0.008 70);
+  --muted-foreground: oklch(0.40 0.008 70);
   --accent: oklch(0.965 0.005 70);
   --accent-foreground: oklch(0.24 0.005 60);
   --destructive: oklch(0.565 0.229 27.5);
@@ -90,6 +97,8 @@
   --ring: oklch(0.565 0.229 27.5);
   --brand-red: oklch(0.565 0.229 27.5);
   --brand-red-dark: oklch(0.475 0.215 27.5);
+  --brand-ink: oklch(0.425 0.17 27.5);
+  --brand-ink-inverse: oklch(0.79 0.12 27.5);
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -155,14 +164,21 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    line-height: 1.65;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-synthesis: none;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "zero" 0;
+    letter-spacing: 0;
   }
 
   h1,
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.15;
   }
 
   ::selection {
@@ -294,4 +310,28 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .marquee-track { animation: none; }
   .glow-blob { animation: none; }
+}
+
+/* Shared readability rules, including document dialogs rendered in a portal. */
+@layer base {
+  h1 { font-weight: 800; line-height: 1.08; }
+  p { max-inline-size: 65ch; }
+  input, select, textarea, button { font-family: var(--font-sans); }
+}
+.text-primary:is(p, h1, h2, h3, span, a, button) {
+  color: var(--brand-ink);
+}
+.bg-foreground .text-primary:is(p, h1, h2, h3, span, a, button),
+[role="dialog"] .text-primary:is(p, h1, h2, h3, span, a, button) {
+  color: var(--brand-ink-inverse);
+}
+a.hover\:text-primary:hover, button.hover\:text-primary:hover {
+  color: var(--brand-ink);
+}
+.bg-foreground a.hover\:text-primary:hover,
+[role="dialog"] a.hover\:text-primary:hover {
+  color: var(--brand-ink-inverse);
+}
+.hover\:bg-primary.hover\:text-primary-foreground:hover {
+  color: var(--primary-foreground);
 }

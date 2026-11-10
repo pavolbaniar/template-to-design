@@ -91,10 +91,10 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
     <section id="certifikaty" className="border-t border-border py-20 pb-28 md:py-24">
       <div className="mx-auto max-w-7xl px-5">
         <Reveal>
-          <p className="eyebrow-line font-mono text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+          <p className="eyebrow-line font-sans text-xs font-semibold tracking-normal text-primary">
             Certifikáty a oprávnenia
           </p>
-          <h2 className="mt-3 max-w-3xl text-4xl uppercase italic leading-[1] md:text-5xl">
+          <h2 className="mt-3 max-w-3xl text-4xl leading-[1.15] md:text-5xl">
             Papiere, ktoré <span className="text-primary">obstoja pri kontrole</span>
           </h2>
           <p className="mt-5 max-w-2xl text-muted-foreground">
@@ -105,7 +105,7 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
             {pills.map((p) => (
               <div key={p.text} className="flex items-center gap-1.5 rounded-full border border-border bg-secondary px-3 py-1.5">
                 <p.icon className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
-                <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-foreground">{p.text}</span>
+                <span className="font-sans text-xs font-semibold tracking-normal text-foreground">{p.text}</span>
               </div>
             ))}
           </div>
@@ -118,7 +118,7 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
                   type="button"
                   aria-pressed={active}
                   onClick={() => setFilter(g.id)}
-                  className={`rounded-full border px-4 py-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.14em] transition-colors ${
+                  className={`rounded-full border px-4 py-2 font-sans text-xs font-semibold tracking-normal transition-colors ${
                     active
                       ? "border-primary bg-primary text-primary-foreground"
                       : "border-border bg-card text-foreground hover:border-primary/50 hover:text-primary"
@@ -160,8 +160,8 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col gap-3 border-t border-border p-5">
-                      <h3 className="text-sm font-semibold uppercase leading-snug">{c.title}</h3>
-                      <span className="mt-auto inline-flex items-center gap-2 font-mono text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      <h3 className="text-xl font-bold leading-snug">{c.title}</h3>
+                      <span className="mt-auto inline-flex items-center gap-2 font-sans text-xs font-semibold tracking-normal text-muted-foreground">
                         <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-primary/10 text-primary ring-1 ring-primary/25">
                           <Icon className="h-3.5 w-3.5" />
                         </span>
@@ -193,12 +193,12 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
           >
             {current && (
               <>
-                <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-6">
+                <div className="flex items-center justify-between gap-3 bg-foreground px-4 py-3 sm:px-6">
                   <div className="min-w-0">
-                    <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-primary">
+                    <p className="font-sans text-xs font-semibold tracking-normal text-primary">
                       {(openIndex ?? 0) + 1} / {visible.length}
                     </p>
-                    <DialogPrimitive.Title className="truncate font-sans text-sm font-semibold uppercase sm:text-base">
+                    <DialogPrimitive.Title className="font-sans text-base font-semibold leading-snug">
                       {current.title}
                     </DialogPrimitive.Title>
                     <DialogPrimitive.Description className="sr-only">
@@ -210,7 +210,7 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
                       href={current.file}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hidden items-center gap-2 rounded-full border border-background/30 px-4 py-2 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em] hover:border-primary hover:text-primary sm:inline-flex"
+                      className="hidden items-center gap-2 rounded-full border border-background/30 px-4 py-2 font-sans text-xs font-semibold tracking-normal hover:border-primary hover:text-primary sm:inline-flex"
                     >
                       <ExternalLink className="h-3.5 w-3.5" /> Otvoriť v plnej veľkosti
                     </a>
@@ -257,7 +257,7 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
                     href={current.file}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-background/30 px-4 py-2 font-mono text-[0.62rem] font-semibold uppercase tracking-[0.14em] sm:hidden"
+                    className="inline-flex items-center gap-2 rounded-full border border-background/30 px-4 py-2 font-sans text-xs font-semibold tracking-normal sm:hidden"
                   >
                     <ExternalLink className="h-3.5 w-3.5" /> Plná veľkosť
                   </a>
