@@ -1166,39 +1166,25 @@ function Index() {
                       {s.address}
                     </a>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span className="flex flex-col gap-2">
+                  <li className="relative pl-7">
+                    <Clock className="absolute left-0 top-0.5 h-4 w-4 text-primary" />
+                    <span className="flex flex-col gap-3">
                       {s.hours.map((h) => (
-                        <span key={h.text} className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <span key={h.text} className="flex flex-col gap-2">
                           <span>{h.text}</span>
-                          <a
-                            href={`tel:+421${h.num.replace(/\s|^0/g, "")}`}
-                            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-sans text-xs font-semibold tracking-normal text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:ml-auto"
-                          >
-                            <Phone className="h-3 w-3" />
-                            {h.num}
-                          </a>
+                          <span className="-ml-7 flex justify-center">
+                            <a
+                              href={`tel:+421${h.num.replace(/\s|^0/g, "")}`}
+                              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-sans text-xs font-semibold tracking-normal text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                            >
+                              <Phone className="h-3 w-3" />
+                              {h.num}
+                            </a>
+                          </span>
                         </span>
                       ))}
                     </span>
                   </li>
-                  {s.phones.map((p) => (
-                    <li key={p.num} className="flex items-start gap-3">
-                      <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span>
-                        <span className="block text-xs tracking-normal text-muted-foreground">
-                          {p.label}
-                        </span>
-                        <a
-                          href={`tel:+421${p.num.replace(/\s|^0/g, "")}`}
-                          className="font-semibold hover:text-primary"
-                        >
-                          {p.num}
-                        </a>
-                      </span>
-                    </li>
-                  ))}
                   <li className="flex items-start gap-3">
                     <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     <span>
