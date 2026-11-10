@@ -1185,15 +1185,21 @@ function Index() {
                       ))}
                     </span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span>
+                  <li className="relative pl-7">
+                    <Phone className="absolute left-0 top-0.5 h-4 w-4 text-primary" />
+                    <span className="flex flex-col gap-2">
                       <span className="block text-xs tracking-normal text-muted-foreground">
                         Majiteľ / obhliadky
                       </span>
-                      <a href="tel:+421918812027" className="font-semibold hover:text-primary">
-                        {OWNER_PHONE}
-                      </a>
+                      <span className="-ml-7 flex justify-center">
+                        <a
+                          href="tel:+421918812027"
+                          className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-sans text-xs font-semibold tracking-normal text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                        >
+                          <Phone className="h-3 w-3" />
+                          {OWNER_PHONE}
+                        </a>
+                      </span>
                     </span>
                   </li>
 
