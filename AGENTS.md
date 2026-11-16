@@ -12,3 +12,4 @@
 - Domain iconography lives in `src/components/TechnicalIcons.tsx`: use shared 24-unit, currentColor SVG symbols for technical subjects and Lucide for semantically accurate general/UI symbols, keeping geometry and theming consistent.
 
 - Keep typography sizes and contrast roles in the global CSS theme, and load only the actual sans-serif weights/styles in the root head; shared tokens prevent section drift and synthetic font faces.
+- Certificate files (images, thumbs, PDFs) live as plain files in public/certifikaty/ and are referenced by /certifikaty/... paths, never asset pointers — owner's explicit requirement so files stay in the repo.

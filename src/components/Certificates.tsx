@@ -2,33 +2,6 @@ import { useRef, useState, type ComponentType, type ReactNode } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { BadgeCheck, ChevronLeft, ChevronRight, ExternalLink, FileText, FileBadge, X, ZoomIn } from "lucide-react";
 
-import iso9001sk from "@/assets/certifikaty/iso9001-2015-sk.jpg.asset.json";
-import iso9001en from "@/assets/certifikaty/iso9001-2015-en.jpg.asset.json";
-import enstoFull from "@/assets/certifikaty/ensto-daumer.jpg.asset.json";
-import c04 from "@/assets/certifikaty/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
-import c05 from "@/assets/certifikaty/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
-import c06 from "@/assets/certifikaty/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg";
-import c07 from "@/assets/certifikaty/07_Licencia_prevadzkovanie_technickej_sluzby.jpg";
-import c08 from "@/assets/certifikaty/08_Certifikat_montaz_kablovych_suborov_Raychem.jpg";
-import c09 from "@/assets/certifikaty/09_Osvedcenie_odborna_sposobilost_elektroenergetika.jpg";
-import c10 from "@/assets/certifikaty/10_Osvedcenie_odborna_sposobilost_tepelna_energetika.jpg";
-import c11 from "@/assets/certifikaty/11_Opravnenie_vyroba_technickych_elektrickych_zariadeni.jpg";
-import c12 from "@/assets/certifikaty/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg";
-import t01 from "@/assets/certifikaty/thumbs/iso9001-2015-sk.jpg.asset.json";
-import t02 from "@/assets/certifikaty/thumbs/iso9001-2015-en.jpg.asset.json";
-import enstoThumb from "@/assets/certifikaty/thumbs/ensto-daumer.jpg.asset.json";
-import t04 from "@/assets/certifikaty/thumbs/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
-import t05 from "@/assets/certifikaty/thumbs/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
-import t06 from "@/assets/certifikaty/thumbs/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg";
-import t07 from "@/assets/certifikaty/thumbs/07_Licencia_prevadzkovanie_technickej_sluzby.jpg";
-import t08 from "@/assets/certifikaty/thumbs/08_Certifikat_montaz_kablovych_suborov_Raychem.jpg";
-import t09 from "@/assets/certifikaty/thumbs/09_Osvedcenie_odborna_sposobilost_elektroenergetika.jpg";
-import t10 from "@/assets/certifikaty/thumbs/10_Osvedcenie_odborna_sposobilost_tepelna_energetika.jpg";
-import t11 from "@/assets/certifikaty/thumbs/11_Opravnenie_vyroba_technickych_elektrickych_zariadeni.jpg";
-import t12 from "@/assets/certifikaty/thumbs/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg";
-import pdfSk from "@/assets/certifikaty/certifikat-iso-9001-2015-sk.pdf.asset.json";
-import pdfEn from "@/assets/certifikaty/certifikat-iso-9001-2015-en.pdf.asset.json";
-import pdfEnsto from "@/assets/certifikaty/certifikat-ensto-daumer.pdf.asset.json";
 
 type Group = "kvalita" | "opravnenia" | "osvedcenia";
 
@@ -57,20 +30,20 @@ type Certificate = {
   pdf?: string;
 };
 
-// Nový certifikát = nový riadok v tomto poli.
+// Nový certifikát: súbory do public/certifikaty/ (náhľad do thumbs/), potom nový riadok v tomto poli.
 const certificates: Certificate[] = [
-  { id: "01", file: iso9001sk.url, thumb: t01.url, pdf: pdfSk.url, w: 800, h: 1131, title: "Certifikát EN ISO 9001:2015 (slovensky)", group: "kvalita" },
-  { id: "02", file: iso9001en.url, thumb: t02.url, pdf: pdfEn.url, w: 800, h: 1131, title: "Certifikát EN ISO 9001:2015 (anglicky)", group: "kvalita" },
-  { id: "04", file: c04, thumb: t04, w: 454, h: 640, title: "Oprávnenie na odborné prehliadky, skúšky a opravy el. zariadení", group: "opravnenia" },
-  { id: "05", file: c05, thumb: t05, w: 453, h: 640, title: "Oprávnenie na výrobu elektrických rozvádzačov", group: "opravnenia" },
-  { id: "06", file: c06, thumb: t06, w: 454, h: 640, title: "Osvedčenie na prehliadky a skúšky el. zariadení vrátane bleskozvodov", group: "opravnenia" },
-  { id: "07", file: c07, thumb: t07, w: 453, h: 640, title: "Licencia na prevádzkovanie technickej služby", group: "opravnenia" },
-  { id: "11", file: c11, thumb: t11, w: 453, h: 640, title: "Oprávnenie na výrobu technických elektrických zariadení", group: "opravnenia" },
-  { id: "12", file: c12, thumb: t12, w: 453, h: 640, title: "Certifikát na projektovanie a výrobu vyhradených zariadení", group: "opravnenia" },
-  { id: "08", file: c08, thumb: t08, w: 453, h: 640, title: "Certifikát pre montáž káblových súborov Raychem", group: "osvedcenia" },
-  { id: "09", file: c09, thumb: t09, w: 480, h: 335, title: "Osvedčenie o odbornej spôsobilosti v elektroenergetike", group: "osvedcenia" },
-  { id: "10", file: c10, thumb: t10, w: 480, h: 339, title: "Osvedčenie o odbornej spôsobilosti v tepelnej energetike", group: "osvedcenia" },
-  { id: "13", file: enstoFull.url, thumb: enstoThumb.url, pdf: pdfEnsto.url, w: 800, h: 1131, title: "Odborné preškolenie ENSTO – Mário Daumer", group: "osvedcenia" },
+  { id: "01", file: "/certifikaty/iso9001-2015-sk.jpg", thumb: "/certifikaty/thumbs/iso9001-2015-sk.jpg", pdf: "/certifikaty/certifikat-iso-9001-2015-sk.pdf", w: 800, h: 1131, title: "Certifikát EN ISO 9001:2015 (slovensky)", group: "kvalita" },
+  { id: "02", file: "/certifikaty/iso9001-2015-en.jpg", thumb: "/certifikaty/thumbs/iso9001-2015-en.jpg", pdf: "/certifikaty/certifikat-iso-9001-2015-en.pdf", w: 800, h: 1131, title: "Certifikát EN ISO 9001:2015 (anglicky)", group: "kvalita" },
+  { id: "04", file: "/certifikaty/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg", thumb: "/certifikaty/thumbs/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg", w: 454, h: 640, title: "Oprávnenie na odborné prehliadky, skúšky a opravy el. zariadení", group: "opravnenia" },
+  { id: "05", file: "/certifikaty/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg", thumb: "/certifikaty/thumbs/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg", w: 453, h: 640, title: "Oprávnenie na výrobu elektrických rozvádzačov", group: "opravnenia" },
+  { id: "06", file: "/certifikaty/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg", thumb: "/certifikaty/thumbs/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg", w: 454, h: 640, title: "Osvedčenie na prehliadky a skúšky el. zariadení vrátane bleskozvodov", group: "opravnenia" },
+  { id: "07", file: "/certifikaty/07_Licencia_prevadzkovanie_technickej_sluzby.jpg", thumb: "/certifikaty/thumbs/07_Licencia_prevadzkovanie_technickej_sluzby.jpg", w: 453, h: 640, title: "Licencia na prevádzkovanie technickej služby", group: "opravnenia" },
+  { id: "11", file: "/certifikaty/11_Opravnenie_vyroba_technickych_elektrickych_zariadeni.jpg", thumb: "/certifikaty/thumbs/11_Opravnenie_vyroba_technickych_elektrickych_zariadeni.jpg", w: 453, h: 640, title: "Oprávnenie na výrobu technických elektrických zariadení", group: "opravnenia" },
+  { id: "12", file: "/certifikaty/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg", thumb: "/certifikaty/thumbs/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg", w: 453, h: 640, title: "Certifikát na projektovanie a výrobu vyhradených zariadení", group: "opravnenia" },
+  { id: "08", file: "/certifikaty/08_Certifikat_montaz_kablovych_suborov_Raychem.jpg", thumb: "/certifikaty/thumbs/08_Certifikat_montaz_kablovych_suborov_Raychem.jpg", w: 453, h: 640, title: "Certifikát pre montáž káblových súborov Raychem", group: "osvedcenia" },
+  { id: "09", file: "/certifikaty/09_Osvedcenie_odborna_sposobilost_elektroenergetika.jpg", thumb: "/certifikaty/thumbs/09_Osvedcenie_odborna_sposobilost_elektroenergetika.jpg", w: 480, h: 335, title: "Osvedčenie o odbornej spôsobilosti v elektroenergetike", group: "osvedcenia" },
+  { id: "10", file: "/certifikaty/10_Osvedcenie_odborna_sposobilost_tepelna_energetika.jpg", thumb: "/certifikaty/thumbs/10_Osvedcenie_odborna_sposobilost_tepelna_energetika.jpg", w: 480, h: 339, title: "Osvedčenie o odbornej spôsobilosti v tepelnej energetike", group: "osvedcenia" },
+  { id: "13", file: "/certifikaty/ensto-daumer.jpg", thumb: "/certifikaty/thumbs/ensto-daumer.jpg", pdf: "/certifikaty/certifikat-ensto-daumer.pdf", w: 800, h: 1131, title: "Odborné preškolenie ENSTO – Mário Daumer", group: "osvedcenia" },
 ];
 
 const pills = [
