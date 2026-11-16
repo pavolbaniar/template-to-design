@@ -4,7 +4,7 @@ import { BadgeCheck, ChevronLeft, ChevronRight, ExternalLink, FileText, FileBadg
 
 import iso9001sk from "@/assets/certifikaty/iso9001-2015-sk.jpg.asset.json";
 import iso9001en from "@/assets/certifikaty/iso9001-2015-en.jpg.asset.json";
-import iso9001de from "@/assets/certifikaty/03_Certifikat_ISO_9001_DE.jpg";
+import enstoFull from "@/assets/certifikaty/ensto-daumer.jpg.asset.json";
 import c04 from "@/assets/certifikaty/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
 import c05 from "@/assets/certifikaty/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
 import c06 from "@/assets/certifikaty/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg";
@@ -16,7 +16,7 @@ import c11 from "@/assets/certifikaty/11_Opravnenie_vyroba_technickych_elektrick
 import c12 from "@/assets/certifikaty/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg";
 import t01 from "@/assets/certifikaty/thumbs/iso9001-2015-sk.jpg.asset.json";
 import t02 from "@/assets/certifikaty/thumbs/iso9001-2015-en.jpg.asset.json";
-import t03 from "@/assets/certifikaty/thumbs/03_Certifikat_ISO_9001_DE.jpg";
+import enstoThumb from "@/assets/certifikaty/thumbs/ensto-daumer.jpg.asset.json";
 import t04 from "@/assets/certifikaty/thumbs/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
 import t05 from "@/assets/certifikaty/thumbs/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
 import t06 from "@/assets/certifikaty/thumbs/06_Osvedcenie_prehliadky_skusky_el_zariadeni_bleskozvody.jpg";
@@ -28,6 +28,7 @@ import t11 from "@/assets/certifikaty/thumbs/11_Opravnenie_vyroba_technickych_el
 import t12 from "@/assets/certifikaty/thumbs/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg";
 import pdfSk from "@/assets/certifikaty/certifikat-iso-9001-2015-sk.pdf.asset.json";
 import pdfEn from "@/assets/certifikaty/certifikat-iso-9001-2015-en.pdf.asset.json";
+import pdfEnsto from "@/assets/certifikaty/certifikat-ensto-daumer.pdf.asset.json";
 
 type Group = "kvalita" | "opravnenia" | "osvedcenia";
 
@@ -60,7 +61,6 @@ type Certificate = {
 const certificates: Certificate[] = [
   { id: "01", file: iso9001sk.url, thumb: t01.url, pdf: pdfSk.url, w: 800, h: 1131, title: "Certifikát EN ISO 9001:2015 (slovensky)", group: "kvalita" },
   { id: "02", file: iso9001en.url, thumb: t02.url, pdf: pdfEn.url, w: 800, h: 1131, title: "Certifikát EN ISO 9001:2015 (anglicky)", group: "kvalita" },
-  { id: "03", file: iso9001de, thumb: t03, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (nemecky)", group: "kvalita" },
   { id: "04", file: c04, thumb: t04, w: 454, h: 640, title: "Oprávnenie na odborné prehliadky, skúšky a opravy el. zariadení", group: "opravnenia" },
   { id: "05", file: c05, thumb: t05, w: 453, h: 640, title: "Oprávnenie na výrobu elektrických rozvádzačov", group: "opravnenia" },
   { id: "06", file: c06, thumb: t06, w: 454, h: 640, title: "Osvedčenie na prehliadky a skúšky el. zariadení vrátane bleskozvodov", group: "opravnenia" },
@@ -70,6 +70,7 @@ const certificates: Certificate[] = [
   { id: "08", file: c08, thumb: t08, w: 453, h: 640, title: "Certifikát pre montáž káblových súborov Raychem", group: "osvedcenia" },
   { id: "09", file: c09, thumb: t09, w: 480, h: 335, title: "Osvedčenie o odbornej spôsobilosti v elektroenergetike", group: "osvedcenia" },
   { id: "10", file: c10, thumb: t10, w: 480, h: 339, title: "Osvedčenie o odbornej spôsobilosti v tepelnej energetike", group: "osvedcenia" },
+  { id: "13", file: enstoFull.url, thumb: enstoThumb.url, pdf: pdfEnsto.url, w: 800, h: 1131, title: "Odborné preškolenie ENSTO – Mário Daumer", group: "osvedcenia" },
 ];
 
 const pills = [
