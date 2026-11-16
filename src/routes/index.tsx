@@ -66,7 +66,7 @@ const LOCAL_BUSINESS_JSONLD = {
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "12:00" },
   ],
   areaServed: "Prievidza",
-  hasCredential: "ISO 9001:2008",
+  hasCredential: "ISO 9001:2015",
 };
 
 const FAQ_JSONLD = {

@@ -2,8 +2,8 @@ import { useRef, useState, type ComponentType, type ReactNode } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { BadgeCheck, ChevronLeft, ChevronRight, ExternalLink, FileText, FileBadge, X, ZoomIn } from "lucide-react";
 
-import iso9001 from "@/assets/certifikaty/01_Certifikat_ISO_9001_SK.jpg";
-import iso9001en from "@/assets/certifikaty/02_Certifikat_ISO_9001_EN.jpg";
+import iso9001sk from "@/assets/certifikaty/iso9001-2015-sk.jpg.asset.json";
+import iso9001en from "@/assets/certifikaty/iso9001-2015-en.jpg.asset.json";
 import iso9001de from "@/assets/certifikaty/03_Certifikat_ISO_9001_DE.jpg";
 import c04 from "@/assets/certifikaty/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
 import c05 from "@/assets/certifikaty/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
@@ -14,8 +14,8 @@ import c09 from "@/assets/certifikaty/09_Osvedcenie_odborna_sposobilost_elektroe
 import c10 from "@/assets/certifikaty/10_Osvedcenie_odborna_sposobilost_tepelna_energetika.jpg";
 import c11 from "@/assets/certifikaty/11_Opravnenie_vyroba_technickych_elektrickych_zariadeni.jpg";
 import c12 from "@/assets/certifikaty/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg";
-import t01 from "@/assets/certifikaty/thumbs/01_Certifikat_ISO_9001_SK.jpg";
-import t02 from "@/assets/certifikaty/thumbs/02_Certifikat_ISO_9001_EN.jpg";
+import t01 from "@/assets/certifikaty/thumbs/iso9001-2015-sk.jpg.asset.json";
+import t02 from "@/assets/certifikaty/thumbs/iso9001-2015-en.jpg.asset.json";
 import t03 from "@/assets/certifikaty/thumbs/03_Certifikat_ISO_9001_DE.jpg";
 import t04 from "@/assets/certifikaty/thumbs/04_Opravnenie_odborne_prehliadky_skusky_opravy_el_zariadeni.jpg";
 import t05 from "@/assets/certifikaty/thumbs/05_Opravnenie_vyroba_elektrickych_rozvadzacov.jpg";
@@ -26,6 +26,8 @@ import t09 from "@/assets/certifikaty/thumbs/09_Osvedcenie_odborna_sposobilost_e
 import t10 from "@/assets/certifikaty/thumbs/10_Osvedcenie_odborna_sposobilost_tepelna_energetika.jpg";
 import t11 from "@/assets/certifikaty/thumbs/11_Opravnenie_vyroba_technickych_elektrickych_zariadeni.jpg";
 import t12 from "@/assets/certifikaty/thumbs/12_Certifikat_projektovanie_vyroba_vyhradenych_zariadeni.jpg";
+import pdfSk from "@/assets/certifikaty/certifikat-iso-9001-2015-sk.pdf.asset.json";
+import pdfEn from "@/assets/certifikaty/certifikat-iso-9001-2015-en.pdf.asset.json";
 
 type Group = "kvalita" | "opravnenia" | "osvedcenia";
 
@@ -51,12 +53,13 @@ type Certificate = {
   title: string;
   group: Group;
   note?: string;
+  pdf?: string;
 };
 
 // Nový certifikát = nový riadok v tomto poli.
 const certificates: Certificate[] = [
-  { id: "01", file: iso9001, thumb: t01, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (slovensky)", group: "kvalita" },
-  { id: "02", file: iso9001en, thumb: t02, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (anglicky)", group: "kvalita" },
+  { id: "01", file: iso9001sk.url, thumb: t01.url, pdf: pdfSk.url, w: 800, h: 1131, title: "Certifikát EN ISO 9001:2015 (slovensky)", group: "kvalita" },
+  { id: "02", file: iso9001en.url, thumb: t02.url, pdf: pdfEn.url, w: 800, h: 1131, title: "Certifikát EN ISO 9001:2015 (anglicky)", group: "kvalita" },
   { id: "03", file: iso9001de, thumb: t03, w: 453, h: 640, title: "Certifikát ISO 9001:2008 (nemecky)", group: "kvalita" },
   { id: "04", file: c04, thumb: t04, w: 454, h: 640, title: "Oprávnenie na odborné prehliadky, skúšky a opravy el. zariadení", group: "opravnenia" },
   { id: "05", file: c05, thumb: t05, w: 453, h: 640, title: "Oprávnenie na výrobu elektrických rozvádzačov", group: "opravnenia" },
@@ -207,7 +210,7 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
                   </div>
                   <div className="flex shrink-0 items-center gap-2">
                     <a
-                      href={current.file}
+                      href={current.pdf ?? current.file}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hidden items-center gap-2 rounded-full border border-background/30 px-4 py-2 font-sans text-xs font-semibold tracking-normal hover:border-primary hover:text-primary sm:inline-flex"
@@ -254,7 +257,7 @@ export function Certificates({ Reveal }: { Reveal: RevealType }) {
                     <ChevronLeft className="h-5 w-5" />
                   </button>
                   <a
-                    href={current.file}
+                    href={current.pdf ?? current.file}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-background/30 px-4 py-2 font-sans text-xs font-semibold tracking-normal sm:hidden"
